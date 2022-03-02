@@ -5,15 +5,14 @@
     "ColumnNames":
     {
         "Airline" : "String",
-        "Day_of_Journey": "Integer",
-        "Month_of_Journey": "Integer",
         "Source": "String",
         "Destination": "String",
-        "Duration": "Integer",
-        "Total_Stops": "Integer",
+        "Flight_Duration": "FLOAT",
+        "Total_Stops": "FLOAT",
         "Additional_Info": "String",
+        "Day_of_Journey": "Integer",
+        "Month_of_Journey": "Integer",
+        "Year_of_Journey": "Integer",
         "Price": "Integer"
-
     }
-
 }
