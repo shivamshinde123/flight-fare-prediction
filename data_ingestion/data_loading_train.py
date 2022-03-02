@@ -32,6 +32,7 @@ class DataGetter:
             self.data = pd.read_csv(self.trainingData)
             self.loggerObject.log(self.fileObject,"Successfully loaded the data using getData method of DataGetter class")
             self.loggerObject.log(self.fileObject, "Exiting the getData method of DataGetter class")
+            return self.data
         except Exception as e:
             self.loggerObject.log(self.fileObject, "Exception occurred while loading data using getData method of DataGetter class. Error message: str(e")
             self.loggerObject.log(self.fileObject, "Data loading unsuccessful using the getData method of DataGetter class due to exception")
