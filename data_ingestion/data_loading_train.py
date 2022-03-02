@@ -36,3 +36,4 @@ class DataGetter:
             self.loggerObject.log(self.fileObject, "Exception occurred while loading data using getData method of DataGetter class. Error message: str(e")
             self.loggerObject.log(self.fileObject, "Data loading unsuccessful using the getData method of DataGetter class due to exception")
             raise Exception()
+
