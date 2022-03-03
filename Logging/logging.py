@@ -1,11 +1,25 @@
 from datetime import datetime
 
 class Logger:
+    """
+                Description: This method is used for logging purpose in the code
+                Written By: Shivam Shinde
+                Version: 1.0
+                Revision: None
+    """
 
     def __init__(self):
-        pass
+             pass
 
     def log(self, file_object, log_message):
+
+
+        """
+            Description: This method is used for logging purpose in the code
+            Written By: Shivam Shinde
+            Version: 1.0
+            Revision: None
+        """
         self.now = datetime.now()
         self.date = self.now.date()
         self.time = self.now.strftime("%H:%M:%S")
