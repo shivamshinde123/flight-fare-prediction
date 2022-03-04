@@ -4,6 +4,7 @@ import shutil
 from logging import Logger
 import json
 import datetime
+import pandas as pd
 
 class rawDataValidation:
 
@@ -244,11 +245,71 @@ class rawDataValidation:
 
 
 
+    def validateNumberOfColumns(self,numColumns):
+
+        """
+
+        Description: This method is used to validate the number of columns in the data provided by the client.
+        Written By: Shivam Shinde
+        Version: 1.0
+        Revision: None
+        :param numColumns: This parameter is used to match the number of columns in the date.
+        :return: None
+
+        """
+
+        f = open("TrainingLogs/numberOfColumnsValidation.txt","a+")
+        self.logger.log(f,"Enter the method used for the validation of number of columns in the data")
+        try:
+            for file in os.path.listdir('Training_raw_data_validated/GoodData/'):
+                csv_file = pd.read_csv('Training_raw_data_validated/GoodData/' + file)
+                if csv_file.shape[1] == numColumns:
+                    pass
+                else:
+                    self.logger.log(f,"Validation for number of columns failed!")
+                    self.logger.log(f,"Moving the file to the bad data folder!")
+                    shutil.move('Training_raw_data_validated/GoodData/' + file, 'Training_raw_data_validated/BadData/')
+                    self.logger.log(f,"File moved to the bad data folder")
+            f.close()
+        except Exception as e:
+            self.logger.log(f,"Exception occurred while validating the number of columns in the data. Exception:"+ str(e))
+            f.close()
+            raise e
 
 
+    def validateMissingValuesInWholeColumn(self):
+        
+        """
+        
+        Description: This method is used to check if any file in good data folder has any column with all the missing valuee.
+        Written By: Shivam Shinde
+        Version: 1.0
+        Revision: None
+        :return: None
+        
+        """
 
+        f = open('TrainingLogs/columnWithAllMissingValuesValidation.txt','a+')
+        self.logger.log(f,"Validation of files containing the columns with all missing values started")
+        try:
+            for file in os.path.listdir('Training_raw_data_validated/GoodData/'):
+                csv_file = pd.read_csv('Training_raw_data_validated/GoodData/' + file)
+                columns = csv_file.columns
+                for column in columns:
+                    noOfMissingValues = csv_file[column].isnull().sum()
+                    if noOfMissingValues == csv_file.shape[0]:
+                        self.logger.log(f,"Columns with all missing values validation failed for the  file:" + str(file))
+                        self.logger.log(f,"Moving the file " + str(file) + " from good data folder to bad data folder")
+                        shutil.move('Training_raw_data_validated/GoodData/' + file, 'Training_raw_data_validated/BadData/')
+                        self.logger.log(f,'Moved the file ' + str(file) +  'from good data folder to bad data folder')
+                        break
+                    else:
+                        pass
+            f.close()
 
-
-
+        except Exception as e:
+            self.logger.log(f,"Exception occurred in the validation of files with columns with all the missing values. Exception: " + str(e))
+            f.close()
+            raise e
 
 
