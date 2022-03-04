@@ -34,13 +34,13 @@ class rawDataValidation:
 
         try:
             with open(self.schema, 'r') as f:
-                dict = json.load(f)
+                dict1 = json.load(f)
 
-            pattern = dict['SampleFileName']
-            LengthOfDateStampInFile  = dict['LengthOfDateStampInFile']
-            LengthOfTimeStampInFile = dict['LengthOfTimeStampInFile']
-            NumberOfColumns = dict['NumberOfColumns']
-            ColumnNames = dict['ColumnNames']
+            pattern = dict1['SampleFileName']
+            LengthOfDateStampInFile  = dict1['LengthOfDateStampInFile']
+            LengthOfTimeStampInFile = dict1['LengthOfTimeStampInFile']
+            NumberOfColumns = dict1['NumberOfColumns']
+            ColumnNames = dict1['ColumnNames']
 
             l = open('TrainingLogs/valuesFromSchemaLog.txt','a+')
             message = f"Length of datestamp and timestamp in the file: {LengthOfDateStampInFile} and {LengthOfTimeStampInFile}, number of columns in the data: {NumberOfColumns}"
