@@ -3,7 +3,7 @@ import re
 import shutil
 from logging import Logger
 import json
-import datetime
+from datetime import datetime
 import pandas as pd
 
 class rawDataValidation:
@@ -87,11 +87,11 @@ class rawDataValidation:
         try:
             path = os.path.join('Training_raw_data_validated/','GoodData/')
             if not os.path.isdir(path):
-                os.path.makedirs(path)
+                os.makedirs(path)
 
             path = os.path.join('Training_raw_data_validated/','BadData/')
             if not os.path.isdir(path):
-                os.path.makedirs(path)
+                os.makedirs(path)
 
         except OSError as oe:
             f = open('TrainingLogs/GeneralLogs.txt','a+')
@@ -177,15 +177,15 @@ class rawDataValidation:
 
                 path = 'TrainingRawBadDataArchived/'
                 if not os.path.isdir(path):
-                    os.path.makedirs(path)
+                    os.makedirs(path)
 
                 destination = 'TrainingRawBadDataArchived/BadData_' + str(date) + "_" + str(time)
                 if not os.path.isdir(destination):
-                    os.path.makedirs(destination)
+                    os.makedirs(destination)
 
-                files = os.path.listdir(source)
+                files = os.listdir(source)
                 for f in files:
-                    if f not in os.path.listdir(destination):
+                    if f not in os.listdir(destination):
                         shutil.move(source + f,destination)
                 p = open('TrainingLogs/GeneralLogs.txt','a+')
                 self.logger.log(p,"Bad data file were successfully moved from training raw data folder to the archived bad foler")
@@ -220,7 +220,7 @@ class rawDataValidation:
         self.deleteExistingGoodRawTrainingDataFolder()
         self.deleteExistingBadRawTrainingDataFolder()
 
-        raw_data_files = [f for f in os.path.listdir(self.Batch_Directory)]
+        raw_data_files = [f for f in os.listdir(self.Batch_Directory)]
 
         f = open('TrainingLogs/RawDataFileNameValidation.txt''a+')
 
@@ -261,7 +261,7 @@ class rawDataValidation:
         f = open("TrainingLogs/numberOfColumnsValidation.txt","a+")
         self.logger.log(f,"Enter the method used for the validation of number of columns in the data")
         try:
-            for file in os.path.listdir('Training_raw_data_validated/GoodData/'):
+            for file in os.listdir('Training_raw_data_validated/GoodData/'):
                 csv_file = pd.read_csv('Training_raw_data_validated/GoodData/' + file)
                 if csv_file.shape[1] == numColumns:
                     pass
@@ -292,7 +292,7 @@ class rawDataValidation:
         f = open('TrainingLogs/columnWithAllMissingValuesValidation.txt','a+')
         self.logger.log(f,"Validation of files containing the columns with all missing values started")
         try:
-            for file in os.path.listdir('Training_raw_data_validated/GoodData/'):
+            for file in os.listdir('Training_raw_data_validated/GoodData/'):
                 csv_file = pd.read_csv('Training_raw_data_validated/GoodData/' + file)
                 columns = csv_file.columns
                 for column in columns:
