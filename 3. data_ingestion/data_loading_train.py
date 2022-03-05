@@ -12,7 +12,7 @@ class DataGetter:
     def __init__(self, fileObject, loggerObject):
         self.fileObject = fileObject
         self.loggerObject = loggerObject
-        self.trainingData = "TrainingDataFromClient/flight_fare_03032022_123900.csv"
+        self.trainingData = "Training_Data_From_Client/flight_fare_03032022_123900.csv"
 
     def getData(self):
 
