@@ -187,4 +187,4 @@ class DBOperations:
         except Exception as e:
             self.logger.log(f,f"Exception occurred while exporting the data file from the database. Exception: {str(e)}")
             f.close()
-            conn.close()
+
