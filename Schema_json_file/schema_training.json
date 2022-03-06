@@ -1,7 +1,7 @@
 {  "SampleFileName": "flight_fare_26112022_120000.csv",
     "LengthOfDateStampInFile": 8,
     "LengthOfTimeStampInFile": 6,
-    "NumberOfColumns": 9,
+    "NumberOfColumns": 10,
     "ColumnNames":
     {
         "Airline" : "String",
