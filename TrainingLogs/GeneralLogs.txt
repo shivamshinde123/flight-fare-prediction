@@ -1,0 +1,6 @@
+2022-03-06 / 14:58:13  ----->  Deleted the folder for good raw training data successfully.
+2022-03-06 / 14:58:13  ----->  Deleted the folder for bad raw training data successfully.
+2022-03-06 / 15:03:04  ----->  Deleted the folder for good raw training data successfully.
+2022-03-06 / 15:03:04  ----->  Deleted the folder for bad raw training data successfully.
+2022-03-06 / 15:13:48  ----->  Deleted the folder for good raw training data successfully.
+2022-03-06 / 15:13:48  ----->  Deleted the folder for bad raw training data successfully.

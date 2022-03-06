@@ -1,5 +1,5 @@
 import sqlite3
-from logging import Logger
+from Logging.logging import Logger
 import os
 import csv
 import shutil
@@ -15,9 +15,9 @@ class DBOperations:
     """
     
     def __init__(self):
-        self.path = "Database/"
-        self.goodDataPath = "Training_raw_data_validated/GoodData/"
-        self.badDataPath = "Training_raw_data_validated/BadData/"
+        self.path = "../Database/"
+        self.goodDataPath = "../Training_raw_data_validated/GoodData/"
+        self.badDataPath = "../Training_raw_data_validated/BadData/"
         self.logger = Logger()
 
     def dbConnection(self,databaseName='goodRawDataDb'):
@@ -32,7 +32,7 @@ class DBOperations:
 
         """
 
-        f = open('TrainingLogs/DatabaseLogs.txt','a+')
+        f = open('../TrainingLogs/DatabaseLogs.txt','a+')
         try:
             conn = sqlite3.connect(self.path + databaseName + '.db')
             self.logger.log(f,f"Connection with the database {databaseName} made")
@@ -40,7 +40,7 @@ class DBOperations:
             return conn
 
         except ConnectionError as ce:
-            self.logger.log(f,f"Connection error occured while creating a connection to the database. Error: {str(ce)}")
+            self.logger.log(f,f"Connection error occurred while creating a connection to the database. Error: {str(ce)}")
             f.close()
             raise ce
 
@@ -64,7 +64,7 @@ class DBOperations:
 
         cursor.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='goodRawData' ''')
 
-        f = open('TrainingLogs/DatabaseLogs.txt', 'a+')
+        f = open('../TrainingLogs/DatabaseLogs.txt', 'a+')
         try:
             if cursor.fetchone()[0] == 1:
                 self.logger.log(f, "Table named goodRawData created in the database goodRawDataDb")
@@ -112,7 +112,7 @@ class DBOperations:
 
         conn = self.dbConnection(database)
         cursor = conn.cursor()
-        f = open('TrainingLogs/DatabaseLogs.txt', 'a+')
+        f = open('../TrainingLogs/DatabaseLogs.txt', 'a+')
         for file in os.listdir(self.goodDataPath):
             try:
                 with open(self.goodDataPath + file, 'r') as p:
@@ -153,7 +153,7 @@ class DBOperations:
 
         self.fileFromDb = "fileFromDb/"
         self.fileName = "inputFile.csv"
-        f = open('TrainingLogs/DatabaseLogs.txt', 'a+')
+        f = open('../TrainingLogs/DatabaseLogs.txt', 'a+')
 
         try:
             conn = self.dbConnection()

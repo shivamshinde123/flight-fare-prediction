@@ -19,7 +19,7 @@ class trainingValidationAndDBInsertion:
         self.raw_data_validation = rawDataValidation('Training_Data_From_Client/')
         self.raw_data_transformation = RawTrainingDataTransformation()
         self.raw_data_db_insertion = DBOperations()
-        self.file_object = open('TrainingLogs/trainingValidationAndDBInsertion.txt','a+')
+        self.file_object = open('../TrainingLogs/trainingValidationAndDBInsertion.txt','a+')
         self.logger = Logger()
 
     def training_validation_and_db_insertion(self):
@@ -34,7 +34,6 @@ class trainingValidationAndDBInsertion:
         :return: None
 
         """
-
         try:
             self.logger.log(self.file_object, "Training data validation started!!")
 
@@ -82,5 +81,8 @@ class trainingValidationAndDBInsertion:
             self.file_object.close()
 
         except  Exception as e:
-            self.logger.log(self.file_object, f"Exception occured in validation or database insertion step. Exception: {str(e)}")
+            self.logger.log(self.file_object, f"Exception occurred in validation or database insertion step. Exception: {str(e)}")
             self.file_object.close()
+
+t = trainingValidationAndDBInsertion()
+t.training_validation_and_db_insertion()

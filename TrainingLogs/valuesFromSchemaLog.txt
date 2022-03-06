@@ -1,0 +1,5 @@
+2022-03-06 / 14:55:53  ----->  Exception occurred while fetching the info about the data from the schema_training json file. Exception: [Errno 2] No such file or directory: 'schema_training.json'
+2022-03-06 / 14:55:53  ----->  Fetching info about the data from the schema training json file unsuccessful
+2022-03-06 / 14:58:13  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10
+2022-03-06 / 15:03:04  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10
+2022-03-06 / 15:13:48  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10
