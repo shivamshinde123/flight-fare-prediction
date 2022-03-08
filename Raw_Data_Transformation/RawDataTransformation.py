@@ -74,3 +74,7 @@ class RawTrainingDataTransformation:
             self.logger.log(f,"Exception occurred while removing the hyphens from the column names. Exception: "+str(e))
             f.close()
             raise e
+
+r = RawTrainingDataTransformation()
+r.addingQuotesToStringColumns()
+r.removeHyphenFromColumnName()

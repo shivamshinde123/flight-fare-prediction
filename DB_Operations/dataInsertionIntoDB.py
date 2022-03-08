@@ -15,7 +15,7 @@ class DBOperations:
     """
     
     def __init__(self):
-        self.path = "../Database/"
+        self.path = "../Databases/"
         self.goodDataPath = "../Training_raw_data_validated/GoodData/"
         self.badDataPath = "../Training_raw_data_validated/BadData/"
         self.logger = Logger()
@@ -28,13 +28,15 @@ class DBOperations:
         Written By: Shivam Shinde
         Version: 1.0
         Revision: None
-        :return: Database connector
+        :return: Databases connector
 
         """
 
         f = open('../TrainingLogs/DatabaseLogs.txt','a+')
         try:
-            conn = sqlite3.connect(self.path + databaseName + '.db')
+            if not os.path.isdir(self.path):
+                os.makedirs(self.path)
+            conn = sqlite3.connect(self.path+databaseName+'.db')
             self.logger.log(f,f"Connection with the database {databaseName} made")
             f.close()
             return conn
@@ -78,11 +80,11 @@ class DBOperations:
                     ## Here in try block we check if the table is existed or not and if it is then add the columns to it
                     ## In catch block, we will create a table
                     try:
-                        command = f"""ALTER TABLE goodRawData ADD ? ?"""
-                        cursor.execute(command,(key,datatype))
+                        command = f"""ALTER TABLE goodRawData ADD {key} {datatype}"""
+                        cursor.execute(command)
                     except:
-                        command = """CREATE TABLE goodRawData (? ?)"""
-                        cursor.execute(command,(key,datatype))
+                        command = f"""CREATE TABLE goodRawData ({key} {datatype})"""
+                        cursor.execute(command)
 
                 conn.commit()
                 self.logger.log(f,"Table named goodRawData created successfully in the database goodRawDataDb")
@@ -118,11 +120,14 @@ class DBOperations:
                 with open(self.goodDataPath + file, 'r') as p:
                     next(p)
                     reader = csv.reader(p,delimiter='\n')
-                    for item in enumerate(reader):
-                        for line in item[1]:
-                            cursor.execute(f"INSERT INTO TABLE goodRawData VALUES {line}")
-                            conn.commit()
-                            self.logger.log(f,f"file {file} inserted into the table successfully")
+                    for line in enumerate(reader):
+                        for list_ in line[1]:
+                            try:
+                                cursor.execute(f"INSERT INTO goodRawData values ({list_})")
+                                self.logger.log(f, f"{file} File loaded successfully!!")
+                                conn.commit()
+                            except Exception as e:
+                                raise e
 
             except Exception as e:
                 conn.rollback()
@@ -151,7 +156,7 @@ class DBOperations:
 
         """
 
-        self.fileFromDb = "fileFromDb/"
+        self.fileFromDb = "../fileFromDb/"
         self.fileName = "inputFile.csv"
         f = open('../TrainingLogs/DatabaseLogs.txt', 'a+')
 
@@ -188,3 +193,23 @@ class DBOperations:
             self.logger.log(f,f"Exception occurred while exporting the data file from the database. Exception: {str(e)}")
             f.close()
 
+
+
+var = {
+    "Airline": "TEXT",
+    "Source": "TEXT",
+    "Destination": "TEXT",
+    "Flight_Duration": "REAL",
+    "Total_Stops": "REAL",
+    "Additional_Info": "TEXT",
+    "Day_of_Journey": "INTEGER",
+    "Month_of_Journey": "INTEGER",
+    "Year_of_Journey": "INTEGER",
+    "Price": "INTEGER"
+}
+
+d = DBOperations()
+# d.dbConnection()
+d.createTableIntoDb(var)
+d.insertGoodDataIntoTable()
+# d.getDataFromDbTableIntoCSV()

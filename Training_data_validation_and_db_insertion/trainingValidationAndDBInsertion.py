@@ -16,7 +16,7 @@ class trainingValidationAndDBInsertion:
     """
 
     def __init__(self):
-        self.raw_data_validation = rawDataValidation('Training_Data_From_Client/')
+        self.raw_data_validation = rawDataValidation('../Training_Data_From_Client/')
         self.raw_data_transformation = RawTrainingDataTransformation()
         self.raw_data_db_insertion = DBOperations()
         self.file_object = open('../TrainingLogs/trainingValidationAndDBInsertion.txt','a+')
@@ -54,8 +54,8 @@ class trainingValidationAndDBInsertion:
 
             self.logger.log(self.file_object, "Validation of the raw training data completed!!")
 
-            self.logger.log(self.file_object, "Starting the database operations...")
 
+            self.logger.log(self.file_object, "Starting the database operations...")
             self.logger.log(self.file_object, "Creating a table into the database...")
             self.raw_data_db_insertion.createTableIntoDb(ColumnNames)
             self.logger.log(self.file_object, "Created table into the database...")

@@ -231,10 +231,12 @@ class rawDataValidation:
                 self.createDirectoryForGoodAndBadRawData()
 
                 if re.match(regex, file):
-                    shutil.move(f"../{self.Batch_Directory}+{file}", "../Training_raw_data_validated/GoodData/")
+                    shutil.copy(f"{self.Batch_Directory}{file}", "../Training_raw_data_validated/GoodData/")
                     self.logger.log(f, "Valid file name! File moved to the good data folder")
+                    self.logger.log(f,"The validation for the data file name passed!")
                     f.close()
                 else:
+                    shutil.copy(f"{self.Batch_Directory}{file}", "../Training_raw_data_validated/BadData/")
                     self.logger.log(f, "Invalid file name! File moved to the bad data folder")
                     f.close()
 
@@ -264,6 +266,7 @@ class rawDataValidation:
             for file in os.listdir('../Training_raw_data_validated/GoodData/'):
                 csv_file = pd.read_csv('../Training_raw_data_validated/GoodData/' + file)
                 if csv_file.shape[1] == numColumns:
+                    self.logger.log(f,"Validation for number of columns in the data passed!")
                     pass
                 else:
                     self.logger.log(f,"Validation for number of columns failed!")
@@ -305,6 +308,7 @@ class rawDataValidation:
                         break
                     else:
                         pass
+                self.logger.log(f, f"There are no columns with all missing values in the file {file} provided by the client")
             f.close()
 
         except Exception as e:
@@ -313,4 +317,8 @@ class rawDataValidation:
             raise e
 
 
-
+k = rawDataValidation('../Training_Data_From_Client/')
+reg_ex = k.manualRegexCreation()
+k.validateTrainingDataFileName(reg_ex)
+k.validateNumberOfColumns(10)
+k.validateMissingValuesInWholeColumn()
