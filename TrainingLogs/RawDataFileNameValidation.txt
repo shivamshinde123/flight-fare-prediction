@@ -1,0 +1,4 @@
+2022-03-09 / 01:45:24  ----->  Valid file name! File moved to the good data folder
+2022-03-09 / 01:45:24  ----->  The validation for the data file name passed!
+2022-03-09 / 01:53:49  ----->  Valid file name! File moved to the good data folder
+2022-03-09 / 01:53:49  ----->  The validation for the data file name passed!

@@ -317,8 +317,3 @@ class rawDataValidation:
             raise e
 
 
-k = rawDataValidation('../Training_Data_From_Client/')
-reg_ex = k.manualRegexCreation()
-k.validateTrainingDataFileName(reg_ex)
-k.validateNumberOfColumns(10)
-k.validateMissingValuesInWholeColumn()

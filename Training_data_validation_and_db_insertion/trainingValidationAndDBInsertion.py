@@ -54,6 +54,14 @@ class trainingValidationAndDBInsertion:
 
             self.logger.log(self.file_object, "Validation of the raw training data completed!!")
 
+            self.logger.log(self.file_object, "Performing data tranformation on  the data before inserting it into the database so that there won't be any exception..")
+
+            self.logger.log(self.file_object, "Adding the quotes to the data values in the columns with the string datatype...")
+            self.raw_data_transformation.addingQuotesToStringColumns()
+
+            self.logger.log(self.file_object,"Removing the hyphen from the column names (headers) of the data...")
+            self.raw_data_transformation.removeHyphenFromColumnName()
+
 
             self.logger.log(self.file_object, "Starting the database operations...")
             self.logger.log(self.file_object, "Creating a table into the database...")

@@ -4,15 +4,15 @@
     "NumberOfColumns": 10,
     "ColumnNames":
     {
-        "Airline" : "String",
-        "Source": "String",
-        "Destination": "String",
-        "Flight_Duration": "FLOAT",
-        "Total_Stops": "FLOAT",
-        "Additional_Info": "String",
-        "Day_of_Journey": "Integer",
-        "Month_of_Journey": "Integer",
-        "Year_of_Journey": "Integer",
-        "Price": "Integer"
+        "Airline" : "TEXT",
+        "Source": "TEXT",
+        "Destination": "TEXT",
+        "Flight_Duration": "REAL",
+        "Total_Stops": "REAL",
+        "Additional_Info": "TEXT",
+        "Day_of_Journey": "INTEGER",
+        "Month_of_Journey": "INTEGER",
+        "Year_of_Journey": "INTEGER",
+        "Price": "INTEGER"
     }
 }

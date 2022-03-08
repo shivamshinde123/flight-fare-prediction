@@ -169,21 +169,19 @@ class DBOperations:
 
             results = cursor.fetchall()
 
-            ## getting the headers of the csv file
             headers = [i[0] for i in cursor.description]
 
-            ## checking whether the output directory for the csv file is present or not. If not then creating one
+            # Make the CSV output directory
             if not os.path.isdir(self.fileFromDb):
                 os.makedirs(self.fileFromDb)
 
-            ## checking file for writing
-            p = open(self.fileFromDb + self.fileName, 'w', newline='')
-            csvfile = csv.writer(p, delimiter=',', lineterminator='\r\n',quoting=csv.QUOTE_ALL, escapechar='\\')
+            # Open CSV file for writing.
+            csvfile = csv.writer(open(self.fileFromDb + self.fileName, 'w', newline=''), delimiter=',',
+                                 lineterminator='\r\n', quoting=csv.QUOTE_ALL, escapechar='\\')
 
-
-            ## adding header and data to the csv file
+            # Add the headers and data to the CSV file.
             csvfile.writerow(headers)
-            csvfile.writerow(results)
+            csvfile.writerows(results)
 
             self.logger.log(f,"File exported successfully!!")
             f.close()
@@ -195,21 +193,4 @@ class DBOperations:
 
 
 
-var = {
-    "Airline": "TEXT",
-    "Source": "TEXT",
-    "Destination": "TEXT",
-    "Flight_Duration": "REAL",
-    "Total_Stops": "REAL",
-    "Additional_Info": "TEXT",
-    "Day_of_Journey": "INTEGER",
-    "Month_of_Journey": "INTEGER",
-    "Year_of_Journey": "INTEGER",
-    "Price": "INTEGER"
-}
 
-d = DBOperations()
-# d.dbConnection()
-d.createTableIntoDb(var)
-d.insertGoodDataIntoTable()
-# d.getDataFromDbTableIntoCSV()

@@ -75,6 +75,3 @@ class RawTrainingDataTransformation:
             f.close()
             raise e
 
-r = RawTrainingDataTransformation()
-r.addingQuotesToStringColumns()
-r.removeHyphenFromColumnName()

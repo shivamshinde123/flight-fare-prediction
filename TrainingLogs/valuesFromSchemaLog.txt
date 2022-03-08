@@ -1,0 +1,2 @@
+2022-03-09 / 01:45:24  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10
+2022-03-09 / 01:53:49  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10
