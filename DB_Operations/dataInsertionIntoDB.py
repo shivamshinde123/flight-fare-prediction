@@ -120,11 +120,11 @@ class DBOperations:
                 with open(self.goodDataPath + file, 'r') as p:
                     next(p)
                     reader = csv.reader(p,delimiter='\n')
+                    self.logger.log(f, f"{file} File loaded successfully!!")
                     for line in enumerate(reader):
                         for list_ in line[1]:
                             try:
                                 cursor.execute(f"INSERT INTO goodRawData values ({list_})")
-                                self.logger.log(f, f"{file} File loaded successfully!!")
                                 conn.commit()
                             except Exception as e:
                                 raise e

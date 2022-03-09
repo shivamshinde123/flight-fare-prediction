@@ -170,7 +170,7 @@ class rawDataValidation:
         """
         now = datetime.now()
         date = now.date()
-        time = now.time()
+        time = now.strftime("%H%M%S")
         try:
             source = '../Training_raw_data_validated/BadData/'
             if os.path.isdir(source):
