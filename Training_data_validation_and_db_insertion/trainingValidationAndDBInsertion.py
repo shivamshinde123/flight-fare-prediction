@@ -92,5 +92,3 @@ class trainingValidationAndDBInsertion:
             self.logger.log(self.file_object, f"Exception occurred in validation or database insertion step. Exception: {str(e)}")
             self.file_object.close()
 
-t = trainingValidationAndDBInsertion()
-t.training_validation_and_db_insertion()
