@@ -7,9 +7,13 @@ class RawTrainingDataTransformation:
 
     """
 
-    Description: This class includes the methods which transforms the data so that there won't be any exception while dumping the data into the database
+    Description: This class includes the methods which transforms the data so that there won't be any exception while
+    dumping the data into the database.
+
     Written By: Shivam Shinde
+
     Version: 1.0
+
     Revision: None
 
     """
@@ -33,7 +37,7 @@ class RawTrainingDataTransformation:
         try:
             for file in os.listdir('../Training_raw_data_validated/GoodData/'):
                 csv_file = pd.read_csv('../Training_raw_data_validated/GoodData/' + file)
-                column_lst = ['Airline','Source','Destination','Additional_Info']
+                column_lst = ['Airline','Date_of_Journey','Source','Destination','Route','Dep_Time','Arrival_Time','Duration','Total_Stops','Additional_Info']
                 for column in column_lst:
                     csv_file[column] = csv_file[column].apply(lambda a: "'" + str(a) + "'")
                 csv_file.to_csv('../Training_raw_data_validated/GoodData/' + file, index=None, header=True)

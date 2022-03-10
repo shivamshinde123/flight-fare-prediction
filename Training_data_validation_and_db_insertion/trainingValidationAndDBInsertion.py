@@ -47,14 +47,14 @@ class trainingValidationAndDBInsertion:
             self.raw_data_validation.validateTrainingDataFileName(reg_exp)
 
             ## validating the number of columns
-            self.raw_data_validation.validateNumberOfColumns(10)
+            self.raw_data_validation.validateNumberOfColumns(11)
 
             ## checking if there is any column with all of its values are missing i.e. nan
             self.raw_data_validation.validateMissingValuesInWholeColumn()
 
             self.logger.log(self.file_object, "Validation of the raw training data completed!!")
 
-            self.logger.log(self.file_object, "Performing data tranformation on  the data before inserting it into the database so that there won't be any exception..")
+            self.logger.log(self.file_object, "Performing data transformation on  the data before inserting it into the database so that there won't be any exception..")
 
             self.logger.log(self.file_object, "Adding the quotes to the data values in the columns with the string datatype...")
             self.raw_data_transformation.addingQuotesToStringColumns()
@@ -92,3 +92,5 @@ class trainingValidationAndDBInsertion:
             self.logger.log(self.file_object, f"Exception occurred in validation or database insertion step. Exception: {str(e)}")
             self.file_object.close()
 
+t = trainingValidationAndDBInsertion()
+t.training_validation_and_db_insertion()

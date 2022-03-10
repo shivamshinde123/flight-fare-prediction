@@ -1,4 +1,2 @@
-2022-03-09 / 10:42:30  ----->  Enter the method used for the validation of number of columns in the data
-2022-03-09 / 10:42:30  ----->  Validation for number of columns in the data passed!
-2022-03-09 / 13:12:24  ----->  Enter the method used for the validation of number of columns in the data
-2022-03-09 / 13:12:25  ----->  Validation for number of columns in the data passed!
+2022-03-11 / 02:22:41  ----->  Enter the method used for the validation of number of columns in the data
+2022-03-11 / 02:22:41  ----->  Validation for number of columns in the data passed!

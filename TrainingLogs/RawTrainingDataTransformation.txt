@@ -1,4 +1,2 @@
-2022-03-09 / 10:42:31  ----->  Quotes added successfully to the values of columns having string values
-2022-03-09 / 10:42:31  ----->  Removed the hyphens from the column names successfully
-2022-03-09 / 13:12:25  ----->  Quotes added successfully to the values of columns having string values
-2022-03-09 / 13:12:25  ----->  Removed the hyphens from the column names successfully
+2022-03-11 / 02:22:42  ----->  Quotes added successfully to the values of columns having string values
+2022-03-11 / 02:22:42  ----->  Removed the hyphens from the column names successfully

@@ -1,10 +1,5 @@
-2022-03-09 / 10:42:30  ----->  Deleted the folder for good raw training data successfully.
-2022-03-09 / 10:42:30  ----->  Deleted the folder for bad raw training data successfully.
-2022-03-09 / 11:10:58  ----->  Deleted the folder for good raw training data successfully.
-2022-03-09 / 11:10:58  ----->  Bad data file were successfully moved from training raw data folder to the archived bad foler
-2022-03-09 / 11:10:58  ----->  Bad data folder from training raw data folder deleted successfully.
-2022-03-09 / 13:12:24  ----->  Deleted the folder for good raw training data successfully.
-2022-03-09 / 13:12:24  ----->  Deleted the folder for bad raw training data successfully.
-2022-03-09 / 13:40:36  ----->  Deleted the folder for good raw training data successfully.
-2022-03-09 / 13:40:36  ----->  Bad data file were successfully moved from training raw data folder to the archived bad foler
-2022-03-09 / 13:40:36  ----->  Bad data folder from training raw data folder deleted successfully.
+2022-03-11 / 02:22:41  ----->  Deleted the folder for good raw training data successfully.
+2022-03-11 / 02:22:41  ----->  Deleted the folder for bad raw training data successfully.
+2022-03-11 / 02:49:21  ----->  Deleted the folder for good raw training data successfully.
+2022-03-11 / 02:49:21  ----->  Bad data file were successfully moved from training raw data folder to the archived bad foler
+2022-03-11 / 02:49:21  ----->  Bad data folder from training raw data folder deleted successfully.
