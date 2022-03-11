@@ -343,10 +343,12 @@ class PreprocessingMethods:
         try:
             self.df.to_csv('inputFileProcessed.csv',header=True,index=False)
             self.logger.log(self.file_object, "Successfully exported the preprocessed input file..")
+            self.file_object.close()
+
 
         except Exception as e:
             self.logger.log(self.file_object, f"Exception occurred while exporting the preprocessed input file. Exception: {str(e)}")
-
+            self.file_object.close()
 
 
 
