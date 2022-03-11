@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-
+import re
 
 
 class PreprocessingMethods:
@@ -75,4 +75,192 @@ class PreprocessingMethods:
         self.df['Day_of_Journey'] = self.df['Date_of_Journey'].dt.day
         self.df['Month_of_Journey'] = self.df['Date_of_Journey'].dt.month
         self.df['Year_of_Journey'] = self.df['Date_of_Journey'].dt.year
-        self.df.drop(columns=['Date_of_Journey'], axis=1, inplace=True)
+        self.removeUnnecessaryFeatureColumn("Date_of_Journey")
+
+    def convertDurationIntoMinutes(self):
+
+        """
+        Description: This method is used to create a new column named Flight_Duration which contains the flight durarion
+        in minutes from the already present Duration column which has duration in the hours and minutes. Function also
+        removes the original Duration column after removing the Flight_Duration column
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        :return: None
+
+        """
+
+        pattern1 = re.compile(r"(\d+)(h|m)(\s)(\d*)(h|m)*")
+        pattern2 = re.compile(r"(\s*)(\d+)(h)")
+        pattern3 = re.compile(r"(\s*)(\d+)(m)")
+
+        min_lst = []
+        for i in range(self.df.shape[0]):
+            if 'h' in self.df.loc[i, "Duration"] and 'm' in self.df.loc[i, "Duration"]:
+                matchobj = re.match(pattern1, self.df.loc[i, "Duration"])
+                hour = int(matchobj.group(1))
+                minute = int(matchobj.group(4))
+                total_min = 60 * hour + minute
+                min_lst.append(total_min)
+            elif 'h' in self.df.loc[i, "Duration"] and 'm' not in self.df.loc[i, "Duration"]:
+                matchobj = re.match(pattern2, self.df.loc[i, "Duration"])
+                hour = int(matchobj.group(2))
+                min_lst.append(60 * hour)
+            elif 'h' not in self.df.loc[i, "Duration"] and 'm' in self.df.loc[i, "Duration"]:
+                matchobj = re.match(pattern3, self.df.loc[i, "Duration"])
+                minute = int(matchobj.group(2))
+                min_lst.append(minute)
+            else:
+                min_lst.append(self.df.loc[i, "Duration"])
+
+        self.removeUnnecessaryFeatureColumn("Duration")
+        train_values = pd.Series(min_lst)
+        self.df.insert(loc=7, column="Flight_Duration", value=train_values)
+
+
+    def makeTotalStopsInteger(self):
+
+        """
+        Description: This method is used to change the datatype of the Total_Stops from string to integer by removing
+        strings such as stops from the data
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        :return: None
+        """
+
+        dict1 = {'non-stop': 0, '1 stop': 1, '2 stops': 2, '3 stops': 3, '4 stops': 4}
+
+        self.df['Total_Stops'] = self.df['Total_Stops'].map(dict1)
+
+
+    def removingdDuplicateRows(self):
+
+        """
+        Description: This method is used to remove the duplicate rows from the data
+        
+        Written By: Shivam Shinder
+        
+        Version: 1.0
+        
+        Revision: None
+        
+        :return: None
+        
+        """
+        
+        self.df.drop_duplicates(inplace=True)
+
+
+    def splittingTheDataframeIntoXandy(self):
+
+        """
+        Description: This method is used to split the dataframe into independent and dependent features
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        :return: X (dataframe with independent features) and y (dataframe with target feature)
+        """
+
+        X = self.df.drop(columns=['Price'],axis=1)
+        y = self.df['Price']
+
+        return X, y
+
+    # def findingNamesOfNumericalAndCategoricalColumns(self):
+    #
+    #
+    #     """
+    #
+    #     Description: This method is used to identify the names of numerical and categories columns in the dataframe
+    #
+    #     Written By: Shivam Shinde
+    #
+    #     Version: 1.0
+    #
+    #     Revision: None
+    #
+    #     :return: Two lists each containing the names of numerical and categorical columns respectively
+    #     """
+    #
+    #     X, y = self.splittingTheDataframeIntoXandy()
+    #
+    #     categorical_features = [feature for feature in X.columns if X[feature].dtypes == 'O']
+    #     numerical_features = [feature for feature in X.columns if feature not in categorical_features]
+    #
+    #     return categorical_features, numerical_features
+
+    def correctingTyposInAdditionalInfoColumn(self):
+
+        """
+        Description: In Additional_Info column, some values which should be 'No info' are misspelled as 'No Info'.
+        This function will correct this typo
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        :return: None
+
+        """
+
+        X, y = self.splittingTheDataframeIntoXandy()
+        X['Additional_Info'] = np.where(X['Additional_Info'] == "No Info", "No info", X['Additional_Info'])
+
+
+    def replacingOutliersWithNan(self):
+
+        """
+        Description: This method is used to replace the outliers with the null values
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        :return: None
+        """
+
+        X, y = self.splittingTheDataframeIntoXandy()
+
+        for feature in X.columns:
+            Q1 = self.df[feature].quantile(0.25)
+            Q3 = self.df[feature].quantile(0.75)
+            IQR = Q3 - Q1
+
+            self.df[feature] = np.where(self.df[feature] > (Q3 + 1.45 * IQR), np.nan, self.df[feature])
+
+    def fillingNullValues(self):
+
+        """
+        Description: This method is used to fill the null values in the dataframe using mean of the non-null data
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        :return: None
+        """
+        X, y = self.splittingTheDataframeIntoXandy()
+
+        for feature in X.columns:
+            X[feature].fillna(X[feature].mean(),inplace=True)
+
+
