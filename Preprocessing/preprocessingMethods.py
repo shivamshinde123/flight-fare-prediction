@@ -226,28 +226,28 @@ class PreprocessingMethods:
             self.logger.log(self.file_object, f"Exception occurred while splitting the dataframe into independent and dependent features. Exception: {str(e)}")
 
 
-    # def findingNamesOfNumericalAndCategoricalColumns(self):
-    #
-    #
-    #     """
-    #
-    #     Description: This method is used to identify the names of numerical and categories columns in the dataframe
-    #
-    #     Written By: Shivam Shinde
-    #
-    #     Version: 1.0
-    #
-    #     Revision: None
-    #
-    #     :return: Two lists each containing the names of numerical and categorical columns respectively
-    #     """
-    #
-    #     X, y = self.splittingTheDataframeIntoXandy()
-    #
-    #     categorical_features = [feature for feature in X.columns if X[feature].dtypes == 'O']
-    #     numerical_features = [feature for feature in X.columns if feature not in categorical_features]
-    #
-    #     return categorical_features, numerical_features
+    def findingNamesOfNumericalAndCategoricalColumns(self):
+
+
+        """
+
+        Description: This method is used to identify the names of numerical and categories columns in the dataframe
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        :return: Two lists each containing the names of numerical and categorical columns respectively
+        """
+
+        X, y = self.splittingTheDataframeIntoXandy()
+
+        categorical_features = [feature for feature in X.columns if X[feature].dtypes == 'O']
+        numerical_features = [feature for feature in X.columns if feature not in categorical_features]
+
+        return categorical_features, numerical_features
 
     def correctingTyposInAdditionalInfoColumn(self):
 
@@ -324,6 +324,37 @@ class PreprocessingMethods:
 
         except  Exception as e:
             self.logger.log(self.file_object, f"Exception occurred while filling null values. Exception: {str(e)}")
+
+
+    def encodingCategoricalColumns(self):
+
+        """
+        Description: This method is used to encode the categorical columns. Since using the OneHot encoding will create
+        many columns, this method will use the ordinal encoding.
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        :return: None
+        """
+
+        try:
+            cat_feat, num_feat = self.findingNamesOfNumericalAndCategoricalColumns()
+
+            for feature in cat_feat:
+                lst = self.df[feature].unique()
+                d = {}
+                for index, item in enumerate(lst):
+                    d[item] = index + 1
+                self.df[feature].map(d)
+                self.logger.log(self.file_object, f"Encoded the column named {feature} successfully..")
+
+        except Exception as e:
+            self.logger.log(self.file_object, f"Exception occurred while encoding the categorical column named {feature}. Exception: {str(e)}")
+
 
 
     def importProcessedFile(self):
