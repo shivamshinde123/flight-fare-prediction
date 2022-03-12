@@ -10,8 +10,11 @@ class rawDataValidation:
 
     """
     Description: This class contains the methods used for the validation of the raw training data
+
     Written By: Shivam Shinde
+
     Version: 1.0
+
     Revision: None
 
     """
@@ -317,3 +320,39 @@ class rawDataValidation:
             raise e
 
 
+
+    def validatingDateFormat(self):
+
+
+        """
+        Description: This method is used to validate the date format in the datetime column of the dataframe
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+        :return: None
+        """
+
+        f = open('../TrainingLogs/DateFormatValidation.txt', 'a+')
+
+        try:
+            for file in os.listdir('../Training_raw_data_validated/GoodData/'):
+                csv_file = pd.read_csv('../Training_raw_data_validated/GoodData/' + file)
+                csv_file_copy = csv_file.copy()
+                csv_file_copy.dropna()
+
+                try:
+                    pd.to_datetime(csv_file_copy['Date_of_Journey'], format="%d/%m/%Y", errors="raise")
+                    self.logger.log(f, f"Datetime column from the file {file} successfully validated..")
+                    f.close()
+                except Exception as e:
+                    self.logger.log(f, f"Exception occurred in the validation of date format in the file {file}. Exception: {str(e)}")
+                    shutil.move('../Training_raw_data_validated/GoodData/' + file, '../Training_raw_data_validated/BadData/')
+                    self.logger.log(f, f"Moved the file {file} to the bad date folder..")
+                    f.close()
+
+        except Exception as e:
+            self.logger.log(f, f"Exception occurred in the validation of date format of the datetime column in the input date. Exception: {str(e)}")
+            f.close()
