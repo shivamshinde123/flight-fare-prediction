@@ -1,6 +1,10 @@
+import re
+
 import numpy as np
 import pandas as pd
-import re
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
 from Logging.logging import Logger
 
 
@@ -16,12 +20,10 @@ class PreprocessingMethods:
 
     Revision: None
     """
-
-    def __int__(self):
+    def __init__(self):
         self.df = pd.read_csv("../fileFromDb/inputFile.csv")
-        self.file_object = open("../TrainingLogs/preprocessingLogs.txt", "a+")
-        self.logger = Logger()
-
+        self.logger_obj = Logger()
+        self.file_object = open("../TrainingLogs/preprocessingLogs.txt","a+")
 
     def removeUnnecessaryFeatureColumn(self,column_name):
 
@@ -40,9 +42,9 @@ class PreprocessingMethods:
         """
         try:
             self.df.drop(columns=[column_name], inplace=True)
-            self.logger.log(self.file_object, f"Feature column named {column_name} removed from the dataframe")
+            self.logger_obj.log(self.file_object, f"Feature column named {column_name} removed from the dataframe")
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while removing a feature column {column_name} from the dataframe. Exception: {str(e)} ")
+            self.logger_obj.log(self.file_object, f"Exception occurred while removing a feature column {column_name} from the dataframe. Exception: {str(e)} ")
 
 
 
@@ -63,10 +65,10 @@ class PreprocessingMethods:
         """
         try:
             self.df[column_name] = pd.to_datetime(self.df[column_name], format="%d/%m/%Y")
-            self.logger.log(self.file_object, f"Datatype of feature column named {column_name} changed to datetime..")
+            self.logger_obj.log(self.file_object, f"Datatype of feature column named {column_name} changed to datetime..")
 
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while changing the datatype of column {column_name} to datetime. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while changing the datatype of column {column_name} to datetime. Exception: {str(e)}")
 
 
 
@@ -91,12 +93,12 @@ class PreprocessingMethods:
             self.df['Day_of_Journey'] = self.df['Date_of_Journey'].dt.day
             self.df['Month_of_Journey'] = self.df['Date_of_Journey'].dt.month
             self.df['Year_of_Journey'] = self.df['Date_of_Journey'].dt.year
-            self.logger.log(self.file_object, "Successfully split the datetime column into three newly created columns.")
+            self.logger_obj.log(self.file_object, "Successfully split the datetime column into three newly created "
+                                                  "columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey")
             self.removeUnnecessaryFeatureColumn("Date_of_Journey")
-            self.logger.log(self.file_object, f"Original datetime column removed successfully..")
 
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while splitting the datetime column into three newly created columns. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while splitting the datetime column into three newly created columns. Exception: {str(e)}")
 
     def convertDurationIntoMinutes(self):
 
@@ -120,8 +122,6 @@ class PreprocessingMethods:
             pattern2 = re.compile(r"(\s*)(\d+)(h)")
             pattern3 = re.compile(r"(\s*)(\d+)(m)")
 
-            self.logger.log(self.file_object, "Created patterns which could match the values in the Duration column")
-
             min_lst = []
             for i in range(self.df.shape[0]):
                 if 'h' in self.df.loc[i, "Duration"] and 'm' in self.df.loc[i, "Duration"]:
@@ -141,17 +141,14 @@ class PreprocessingMethods:
                 else:
                     min_lst.append(self.df.loc[i, "Duration"])
 
-            self.logger.log(self.file_object, "Created a list which contains all the duration in minutes successfully..")
-
             self.removeUnnecessaryFeatureColumn("Duration")
-            self.logger.log(self.file_object, "Removing the original Duratin column from the dataframe..")
 
             train_values = pd.Series(min_lst)
             self.df.insert(loc=7, column="Flight_Duration", value=train_values)
-            self.logger.log(self.file_object, "Added a new column named Flight_Duration which contains the flight duration in minutes..")
+            self.logger_obj.log(self.file_object, "Added a new column named Flight_Duration which contains the flight duration in minutes..")
 
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while converting the flight duration into minutes. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while converting the flight duration into minutes. Exception: {str(e)}")
 
 
     def makeTotalStopsInteger(self):
@@ -173,10 +170,10 @@ class PreprocessingMethods:
             dict1 = {'non-stop': 0, '1 stop': 1, '2 stops': 2, '3 stops': 3, '4 stops': 4}
 
             self.df['Total_Stops'] = self.df['Total_Stops'].map(dict1)
-            self.logger.log(self.file_object, "Suceessfully changed the datatypes of the values from the Total_Stops columns..")
+            self.logger_obj.log(self.file_object, "Successfully changed the datatypes of the values from the Total_Stops columns to integer")
 
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while making values from column Total_Stops into integer. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while making values from column Total_Stops into integer. Exception: {str(e)}")
 
 
     def removingdDuplicateRows(self):
@@ -196,9 +193,9 @@ class PreprocessingMethods:
         
         try:
             self.df.drop_duplicates(inplace=True)
-            self.logger.log(self.file_object, "Removing of duplicate rows successful..")
+            self.logger_obj.log(self.file_object, "Removing of duplicate rows successful..")
         except Exception as e:
-            self.logger.log(self.file_object,f"Exception occurred while removing duplicate rows from the dataframe. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object,f"Exception occurred while removing duplicate rows from the dataframe. Exception: {str(e)}")
 
 
     def splittingTheDataframeIntoXandy(self):
@@ -218,12 +215,10 @@ class PreprocessingMethods:
         try:
             X = self.df.drop(columns=['Price'], axis=1)
             y = self.df['Price']
-            self.logger.log(self.file_object, "Successfully split the dataframe into independent and dependent features..")
-            self.logger.log(self.file_object, "Returning X, y..")
             return X, y
 
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while splitting the dataframe into independent and dependent features. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while splitting the dataframe into independent and dependent features. Exception: {str(e)}")
 
 
     def findingNamesOfNumericalAndCategoricalColumns(self):
@@ -239,7 +234,7 @@ class PreprocessingMethods:
 
         Revision: None
 
-        :return: Two lists each containing the names of numerical and categorical columns respectively
+        :return: Two lists each containing the names of categorical and numerical columns respectively
         """
 
         X, y = self.splittingTheDataframeIntoXandy()
@@ -267,9 +262,9 @@ class PreprocessingMethods:
 
         try:
             self.df['Additional_Info'] = np.where(self.df['Additional_Info'] == "No Info", "No info", self.df['Additional_Info'])
-            self.logger.log(self.file_object, "Successfully corrected the typos in the Additional_Info column..")
+            self.logger_obj.log(self.file_object, "Successfully corrected the typos in the Additional_Info column..")
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while correcting the typo in the Additional_Info column. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while correcting the typo in the Additional_Info column. Exception: {str(e)}")
 
 
     def replacingOutliersWithNan(self):
@@ -287,19 +282,19 @@ class PreprocessingMethods:
         """
 
         try:
-            X, y = self.splittingTheDataframeIntoXandy()
+            cat_feat, num_feat = self.findingNamesOfNumericalAndCategoricalColumns()
 
-            for feature in X.columns:
+            for feature in num_feat:
                 Q1 = self.df[feature].quantile(0.25)
                 Q3 = self.df[feature].quantile(0.75)
                 IQR = Q3 - Q1
 
-                self.df[feature] = np.where((self.df[feature] > (Q3 + 1.45 * IQR) | self.df[feature] < (Q1 - 1.45 * IQR)), np.nan, self.df[feature])
+                self.df[feature] = np.where(self.df[feature] > (Q3 + 1.45 * IQR), np.nan, self.df[feature])
 
-            self.logger.log(self.file_object, "Successfully replaced the outliers in the columns with null..")
+            self.logger_obj.log(self.file_object, "Successfully replaced the outliers in the columns with null..")
 
         except Exception as e:
-            self.logger.log(self.file_object, F"Exception occurred while replacing outlier with the null values. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, F"Exception occurred while replacing outlier with the null values. Exception: {str(e)}")
 
     def fillingNullValues(self):
 
@@ -315,15 +310,19 @@ class PreprocessingMethods:
         :return: None
         """
         try:
-            X, y = self.splittingTheDataframeIntoXandy()
+            cat_feat, num_feat = self.findingNamesOfNumericalAndCategoricalColumns()
 
-            for feature in X.columns:
+            for feature in num_feat:
                 self.df[feature].fillna(self.df[feature].mean(), inplace=True)
+            self.logger_obj.log(self.file_object, "Successfully filled the null values from the numerical columns with the mean of non-null values..")
 
-            self.logger.log(self.file_object, "Successfully filled the null values from the columns with the mean of non-null values..")
+            for feature in cat_feat:
+                self.df[feature].fillna(self.df[feature].mode())
+            self.logger_obj.log(self.file_object, "Successfully filled the null values from the categorical columns with the mode of non-null values")
+
 
         except  Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while filling null values. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while filling null values. Exception: {str(e)}")
 
 
     def encodingCategoricalColumns(self):
@@ -346,15 +345,91 @@ class PreprocessingMethods:
 
             for feature in cat_feat:
                 lst = self.df[feature].unique()
-                d = {}
+                d = dict()
                 for index, item in enumerate(lst):
                     d[item] = index + 1
-                self.df[feature].map(d)
-                self.logger.log(self.file_object, f"Encoded the column named {feature} successfully..")
+                self.df[feature] = self.df[feature].map(d)
+                self.logger_obj.log(self.file_object, f"Encoded the column named {feature} successfully..")
 
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while encoding the categorical column named {feature}. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while encoding the categorical column named {feature}. Exception: {str(e)}")
 
+
+    def removingColumnsWithZeroVariance(self):
+
+        """
+        Description: This method is used to remove the column from the dataframe which are having zero variance.
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+        :return: None
+        """
+
+        try:
+            cat_feat, num_feat = self.findingNamesOfNumericalAndCategoricalColumns()
+            self.logger_obj.log(self.file_object,"Checking for the column with zero variance.." )
+            for feature in num_feat:
+                if self.df[feature].var() == 0:
+                    self.removeUnnecessaryFeatureColumn(feature)
+
+        except Exception as e:
+            self.logger_obj.log(self.file_object, f"Exception occurred while removing the column with zero variance. Exception: {str(e)}")
+
+
+    def scalingNumericalColumns(self,column_name):
+
+        """
+        Description: This method is used to scale the numerical columns
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+        :param column_name: Name of the column which needs to be scaled
+        :return: None
+        """
+        try:
+            scaler = StandardScaler()
+            self.df[column_name] = scaler.fit_transform(self.df[column_name].to_numpy().reshape(-1, 1))
+            self.logger_obj.log(self.file_object, f"Performed the standard scaling on the column named {column_name}")
+
+        except Exception as e:
+            self.logger_obj.log(self.file_object, f"Exception occurred while performing standard scaling on the column {column_name}. Exception: {str(e)}")
+
+
+    def splittingTheDataIntoTrainAndTest(self):
+
+        """
+        Description: This method is used to split the dataframe into train and test dataframes
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+
+        Returns
+                 -  X_train (independent features data for training)
+
+                 -  X_test (independent features data for testing)
+
+                 -  y_train (dependent feature data for training)
+
+                 -  y_test (dependent feature data for testing)
+        """
+
+        try:
+            X, y = self.splittingTheDataframeIntoXandy()
+            X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=199,stratify=y)
+            self.logger_obj.log(self.file_object, "Split the data into training data and testing data")
+            return X_train, X_test, y_train, y_test
+
+        except Exception as e:
+            self.logger_obj.log(self.file_object, "Exception occurred while splitting the data into training and testing data")
 
 
     def importProcessedFile(self):
@@ -373,12 +448,12 @@ class PreprocessingMethods:
 
         try:
             self.df.to_csv('inputFileProcessed.csv',header=True,index=False)
-            self.logger.log(self.file_object, "Successfully exported the preprocessed input file..")
+            self.logger_obj.log(self.file_object, "Successfully exported the preprocessed input file..")
             self.file_object.close()
 
 
         except Exception as e:
-            self.logger.log(self.file_object, f"Exception occurred while exporting the preprocessed input file. Exception: {str(e)}")
+            self.logger_obj.log(self.file_object, f"Exception occurred while exporting the preprocessed input file. Exception: {str(e)}")
             self.file_object.close()
 
 
