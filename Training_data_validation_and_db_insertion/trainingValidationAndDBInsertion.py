@@ -52,6 +52,9 @@ class trainingValidationAndDBInsertion:
             ## checking if there is any column with all of its values are missing i.e. nan
             self.raw_data_validation.validateMissingValuesInWholeColumn()
 
+            ## checking the format of the dates in  the Date_of_Journey column of the dataframe
+            self.raw_data_validation.validatingDateFormat()
+
             self.logger.log(self.file_object, "Validation of the raw training data completed!!")
 
             self.logger.log(self.file_object, "Performing data transformation on  the data before inserting it into the database so that there won't be any exception..")
