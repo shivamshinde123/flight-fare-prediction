@@ -65,6 +65,3 @@ class Preprocessor:
         # performing encoding,scaling and null values imputation on the dataframe
         self.process_data.transformPipeline()
 
-
-p = Preprocessor()
-p.preprocess()
