@@ -59,20 +59,11 @@ class Preprocessor:
         # replacing the outliers with the nan values
         self.process_data.replacingOutliersWithNan()
 
-        # filling the nan values from the columns with the mean of the non-null values
-        self.process_data.fillingNullValues()
-
-        # encoding the categorical columns
-        self.process_data.encodingCategoricalColumns()
-
-        # standard scaling the Flight_Duration column
-        self.process_data.scalingNumericalColumns("Flight_Duration")
-
         # removing the feature column with zero variance
         self.process_data.removingColumnsWithZeroVariance()
 
-        # importing the preprocessed file
-        self.process_data.importProcessedFile()
+        # performing encoding,scaling and null values imputation on the dataframe
+        self.process_data.transformPipeline()
 
 
 p = Preprocessor()
