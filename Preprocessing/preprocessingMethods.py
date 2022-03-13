@@ -398,9 +398,6 @@ class PreprocessingMethods:
         Version: 1.0
 
         Revision: None
-
-        :param X_train: dataframe containing independent features for training
-        :param X_test: dataframe containing independent features for testing
         :return: Preprocessed dataframe
         """
         try:
@@ -446,9 +443,12 @@ class PreprocessingMethods:
             y_train.to_csv('../TrainAndTestData/y_trainData.csv', header=True, index=False)
             y_test.to_csv('../TrainAndTestData/y_testData.csv', header=True, index=False)
 
+            self.file_object.close()
+
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while implementing the data preprocessing "
                                                   f"pipeline. Exception: {str(e)}")
+            self.file_object.close()
             raise e
 
 
