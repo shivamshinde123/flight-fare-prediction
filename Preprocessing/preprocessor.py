@@ -66,5 +66,4 @@ class Preprocessor:
         self.process_data.transformPipeline()
 
 
-p = Preprocessor()
-p.preprocess()
+
