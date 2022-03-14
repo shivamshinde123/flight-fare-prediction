@@ -1,4 +1,4 @@
 .idea/
-/DataPreprocessingPart1/.ipynb_checkpoints/
-/DataPreprocessingPart2/.ipynb_checkpoints/
 *__pycache__
+/DataPreprocessingPart1/
+/DataPreprocessingPart2/
