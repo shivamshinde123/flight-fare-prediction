@@ -1,4 +1,4 @@
 .idea/
 *__pycache__
-/DataPreprocessingPart1/
-/DataPreprocessingPart2/
+DataPreprocessingPart1/
+DataPreprocessingPart2/
