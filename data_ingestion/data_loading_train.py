@@ -19,10 +19,15 @@ class DataGetter:
         """
 
         Description: This method is used to read the data file from the provided location.
+
         On failure: Raises an exception
+
         Written By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
+
         :return: pandas.DataFrame
 
         """
