@@ -25,7 +25,7 @@ class modelMethods:
         self.file_object = open("../TrainingLogs/modelMethodsLogs.txt", "a+")
         self.model_directory = "../Models"
 
-    def modelSaving(self, model, filename):
+    def modelSaving(self, model, filename,clusterno):
 
         """
         Description: This method is used to save the created model as a python pickle file
@@ -49,7 +49,7 @@ class modelMethods:
                 os.makedirs(path)
 
             # saving the model as a python pickle file
-            joblib.dump(model, os.path.join(path, f"{filename}.pkl"))
+            joblib.dump(model, os.path.join(path, f"{filename}{clusterno}.pkl"))
 
             self.logger.log(self.file_object, f"Model {model} saved successfully in {path}")
 
@@ -57,7 +57,7 @@ class modelMethods:
             self.logger.log(self.file_object, f"Exception occurred while saving the model {model}. Exception: {str(e)}")
             raise e
 
-    def loadingSavedModel(self, filename):
+    def loadingSavedModel(self, filename,clusterno):
 
         """
         Description: This method is used to load the saved method for the respective cluster
@@ -73,7 +73,7 @@ class modelMethods:
         """
         try:
             self.logger.log(self.file_object, f"Loading the model {filename}.pkl")
-            path = os.path.join(self.model_directory, filename, f"{filename}.pkl")
+            path = os.path.join(self.model_directory, filename, f"{filename}{clusterno}.pkl")
 
             # loading the saved model
             model = joblib.load(path)
