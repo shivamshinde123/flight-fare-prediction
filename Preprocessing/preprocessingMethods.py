@@ -1,4 +1,3 @@
-import os
 import re
 
 import numpy as np
@@ -435,9 +434,9 @@ class PreprocessingMethods:
         """
         try:
             # splitting X and y into training and testing data
-            X_train, X_test, y_train, y_test = self.splittingTheDataIntoTrainAndTest()
+            X, y = self.splittingTheDataframeIntoXandy()
 
-            # creating numerical pipeline for the already encoded categorical columns (Since they are encodeed, they
+            # creating numerical pipeline for the already encoded categorical columns (Since they are encoded, they
             #  have been named as numeric for the pipeline)
             num_pipeline1 = Pipeline([
                 ('num_most_frequent_imputation', SimpleImputer(strategy="most_frequent"))
@@ -462,35 +461,14 @@ class PreprocessingMethods:
                 ('cat', cat_pipeline, ["Airline", "Source", "Destination", "Additional_Info"])
             ])
 
-            # fitting and transforming the X_train using full_pipeline and then creating a dataframe out of it
-            X_trainPreprocessed = pd.DataFrame(full_pipeline.fit_transform(X_train),
+            # fitting and transforming the X using full_pipeline and then returning it
+            XPreprocessed = pd.DataFrame(full_pipeline.fit_transform(X),
                                                columns=["Total_Stops", "Day_of_Journey", "Month_of_Journey",
                                                         "Flight_Duration",
                                                         "Airline", "Source", "Destination", "Additional_Info"])
 
-            # transforming the X_test using the full_pipeline and then creating a dataframe out of it
-            X_testPreprocessed = pd.DataFrame(full_pipeline.transform(X_test),
-                                              columns=["Total_Stops", "Day_of_Journey", "Month_of_Journey",
-                                                       "Flight_Duration",
-                                                       "Airline", "Source", "Destination", "Additional_Info"])
 
-            # creating a dataframes using y_train and y_test
-            y_train = pd.DataFrame(y_train, columns=['Price'])
-            y_test = pd.DataFrame(y_test, columns=['Price'])
-
-            # creating a TrainAndTestData directory if it does not exists
-            if not os.path.exists("../TrainAndTestData/"):
-                os.makedirs("../TrainAndTestData/")
-
-            # exporting preprocessed X_train, preprocessed X_test, y_train and y_test as a csv file into the created
-            # directory
-            X_trainPreprocessed.to_csv('../TrainAndTestData/X_trainData.csv', header=True, index=False)
-            X_testPreprocessed.to_csv('../TrainAndTestData/X_testData.csv', header=True, index=False)
-            y_train.to_csv('../TrainAndTestData/y_trainData.csv', header=True, index=False)
-            y_test.to_csv('../TrainAndTestData/y_testData.csv', header=True, index=False)
-
-            # closing the file object since the preprocessing stage ends here
-            self.file_object.close()
+            return X, y
 
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while implementing the data preprocessing "
