@@ -1,8 +1,10 @@
-import sqlite3
-from Logging.logging import Logger
-import os
 import csv
+import os
 import shutil
+import sqlite3
+
+from Logging.logging import Logger
+
 
 class DBOperations:
     
@@ -15,7 +17,7 @@ class DBOperations:
     """
     
     def __init__(self):
-        self.path = "../Databases/"
+        self.path = "../Database/"
         self.goodDataPath = "../Training_raw_data_validated/GoodData/"
         self.badDataPath = "../Training_raw_data_validated/BadData/"
         self.logger = Logger()

@@ -1,2 +1,8 @@
 2022-03-12 / 12:07:45  ----->  Quotes added successfully to the values of columns having string values
 2022-03-12 / 12:07:45  ----->  Removed the hyphens from the column names successfully
+2022-03-18 / 00:47:14  ----->  Quotes added successfully to the values of columns having string values
+2022-03-18 / 00:47:17  ----->  Removed the hyphens from the column names successfully
+2022-03-18 / 00:51:24  ----->  Quotes added successfully to the values of columns having string values
+2022-03-18 / 00:51:26  ----->  Removed the hyphens from the column names successfully
+2022-03-18 / 00:52:11  ----->  Quotes added successfully to the values of columns having string values
+2022-03-18 / 00:52:11  ----->  Removed the hyphens from the column names successfully

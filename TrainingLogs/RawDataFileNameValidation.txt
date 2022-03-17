@@ -1,2 +1,12 @@
 2022-03-12 / 12:07:45  ----->  Valid file name! File moved to the good data folder
 2022-03-12 / 12:07:45  ----->  The validation for the data file name passed!
+2022-03-18 / 00:35:49  ----->  Invalid file name! File moved to the bad data folder
+2022-03-18 / 00:39:05  ----->  Invalid file name! File moved to the bad data folder
+2022-03-18 / 00:40:52  ----->  Invalid file name! File moved to the bad data folder
+2022-03-18 / 00:41:44  ----->  Invalid file name! File moved to the bad data folder
+2022-03-18 / 00:46:59  ----->  Valid file name! File moved to the good data folder
+2022-03-18 / 00:46:59  ----->  The validation for the data file name passed!
+2022-03-18 / 00:50:48  ----->  Valid file name! File moved to the good data folder
+2022-03-18 / 00:50:48  ----->  The validation for the data file name passed!
+2022-03-18 / 00:52:10  ----->  Valid file name! File moved to the good data folder
+2022-03-18 / 00:52:10  ----->  The validation for the data file name passed!

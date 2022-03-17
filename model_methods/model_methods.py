@@ -1,10 +1,12 @@
 import os
 import shutil
+import warnings
 
 import joblib
 
 from Logging.logging import Logger
 
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 class modelMethods:
     """
@@ -20,10 +22,10 @@ class modelMethods:
 
     """
 
-    def __int__(self):
-        self.logger = Logger()
-        self.file_object = open("../TrainingLogs/modelMethodsLogs.txt", "a+")
+    def __init__(self):
         self.model_directory = "../Models"
+        self.logger = Logger()
+        self.file_object = open("../TrainingLogs/modelMethodsLogs.txt","a+")
 
     def modelSaving(self, model, filename,clusterno):
 
@@ -39,7 +41,10 @@ class modelMethods:
 
         self.logger.log(self.file_object, "Saving the created model into the python pickle file")
         try:
-            path = os.path.join(self.model_directory, filename)
+            if filename == "KMeansCluster":
+                path = os.path.join(self.model_directory, "ClusteringModel")
+            else:
+                path = os.path.join(self.model_directory, "ModelForClusterNo"+str(clusterno))
 
             # removing the previously created models
             if os.path.exists(path):
@@ -49,7 +54,7 @@ class modelMethods:
                 os.makedirs(path)
 
             # saving the model as a python pickle file
-            joblib.dump(model, os.path.join(path, f"{filename}{clusterno}.pkl"))
+            joblib.dump(model, os.path.join(path, f"{filename}.pkl"))
 
             self.logger.log(self.file_object, f"Model {model} saved successfully in {path}")
 

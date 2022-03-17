@@ -1,10 +1,14 @@
+import warnings
+
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor, StackingRegressor
-from sklearn.linear_model import ElasticNet
+from sklearn.linear_model import Ridge
 from sklearn.metrics import r2_score
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import RandomizedSearchCV
 from sklearn.svm import SVR
 from xgboost import XGBRegressor
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 from Logging.logging import Logger
 
@@ -21,10 +25,10 @@ class modelTuner:
     Revision: None
     """
 
-    def __init(self):
+    def __init__(self):
         self.logger = Logger()
         self.file_obj = open("../TrainingLogs/bestModelFindingLogs.txt","a+")
-        self.elastic_net = ElasticNet()
+        self.ridge = Ridge()
         self.rfr = RandomForestRegressor()
         self.svr = SVR()
         self.xgb = XGBRegressor()
@@ -61,7 +65,7 @@ class modelTuner:
             self.logger.log(self.file_obj, f"Exception occurred while calculating the r2 adjusted score. Exception: {str(e)}")
             raise e
 
-    def tuneElasticNet(self,xtrain,ytrain):
+    def tuneRidge(self,xtrain,ytrain):
 
         """
         Description: This method is used to tune the hyperparameters of the elastic net regressor.
@@ -85,26 +89,26 @@ class modelTuner:
             # creating a dictionary containing the possible options for the hyperparameters
             best_parameters = dict()
             best_parameters['alpha'] = np.arange(0, 11, 1)
-            best_parameters['selection'] = ['cyclic', 'random']
+            best_parameters['solver'] = ['auto', 'svd','lsqr','sparse_cg','sag','saga']
 
             # performing the grid search cv on the elastic net model using the earlier created dictionary
-            en_grid = GridSearchCV(self.elastic_net, best_parameters, cv=5, n_jobs=-1)
-            en_grid.fit(xtrain, ytrain)
+            rr_grid = RandomizedSearchCV(self.ridge, best_parameters, cv=5, n_jobs=-1)
+            rr_grid.fit(xtrain, ytrain)
 
             # finding the best hyperparameters obtained through the grid search cv
-            alpha = en_grid.best_params_["alpha"]
-            selection = en_grid.best_params_["selected"]
+            alpha = rr_grid.best_params_["alpha"]
+            solver = rr_grid.best_params_["solver"]
 
-            # creating a elastic net model using the best parameters obtained earlier
-            en = ElasticNet(alpha=alpha, selection=selection, random_state=90345)
-            en.fit(xtrain, ytrain)
+            # creating a ridge regression model using the best parameters obtained earlier
+            rr = Ridge(alpha=alpha, solver=solver, random_state=90345)
+            rr.fit(xtrain, ytrain)
 
-            # returning the tuned elastic net model
-            return en
+            # returning the ridge regression model
+            return rr
 
         except Exception as e:
-            self.logger.log(self.file_obj, "Exception occurred while finding the best hyperparameters for the elastic "
-                                           "net machine learning model")
+            self.logger.log(self.file_obj, "Exception occurred while finding the best hyperparameters for the ridge "
+                                           "regression machine learning model")
             raise e
 
 
@@ -137,7 +141,7 @@ class modelTuner:
             best_parameters['bootstrap'] = [True, False]
 
             # performing the grid search cv using the hyperparameter dictionary created earlier
-            rfr_grid = GridSearchCV(self.rfr, best_parameters, cv=5, n_jobs=-1)
+            rfr_grid = RandomizedSearchCV(self.rfr, best_parameters, cv=5, n_jobs=-1)
             rfr_grid.fit(xtrain,ytrain)
 
             # getting the best hyperparameters for the random forest regressor using the fitted rfr_grid
@@ -181,21 +185,19 @@ class modelTuner:
 
             # creating a dictionary containing all the possible values of the hyperparameters for the random forest regressor
             best_parameters = dict()
-            best_parameters['kernel'] = ['linear', 'rbf', 'poly', 'sigmoid', 'precomputed']
-            best_parameters['degree'] = [3, 2]
+            best_parameters['kernel'] = ['linear', 'rbf', 'poly', 'sigmoid']
             best_parameters['C'] = np.arange(1, 11, 1)
 
             # performing the grid search cv to find the best hyperparameters for the random forest regressor
-            svr_grid = GridSearchCV(self.svr, best_parameters, cv=5, n_jobs=-1)
+            svr_grid = RandomizedSearchCV(self.svr, best_parameters, cv=5, n_jobs=-1)
             svr_grid.fit(xtrain, ytrain)
 
             # getting the found best hyperparameters
             kernel = svr_grid.best_params_['kernel']
-            degree = svr_grid.best_params_['degree']
             C = svr_grid.best_params_['C']
 
             # creating a support vector regressor model using the best hyperparameters found in last step earlier
-            supportVectorReg = SVR(kernel=kernel, degree=degree, C=C)
+            supportVectorReg = SVR(kernel=kernel,C=C)
             supportVectorReg.fit(xtrain, ytrain)
 
             # returning the tuned support vector regressor machine learning algorithm
@@ -235,7 +237,7 @@ class modelTuner:
             best_parameters["colsample_bytree"] = [0.3, 0.4, 0.5 , 0.7]
 
             #  performing the grid search cv to find the best hyperparameters for the xgboost regressor
-            xgboost_grid = GridSearchCV(self.xgb,best_parameters,n_jobs=-1,cv=5)
+            xgboost_grid = RandomizedSearchCV(self.xgb,best_parameters,n_jobs=-1,cv=5)
             xgboost_grid.fit(xtrain,ytrain)
 
             # finding the best estimator
@@ -269,14 +271,14 @@ class modelTuner:
         try:
             # fetching the base and mets models
             model1 = self.tuneSVR(xtrain, ytrain)
-            model2 = self.tuneElasticNet(xtrain, ytrain)
+            model2 = self.tuneRidge(xtrain, ytrain)
             model3 = self.tuneRandomForestRegressor(xtrain, ytrain)
             metamodel = self.tunexgboost(xtrain, ytrain)
 
             # creating a list of base estimators
             estimators = [
                 ('svr',model1),
-                ('en',model2),
+                ('rr',model2),
                 ('rfr',model3)
             ]
 
@@ -292,7 +294,7 @@ class modelTuner:
             raise e
 
 
-    def bestModelFinder(self,xtrain,ytrain,xtest,ytest):
+    def bestModelFinder(self,xtrain,xtest,ytrain,ytest):
 
         """
         Description: This method is used to find the best model using the r2-adjusted score
@@ -324,10 +326,10 @@ class modelTuner:
             r2_adj_rfr = self.r2_adjusted_score(r2_rfr, xtrain)
 
             # finding the r2-adjusted score for elastic net model
-            en = self.tuneElasticNet(xtrain, ytrain)
-            en_prediction = en.predict(xtest)
-            r2_en = r2_score(ytest, en_prediction)
-            r2_adj_en = self.r2_adjusted_score(r2_en, xtrain)
+            rr = self.tuneRidge(xtrain, ytrain)
+            rr_prediction = rr.predict(xtest)
+            r2_rr = r2_score(ytest, rr_prediction)
+            r2_adj_rr = self.r2_adjusted_score(r2_rr, xtrain)
 
             # finding the r2 adjusted score for xgboost regressor model
             xgb = self.tunexgboost(xtrain, ytrain)
@@ -341,7 +343,7 @@ class modelTuner:
             r2_sr = r2_score(ytest, sr_prediction)
             r2_adj_sr = self.r2_adjusted_score(r2_sr, xtrain)
 
-            max_r2_adj = max([r2_adj_svr, r2_adj_rfr, r2_adj_en, r2_adj_xgb, r2_adj_sr])
+            max_r2_adj = max([r2_adj_svr, r2_adj_rfr, r2_adj_rr, r2_adj_xgb, r2_adj_sr])
 
 
             if max_r2_adj == r2_adj_sr:
@@ -353,7 +355,7 @@ class modelTuner:
             elif max_r2_adj == r2_adj_svr:
                 return "SVR", svr
             else:
-                return "ElasticNet", en
+                return "RidgeRegressor", rr
 
         except Exception as e:
             self.logger.log(self.file_obj, f"Exception occurred while finding the best machine learning model. "

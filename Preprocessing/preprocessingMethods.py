@@ -1,4 +1,6 @@
+import os
 import re
+import warnings
 
 import numpy as np
 import pandas as pd
@@ -10,6 +12,7 @@ from sklearn.preprocessing import StandardScaler, OrdinalEncoder
 
 from Logging.logging import Logger
 
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 class PreprocessingMethods:
     """
@@ -344,7 +347,7 @@ class PreprocessingMethods:
                 Q3 = self.df[feature].quantile(0.75)
                 IQR = Q3 - Q1
                 # replacing the outliers in the numerical column using the null value
-                self.df[feature] = np.where(self.df[feature] > (Q3 + 1.45 * IQR)  , np.nan, self.df[feature])
+                self.df[feature] = np.where(self.df[feature] > (Q3 + 1.45 * IQR), np.nan, self.df[feature])
                 self.df[feature] = np.where(self.df[feature] < (Q1 - 1.45 * IQR), np.nan, self.df[feature])
 
             self.logger_obj.log(self.file_object, "Successfully replaced the outliers in the columns with null..")
@@ -380,6 +383,26 @@ class PreprocessingMethods:
             self.logger_obj.log(self.file_object,
                                 f"Exception occurred while removing the column with zero variance. Exception: {str(e)}")
             raise e
+
+    def replacingInfinityWithNull(self):
+
+        """
+        Description: This method is used to replace infinity values with null values.
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+        :return: None
+        """
+
+        try:
+            self.logger_obj.log(self.file_object,"Replacing infinity values with null values")
+            self.df.replace([np.inf, -np.inf], np.nan, inplace=True)
+
+        except  Exception as e:
+            self.logger_obj.log(self.file_object, "Exception occurred while replacing infinity values with null values")
 
     def splittingTheDataIntoTrainAndTest(self):
 
@@ -463,12 +486,17 @@ class PreprocessingMethods:
 
             # fitting and transforming the X using full_pipeline and then returning it
             XPreprocessed = pd.DataFrame(full_pipeline.fit_transform(X),
-                                               columns=["Total_Stops", "Day_of_Journey", "Month_of_Journey",
-                                                        "Flight_Duration",
-                                                        "Airline", "Source", "Destination", "Additional_Info"])
+                                         columns=["Total_Stops", "Day_of_Journey", "Month_of_Journey",
+                                                  "Flight_Duration",
+                                                  "Airline", "Source", "Destination", "Additional_Info"])
 
+            yDataframe = pd.DataFrame(y,columns=['Price'])
 
-            return X, y
+            if not os.path.exists("../PreprocessedDara/"):
+                os.makedirs("../PreprocessedDara/")
+
+            XPreprocessed.to_csv("../PreprocessedDara/XPreprocessed.csv",header=True,index=False)
+            y.to_csv("../PreprocessedDara/yDataframe.csv",header=False,index=False)
 
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while implementing the data preprocessing "
@@ -477,3 +505,23 @@ class PreprocessingMethods:
             raise e
 
 
+    def getPreprocessedXAndy(self):
+
+        """
+        Description: This method is used to get the preprocessed X and y
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+        :return:  None
+        """
+        try:
+            self.logger_obj.log(self.file_object,"Exporting preprocessed X and y")
+            X = pd.read_csv("../PreprocessedDara/XPreprocessed.csv")
+            y = pd.read_csv(("../PreprocessedDara/yDataframe.csv"))
+
+            return X, y
+        except Exception as e:
+            self.logger_obj.log(self.file_object, "Exception occurred while exporting the preprocessed X and y")

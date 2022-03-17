@@ -1,28 +1,35 @@
+import warnings
+
+import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from Clustering.clustering import Cluster
 from Logging.logging import Logger
 from Preprocessing.preprocessor import Preprocessor
-from data_ingestion.data_loading_train import DataGetter
 from model_methods.model_methods import modelMethods
 from model_tuner.modeltuner import modelTuner
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 class modelTraining:
 
     """
-    Description: This class contains the method used to train the machine learning models
+    Description: This class a method which is used to train a machine learning model for each data cluster
 
     Written By: Shivam Shinde
 
     Version: 1.0
 
     Revision: None
+
+    :returns: None
     """
 
-    def __int__(self):
+    def __init__(self):
+        self.file_obj = open("../TrainingLogs/ModelTraining.txt","a+")
         self.logger = Logger()
-        self.file_obj = open("../TrainingLogs/ModelTraining.txt", "a+")
 
     def trainingModels(self):
         """
@@ -37,21 +44,22 @@ class modelTraining:
         """
         try:
             self.logger.log(
-                self.file_obj, "Machine learning model training started")
-
-            # getting the data
-            f = open("../Training_Data_From_Client/dataIngestion.txt", "a+")
-            dg = DataGetter(f, self.logger)
-            data = dg.getData()
+                self.file_obj, "Machine learning model training started!!")
 
             # preprocessing the obtained data
+            self.logger.log(self.file_obj, "Preprocessing of the data started!!")
             p = Preprocessor()
-            X, y = p.preprocess()
+            p.preprocess()
+            X = pd.read_csv("../PreprocessedDara/XPreprocessed.csv")
+            y = pd.read_csv("../PreprocessedDara/yDataframe.csv")
+            self.logger.log(self.file_obj, "Preprocessing of the data completed!!")
 
             # clustering the training and testing data into the same number of clusters
+            self.logger.log(self.file_obj, "Clustering of the data started!!")
             c = Cluster()
             noOfClusters = c.createElbowPlot(X)
             X = c.createCluster(X, noOfClusters)
+            self.logger.log(self.file_obj, "Clustering of the data completed!!")
 
             # Adding one more column to X i.e. dependent feature
             X['Price'] = y
@@ -70,6 +78,14 @@ class modelTraining:
                 X_train, X_test, y_train, y_test = train_test_split(
                     clusterFeatures, clusterLabel, test_size=0.2, random_state=348724)
 
+                # replacing infinity values if any with zero
+                X_train = X_train.replace((np.inf, -np.inf, np.nan), 0).reset_index(drop=True)
+                X_test = X_test.replace((np.inf, -np.inf, np.nan), 0).reset_index(drop=True)
+                y_train = y_train.replace((np.inf, -np.inf, np.nan), 0).reset_index(drop=True)
+                y_test = y_test.replace((np.inf, -np.inf, np.nan), 0).reset_index(drop=True)
+
+                self.logger.log(self.file_obj,f"Finding the best model for the cluster {i}")
+
                 # finding the best model for this cluster
                 mt = modelTuner()
                 bestModelName, bestModel = mt.bestModelFinder(
@@ -80,7 +96,8 @@ class modelTraining:
                 mm.modelSaving(bestModel, bestModelName, i)
 
                 self.logger.log(
-                    self.file_obj, f"Training of the machine learning model for the data cluster {i} successfully completed")
+                    self.file_obj,
+                    f"Training of the machine learning model for the data cluster {i} successfully completed")
 
         except Exception as e:
             self.logger.log(
@@ -88,5 +105,4 @@ class modelTraining:
             raise e
 
 
-m = modelTraining()
-m.trainingModels()
+
