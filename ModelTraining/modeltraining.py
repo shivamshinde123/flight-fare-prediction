@@ -1,6 +1,5 @@
 import warnings
 
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
@@ -44,7 +43,7 @@ class modelTraining:
         """
         try:
             self.logger.log(
-                self.file_obj, "Machine learning model training started!!")
+                self.file_obj, "*************MACHINE LEARNING MODEL TRAINING FOR ALL THE CLUSTERS STARTED**************")
 
             # preprocessing the obtained data
             self.logger.log(self.file_obj, "Preprocessing of the data started!!")
@@ -67,7 +66,9 @@ class modelTraining:
             # finding the unique numbers in the ClusterNumber column of the X
             clusters = X['ClusterNumber'].unique()
 
+
             for i in clusters:
+                self.logger.log(self.file_obj, f"*************for the cluster number {i}**************")
                 clusterData = X[X['ClusterNumber'] == i]
 
                 clusterFeatures = clusterData.drop(
@@ -77,12 +78,6 @@ class modelTraining:
                 # splitting the cluster data into train and test data
                 X_train, X_test, y_train, y_test = train_test_split(
                     clusterFeatures, clusterLabel, test_size=0.2, random_state=348724)
-
-                # replacing infinity values if any with zero
-                X_train = X_train.replace((np.inf, -np.inf, np.nan), 0).reset_index(drop=True)
-                X_test = X_test.replace((np.inf, -np.inf, np.nan), 0).reset_index(drop=True)
-                y_train = y_train.replace((np.inf, -np.inf, np.nan), 0).reset_index(drop=True)
-                y_test = y_test.replace((np.inf, -np.inf, np.nan), 0).reset_index(drop=True)
 
                 self.logger.log(self.file_obj,f"Finding the best model for the cluster {i}")
 
@@ -99,6 +94,9 @@ class modelTraining:
                     self.file_obj,
                     f"Training of the machine learning model for the data cluster {i} successfully completed")
 
+            self.logger.log(self.file_obj, "***************MACHINE LEARNING MODEL TRAINING FOR ALL CLUSTERS COMPLETED "
+                                           "SUCCESSFULLY*************")
+
         except Exception as e:
             self.logger.log(
                 self.file_obj, f"Exception occurred while training the machine learning model. Exception: {str(e)}")
@@ -106,3 +104,5 @@ class modelTraining:
 
 
 
+m = modelTraining()
+m.trainingModels()

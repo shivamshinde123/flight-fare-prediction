@@ -1,64 +1,124 @@
-2022-03-18 / 00:13:49  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:13:57  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:15:07  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:15:08  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:15:17  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:15:21  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:15:22  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:16:01  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:16:11  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:16:13  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:16:31  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:16:31  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:16:35  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:16:36  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:16:36  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:17:11  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:17:18  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:17:21  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:18:11  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:18:12  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:18:18  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:18:21  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:18:22  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:18:46  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:18:54  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:18:57  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:19:10  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:19:11  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:19:16  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:19:19  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:19:19  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:19:54  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:21:11  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:21:19  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:21:41  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:21:41  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:21:47  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:21:51  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:21:51  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:22:34  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:22:42  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:22:43  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:23:14  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:23:14  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:23:17  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:23:18  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:23:18  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:23:40  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:23:48  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:23:51  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:24:24  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:24:24  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:24:28  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:24:31  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:24:32  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:24:45  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:24:51  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:24:54  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:25:23  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:25:23  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
-2022-03-18 / 00:25:27  ----->  Finding the best hyperparameters for the SVR machine learning model
-2022-03-18 / 00:25:29  ----->  Finding the best hyperparameters for the elastic net machine learning model
-2022-03-18 / 00:25:29  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
-2022-03-18 / 00:25:47  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:50:21  ----->  *********finding best model for cluster************
+2022-03-19 / 00:50:21  ----->  Finding the best hyperparameters for the SVR machine learning model
+2022-03-19 / 00:50:30  ----->  The r2 score for the SVR model is 0.081
+2022-03-19 / 00:50:30  ----->  Finding the best hyperparameters for the ridge regression machine learning model
+2022-03-19 / 00:50:30  ----->  The r2 score for the ridge regression model is 0.3
+2022-03-19 / 00:50:30  ----->  Finding the best hyperparameters for the lasso regression machine learning model
+2022-03-19 / 00:50:30  ----->  The r2 score for the lasso regression model is 0.301
+2022-03-19 / 00:50:30  ----->  Finding the best hyperparameters for the KNeighbours regression machine learning model
+2022-03-19 / 00:50:30  ----->  The r2 score for the KNeighbors regression model is 0.417
+2022-03-19 / 00:50:30  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
+2022-03-19 / 00:50:35  ----->  The r2 score for the random forest regressor model is 0.343
+2022-03-19 / 00:50:35  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:50:42  ----->  The r2 score for the gradient boosting regressor model is 0.793
+2022-03-19 / 00:50:42  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:51:00  ----->  The r2 score for the xgboost regression model is 0.776
+2022-03-19 / 00:51:00  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:51:10  ----->  The r2 score for the ada boosting regressor model is 0.729
+2022-03-19 / 00:51:10  ----->  Creating a voting regressor using Ada boosting regressor, Gradient boosting regressor and xgboosting regressor
+2022-03-19 / 00:51:10  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:51:20  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:51:27  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:51:43  ----->  The r2 score for the voting regressor model is 0.786
+2022-03-19 / 00:51:43  ----->  Creating a voting regressor using Ada boosting regressor, Gradient boosting regressor and xgboosting regressor
+2022-03-19 / 00:51:43  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:51:53  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:52:00  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:52:15  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:52:25  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
+2022-03-19 / 00:52:31  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:52:57  ----->  The r2 score for the stacking regressor model is 0.736
+2022-03-19 / 00:52:57  ----->  *********found the best model for cluster************
+2022-03-19 / 00:52:57  ----->  *********finding best model for cluster************
+2022-03-19 / 00:52:57  ----->  Finding the best hyperparameters for the SVR machine learning model
+2022-03-19 / 00:52:59  ----->  The r2 score for the SVR model is -0.016
+2022-03-19 / 00:52:59  ----->  Finding the best hyperparameters for the ridge regression machine learning model
+2022-03-19 / 00:53:00  ----->  The r2 score for the ridge regression model is 0.182
+2022-03-19 / 00:53:00  ----->  Finding the best hyperparameters for the lasso regression machine learning model
+2022-03-19 / 00:53:00  ----->  The r2 score for the lasso regression model is 0.181
+2022-03-19 / 00:53:00  ----->  Finding the best hyperparameters for the KNeighbours regression machine learning model
+2022-03-19 / 00:53:00  ----->  The r2 score for the KNeighbors regression model is 0.157
+2022-03-19 / 00:53:00  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
+2022-03-19 / 00:53:05  ----->  The r2 score for the random forest regressor model is 0.299
+2022-03-19 / 00:53:05  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:53:10  ----->  The r2 score for the gradient boosting regressor model is 0.54
+2022-03-19 / 00:53:10  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:53:23  ----->  The r2 score for the xgboost regression model is 0.472
+2022-03-19 / 00:53:23  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:53:29  ----->  The r2 score for the ada boosting regressor model is 0.526
+2022-03-19 / 00:53:29  ----->  Creating a voting regressor using Ada boosting regressor, Gradient boosting regressor and xgboosting regressor
+2022-03-19 / 00:53:29  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:53:34  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:53:39  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:53:52  ----->  The r2 score for the voting regressor model is 0.527
+2022-03-19 / 00:53:52  ----->  Creating a voting regressor using Ada boosting regressor, Gradient boosting regressor and xgboosting regressor
+2022-03-19 / 00:53:52  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:53:58  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:54:02  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:54:15  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:54:20  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
+2022-03-19 / 00:54:25  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:54:46  ----->  The r2 score for the stacking regressor model is 0.514
+2022-03-19 / 00:54:46  ----->  *********found the best model for cluster************
+2022-03-19 / 00:54:46  ----->  *********finding best model for cluster************
+2022-03-19 / 00:54:46  ----->  Finding the best hyperparameters for the SVR machine learning model
+2022-03-19 / 00:54:48  ----->  The r2 score for the SVR model is 0.0
+2022-03-19 / 00:54:48  ----->  Finding the best hyperparameters for the ridge regression machine learning model
+2022-03-19 / 00:54:48  ----->  The r2 score for the ridge regression model is 0.096
+2022-03-19 / 00:54:48  ----->  Finding the best hyperparameters for the lasso regression machine learning model
+2022-03-19 / 00:54:48  ----->  The r2 score for the lasso regression model is 0.096
+2022-03-19 / 00:54:48  ----->  Finding the best hyperparameters for the KNeighbours regression machine learning model
+2022-03-19 / 00:54:48  ----->  The r2 score for the KNeighbors regression model is 0.231
+2022-03-19 / 00:54:48  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
+2022-03-19 / 00:54:53  ----->  The r2 score for the random forest regressor model is 0.498
+2022-03-19 / 00:54:53  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:54:58  ----->  The r2 score for the gradient boosting regressor model is 0.78
+2022-03-19 / 00:54:58  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:55:10  ----->  The r2 score for the xgboost regression model is 0.796
+2022-03-19 / 00:55:10  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:55:17  ----->  The r2 score for the ada boosting regressor model is 0.762
+2022-03-19 / 00:55:17  ----->  Creating a voting regressor using Ada boosting regressor, Gradient boosting regressor and xgboosting regressor
+2022-03-19 / 00:55:17  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:55:24  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:55:28  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:55:41  ----->  The r2 score for the voting regressor model is 0.799
+2022-03-19 / 00:55:41  ----->  Creating a voting regressor using Ada boosting regressor, Gradient boosting regressor and xgboosting regressor
+2022-03-19 / 00:55:41  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:55:48  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:55:53  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:56:05  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:56:12  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
+2022-03-19 / 00:56:16  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:56:37  ----->  The r2 score for the stacking regressor model is 0.738
+2022-03-19 / 00:56:37  ----->  *********found the best model for cluster************
+2022-03-19 / 00:56:37  ----->  *********finding best model for cluster************
+2022-03-19 / 00:56:37  ----->  Finding the best hyperparameters for the SVR machine learning model
+2022-03-19 / 00:56:38  ----->  The r2 score for the SVR model is -0.01
+2022-03-19 / 00:56:38  ----->  Finding the best hyperparameters for the ridge regression machine learning model
+2022-03-19 / 00:56:38  ----->  The r2 score for the ridge regression model is 0.21
+2022-03-19 / 00:56:38  ----->  Finding the best hyperparameters for the lasso regression machine learning model
+2022-03-19 / 00:56:38  ----->  The r2 score for the lasso regression model is 0.209
+2022-03-19 / 00:56:38  ----->  Finding the best hyperparameters for the KNeighbours regression machine learning model
+2022-03-19 / 00:56:39  ----->  The r2 score for the KNeighbors regression model is 0.188
+2022-03-19 / 00:56:39  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
+2022-03-19 / 00:56:43  ----->  The r2 score for the random forest regressor model is 0.423
+2022-03-19 / 00:56:43  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:56:47  ----->  The r2 score for the gradient boosting regressor model is 0.814
+2022-03-19 / 00:56:47  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:56:59  ----->  The r2 score for the xgboost regression model is 0.841
+2022-03-19 / 00:56:59  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:57:03  ----->  The r2 score for the ada boosting regressor model is 0.821
+2022-03-19 / 00:57:03  ----->  Creating a voting regressor using Ada boosting regressor, Gradient boosting regressor and xgboosting regressor
+2022-03-19 / 00:57:03  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:57:08  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:57:13  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:57:28  ----->  The r2 score for the voting regressor model is 0.833
+2022-03-19 / 00:57:28  ----->  Creating a voting regressor using Ada boosting regressor, Gradient boosting regressor and xgboosting regressor
+2022-03-19 / 00:57:28  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:57:32  ----->  Finding the best hyperparameters for the gradient boosting regressor model
+2022-03-19 / 00:57:37  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:57:49  ----->  Finding the best hyperparameters for the ada boosting regressor model
+2022-03-19 / 00:57:53  ----->  Finding the best hyperparameters for the random forest regressor machine learning model
+2022-03-19 / 00:57:58  ----->  Finding the best hyperparameters for the xgboost regressor machine learning algorithm
+2022-03-19 / 00:58:22  ----->  The r2 score for the stacking regressor model is 0.754
+2022-03-19 / 00:58:22  ----->  *********found the best model for cluster************

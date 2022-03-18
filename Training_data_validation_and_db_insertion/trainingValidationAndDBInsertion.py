@@ -1,7 +1,7 @@
-from Logging.logging import Logger
-from Training_raw_data_validation.rawDataValidation import rawDataValidation
-from Raw_Data_Transformation.RawDataTransformation import RawTrainingDataTransformation
 from DB_Operations.dataInsertionIntoDB import DBOperations
+from Logging.logging import Logger
+from Raw_Data_Transformation.RawDataTransformation import RawTrainingDataTransformation
+from Training_raw_data_validation.rawDataValidation import rawDataValidation
 
 
 class trainingValidationAndDBInsertion:
@@ -95,5 +95,3 @@ class trainingValidationAndDBInsertion:
             self.logger.log(self.file_object, f"Exception occurred in validation or database insertion step. Exception: {str(e)}")
             self.file_object.close()
 
-t = trainingValidationAndDBInsertion()
-t.training_validation_and_db_insertion()

@@ -8,7 +8,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OrdinalEncoder
+from sklearn.preprocessing import OrdinalEncoder
 
 from Logging.logging import Logger
 
@@ -384,26 +384,6 @@ class PreprocessingMethods:
                                 f"Exception occurred while removing the column with zero variance. Exception: {str(e)}")
             raise e
 
-    def replacingInfinityWithNull(self):
-
-        """
-        Description: This method is used to replace infinity values with null values.
-
-        Written By: Shivam Shinde
-
-        Version: 1.0
-
-        Revision: None
-        :return: None
-        """
-
-        try:
-            self.logger_obj.log(self.file_object,"Replacing infinity values with null values")
-            self.df.replace([np.inf, -np.inf], np.nan, inplace=True)
-
-        except  Exception as e:
-            self.logger_obj.log(self.file_object, "Exception occurred while replacing infinity values with null values")
-
     def splittingTheDataIntoTrainAndTest(self):
 
         """
@@ -468,7 +448,7 @@ class PreprocessingMethods:
             # creating a numerical pipeline for the numerical columns which needs the mean imputation and scaling
             num_pipeline2 = Pipeline([
                 ('mean_imputation', SimpleImputer(strategy="mean")),
-                ('std_scaling', StandardScaler())
+                # ('std_scaling', StandardScaler())
             ])
 
             # creating a categorical pipeline
@@ -496,7 +476,7 @@ class PreprocessingMethods:
                 os.makedirs("../PreprocessedDara/")
 
             XPreprocessed.to_csv("../PreprocessedDara/XPreprocessed.csv",header=True,index=False)
-            y.to_csv("../PreprocessedDara/yDataframe.csv",header=False,index=False)
+            y.to_csv("../PreprocessedDara/yDataframe.csv",header=True,index=False)
 
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while implementing the data preprocessing "
@@ -519,8 +499,8 @@ class PreprocessingMethods:
         """
         try:
             self.logger_obj.log(self.file_object,"Exporting preprocessed X and y")
-            X = pd.read_csv("../PreprocessedDara/XPreprocessed.csv")
-            y = pd.read_csv(("../PreprocessedDara/yDataframe.csv"))
+            X = pd.read_csv("../PreprocessedData/XPreprocessed.csv")
+            y = pd.read_csv(("../PreprocessedData/yDataframe.csv"))
 
             return X, y
         except Exception as e:

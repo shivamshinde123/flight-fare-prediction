@@ -62,10 +62,7 @@ class Preprocessor:
 
             # replacing the outliers with the nan values
             self.process_data.replacingOutliersWithNan()
-
-            # replacing infinity with null values
-            self.process_data.replacingInfinityWithNull()
-
+            
             # removing the feature column with zero variance
             self.process_data.removingColumnsWithZeroVariance()
 

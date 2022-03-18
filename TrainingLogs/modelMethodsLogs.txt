@@ -1,120 +1,42 @@
-2022-03-18 / 00:13:49  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:13:49  ----->  Model KMeans(n_clusters=4, random_state=38497) saved successfully in ../Models\ClusteringModel
-2022-03-18 / 00:16:11  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:16:11  ----->  Model SVR(C=1, kernel='sigmoid') saved successfully in ../Models\ModelForClusterNo0
-2022-03-18 / 00:17:17  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:17:18  ----->  Model StackingRegressor(estimators=[('svr', SVR(C=7, kernel='poly')),
-                              ('rr', Ridge(alpha=10, random_state=90345)),
-                              ('rfr',
-                               RandomForestRegressor(bootstrap=False,
-                                                     criterion='poisson',
-                                                     max_depth=3,
-                                                     max_features='log2',
-                                                     n_estimators=300,
-                                                     n_jobs=-1,
-                                                     random_state=2394))],
-                  final_estimator=XGBRegressor(base_score=0.5, booster='gbtree',
-                                               colsample_bylevel=1,
-                                               colsample_bynode=1,
-                                               co...
-                                               gamma=0.4, gpu_id=-1,
-                                               importance_type=None,
-                                               interaction_constraints='',
-                                               learning_rate=0.05,
-                                               max_delta_step=0, max_depth=5,
-                                               min_child_weight=7, missing=nan,
-                                               monotone_constraints='()',
-                                               n_estimators=100, n_jobs=8,
-                                               num_parallel_tree=1,
-                                               predictor='auto', random_state=0,
-                                               reg_alpha=0, reg_lambda=1,
-                                               scale_pos_weight=1, subsample=1,
-                                               tree_method='exact',
-                                               validate_parameters=1,
-                                               verbosity=None)) saved successfully in ../Models\ModelForClusterNo3
-2022-03-18 / 00:18:54  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:18:54  ----->  Model SVR(C=10) saved successfully in ../Models\ModelForClusterNo1
-2022-03-18 / 00:20:02  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:20:02  ----->  Model SVR(C=2, kernel='poly') saved successfully in ../Models\ModelForClusterNo2
-2022-03-18 / 00:21:11  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:21:11  ----->  Model KMeans(n_clusters=4, random_state=38497) saved successfully in ../Models\ClusteringModel
-2022-03-18 / 00:22:42  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:22:42  ----->  Model XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
-             colsample_bynode=1, colsample_bytree=0.3, enable_categorical=False,
+2022-03-19 / 00:50:21  ----->  Saving the created model into the python pickle file
+2022-03-19 / 00:50:21  ----->  Model KMeans(n_clusters=4, random_state=38497) saved successfully in ../Models\ClusteringModel
+2022-03-19 / 00:52:57  ----->  Saving the created model into the python pickle file
+2022-03-19 / 00:52:57  ----->  Model GradientBoostingRegressor(learning_rate=0.30000000000000004, n_estimators=200,
+                          random_state=239084) saved successfully in ../Models\ModelForClusterNo0
+2022-03-19 / 00:54:46  ----->  Saving the created model into the python pickle file
+2022-03-19 / 00:54:46  ----->  Model GradientBoostingRegressor(n_estimators=300, random_state=239084) saved successfully in ../Models\ModelForClusterNo2
+2022-03-19 / 00:56:37  ----->  Saving the created model into the python pickle file
+2022-03-19 / 00:56:37  ----->  Model VotingRegressor(estimators=[('abr',
+                             GradientBoostingRegressor(random_state=239084)),
+                            ('gbr',
+                             GradientBoostingRegressor(n_estimators=300,
+                                                       random_state=239084)),
+                            ('xgb',
+                             XGBRegressor(base_score=0.5, booster='gbtree',
+                                          colsample_bylevel=1,
+                                          colsample_bynode=1,
+                                          colsample_bytree=1,
+                                          enable_categorical=False, gamma=0.0,
+                                          gpu_id=-1, importance_type=None,
+                                          interaction_constraints='',
+                                          learning_rate=0.300000012,
+                                          max_delta_step=0, max_depth=5,
+                                          min_child_weight=1, missing=nan,
+                                          monotone_constraints='()',
+                                          n_estimators=100, n_jobs=8,
+                                          num_parallel_tree=1, predictor='auto',
+                                          random_state=0, reg_alpha=0,
+                                          reg_lambda=1, scale_pos_weight=1,
+                                          subsample=1, tree_method='exact',
+                                          validate_parameters=1,
+                                          verbosity=None))]) saved successfully in ../Models\ModelForClusterNo3
+2022-03-19 / 00:58:22  ----->  Saving the created model into the python pickle file
+2022-03-19 / 00:58:22  ----->  Model XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+             colsample_bynode=1, colsample_bytree=1, enable_categorical=False,
              gamma=0.0, gpu_id=-1, importance_type=None,
-             interaction_constraints='', learning_rate=0.3, max_delta_step=0,
-             max_depth=5, min_child_weight=7, missing=nan,
-             monotone_constraints='()', n_estimators=100, n_jobs=8,
-             num_parallel_tree=1, predictor='auto', random_state=0, reg_alpha=0,
-             reg_lambda=1, scale_pos_weight=1, subsample=1, tree_method='exact',
-             validate_parameters=1, verbosity=None) saved successfully in ../Models\ModelForClusterNo0
-2022-03-18 / 00:23:47  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:23:48  ----->  Model StackingRegressor(estimators=[('svr', SVR(C=4, kernel='poly')),
-                              ('rr', Ridge(alpha=9, random_state=90345)),
-                              ('rfr',
-                               RandomForestRegressor(bootstrap=False,
-                                                     criterion='poisson',
-                                                     max_depth=2,
-                                                     max_features='sqrt',
-                                                     n_estimators=500,
-                                                     n_jobs=-1,
-                                                     random_state=2394))],
-                  final_estimator=XGBRegressor(base_score=0.5, booster='gbtree',
-                                               colsample_bylevel=1,
-                                               colsample_bynode=1,
-                                               col...
-                                               gamma=0.1, gpu_id=-1,
-                                               importance_type=None,
-                                               interaction_constraints='',
-                                               learning_rate=0.05,
-                                               max_delta_step=0, max_depth=4,
-                                               min_child_weight=5, missing=nan,
-                                               monotone_constraints='()',
-                                               n_estimators=100, n_jobs=8,
-                                               num_parallel_tree=1,
-                                               predictor='auto', random_state=0,
-                                               reg_alpha=0, reg_lambda=1,
-                                               scale_pos_weight=1, subsample=1,
-                                               tree_method='exact',
-                                               validate_parameters=1,
-                                               verbosity=None)) saved successfully in ../Models\ModelForClusterNo3
-2022-03-18 / 00:24:51  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:24:51  ----->  Model XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
-             colsample_bynode=1, colsample_bytree=0.7, enable_categorical=False,
-             gamma=0.2, gpu_id=-1, importance_type=None,
-             interaction_constraints='', learning_rate=0.05, max_delta_step=0,
-             max_depth=5, min_child_weight=5, missing=nan,
+             interaction_constraints='', learning_rate=0.300000012,
+             max_delta_step=0, max_depth=5, min_child_weight=1, missing=nan,
              monotone_constraints='()', n_estimators=100, n_jobs=8,
              num_parallel_tree=1, predictor='auto', random_state=0, reg_alpha=0,
              reg_lambda=1, scale_pos_weight=1, subsample=1, tree_method='exact',
              validate_parameters=1, verbosity=None) saved successfully in ../Models\ModelForClusterNo1
-2022-03-18 / 00:25:53  ----->  Saving the created model into the python pickle file
-2022-03-18 / 00:25:54  ----->  Model StackingRegressor(estimators=[('svr', SVR(C=1, kernel='linear')),
-                              ('rr',
-                               Ridge(alpha=8, random_state=90345,
-                                     solver='sparse_cg')),
-                              ('rfr',
-                               RandomForestRegressor(bootstrap=False,
-                                                     criterion='poisson',
-                                                     max_depth=2,
-                                                     max_features='sqrt',
-                                                     n_jobs=-1,
-                                                     random_state=2394))],
-                  final_estimator=XGBRegressor(base_score=0.5, booster='gbtree',
-                                               colsample_bylevel=1,
-                                               colsample_bynode=1...
-                                               gamma=0.4, gpu_id=-1,
-                                               importance_type=None,
-                                               interaction_constraints='',
-                                               learning_rate=0.05,
-                                               max_delta_step=0, max_depth=6,
-                                               min_child_weight=3, missing=nan,
-                                               monotone_constraints='()',
-                                               n_estimators=100, n_jobs=8,
-                                               num_parallel_tree=1,
-                                               predictor='auto', random_state=0,
-                                               reg_alpha=0, reg_lambda=1,
-                                               scale_pos_weight=1, subsample=1,
-                                               tree_method='exact',
-                                               validate_parameters=1,
-                                               verbosity=None)) saved successfully in ../Models\ModelForClusterNo2
