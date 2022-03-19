@@ -437,7 +437,7 @@ class PreprocessingMethods:
 
         Revision: None
 
-        :return: full sklearn pipeline created
+        :return: None
         """
         try:
             # splitting X and y into training and testing data
@@ -482,7 +482,6 @@ class PreprocessingMethods:
             XPreprocessed.to_csv("../Training_PreprocessedData/XPreprocessed.csv",header=True,index=False)
             y.to_csv("../Training_PreprocessedData/yDataframe.csv",header=True,index=False)
 
-            return full_pipeline
 
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while implementing the data preprocessing "
