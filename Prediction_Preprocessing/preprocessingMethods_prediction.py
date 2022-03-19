@@ -15,8 +15,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 class PreprocessingMethodsPrediction:
     """
-    Description: This class will contain the methods which will be used for the data transformation
-    before the date clustering and model training
+    Description: This class will contain the methods which will be used for the prediction data transformation
 
     Written By: Shivam Shinde
 
@@ -372,7 +371,7 @@ class PreprocessingMethodsPrediction:
 
         Revision: None
 
-        :return: Preprocessed dataframe
+        :return: None
         """
         try:
             # creating numerical pipeline for the already encoded categorical columns (Since they are encoded, they
@@ -430,7 +429,7 @@ class PreprocessingMethodsPrediction:
 
         Revision: None
 
-        :return:  None
+        :return:  Preprocessed predictin data
         """
         try:
             self.logger_obj.log(self.file_object,"Exporting preprocessed prediction data")
