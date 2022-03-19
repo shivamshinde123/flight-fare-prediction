@@ -1,0 +1,2 @@
+2022-03-19 / 18:18:24  ----->  Enter the method used for the validation of number of columns in the data
+2022-03-19 / 18:18:24  ----->  Validation for number of columns in the data passed!

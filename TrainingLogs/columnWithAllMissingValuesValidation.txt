@@ -1,8 +1,2 @@
-2022-03-12 / 12:07:45  ----->  Validation of files containing the columns with all missing values started
-2022-03-12 / 12:07:45  ----->  There are no columns with all missing values in the file flight_fare_03102022_133250.csv provided by the client
-2022-03-18 / 00:47:06  ----->  Validation of files containing the columns with all missing values started
-2022-03-18 / 00:47:06  ----->  There are no columns with all missing values in the file flight_fare_03102022_133250.csv provided by the client
-2022-03-18 / 00:50:50  ----->  Validation of files containing the columns with all missing values started
-2022-03-18 / 00:50:50  ----->  There are no columns with all missing values in the file flight_fare_03102022_133250.csv provided by the client
-2022-03-18 / 00:52:10  ----->  Validation of files containing the columns with all missing values started
-2022-03-18 / 00:52:10  ----->  There are no columns with all missing values in the file flight_fare_03102022_133250.csv provided by the client
+2022-03-19 / 17:32:02  ----->  Validation of files containing the columns with all missing values started
+2022-03-19 / 17:32:02  ----->  There are no columns with all missing values in the file flight_fare_03102022_133250.csv provided by the client

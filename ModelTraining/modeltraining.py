@@ -3,9 +3,9 @@ import warnings
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from Clustering.clustering import Cluster
 from Logging.logging import Logger
-from Preprocessing.preprocessor import Preprocessor
+from Training_Clustering.clustering import Cluster
+from Training_Preprocessing.preprocessor import Preprocessor
 from model_methods.model_methods import modelMethods
 from model_tuner.modeltuner import modelTuner
 
@@ -39,6 +39,7 @@ class modelTraining:
         Version: 1.0
 
         Revision: None
+        
         :return: None
         """
         try:
@@ -46,19 +47,19 @@ class modelTraining:
                 self.file_obj, "*************MACHINE LEARNING MODEL TRAINING FOR ALL THE CLUSTERS STARTED**************")
 
             # preprocessing the obtained data
-            self.logger.log(self.file_obj, "Preprocessing of the data started!!")
+            self.logger.log(self.file_obj, "Training_Preprocessing of the data started!!")
             p = Preprocessor()
             p.preprocess()
-            X = pd.read_csv("../PreprocessedDara/XPreprocessed.csv")
-            y = pd.read_csv("../PreprocessedDara/yDataframe.csv")
-            self.logger.log(self.file_obj, "Preprocessing of the data completed!!")
+            X = pd.read_csv("../Training_PreprocessedData/XPreprocessed.csv")
+            y = pd.read_csv("../Training_PreprocessedData/yDataframe.csv")
+            self.logger.log(self.file_obj, "Training_Preprocessing of the data completed!!")
 
             # clustering the training and testing data into the same number of clusters
-            self.logger.log(self.file_obj, "Clustering of the data started!!")
+            self.logger.log(self.file_obj, "Training_Clustering of the data started!!")
             c = Cluster()
             noOfClusters = c.createElbowPlot(X)
             X = c.createCluster(X, noOfClusters)
-            self.logger.log(self.file_obj, "Clustering of the data completed!!")
+            self.logger.log(self.file_obj, "Training_Clustering of the data completed!!")
 
             # Adding one more column to X i.e. dependent feature
             X['Price'] = y
@@ -104,5 +105,3 @@ class modelTraining:
 
 
 
-m = modelTraining()
-m.trainingModels()

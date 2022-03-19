@@ -1,7 +1,7 @@
 import warnings
 
 from Logging.logging import Logger
-from Preprocessing.preprocessingMethods import PreprocessingMethods
+from Training_Preprocessing.preprocessingMethods import PreprocessingMethods
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -9,7 +9,6 @@ class Preprocessor:
     """
     Description: This class will contain a method which will implement all the preprocessing techniques on the date
     to make it into clean data
-
 
     Written By: Shivam Shinde
 
@@ -32,6 +31,7 @@ class Preprocessor:
         Version: 1.0
 
         Revision: None
+
         :return: None
         """
 
@@ -77,6 +77,8 @@ class Preprocessor:
 
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while preprocessing the data. Exception: {str(e)}")
+            raise e
+
 
 
 

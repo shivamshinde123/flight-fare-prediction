@@ -74,6 +74,7 @@ class modelMethods:
         Revision: None
 
         :param filename: Name of the model that needs to be saved
+
         :return: Model
         """
         try:
@@ -104,6 +105,7 @@ class modelMethods:
         Revision: None
 
         :param clusterNumber: Cluster number
+        
         :return: Model name
         """
 

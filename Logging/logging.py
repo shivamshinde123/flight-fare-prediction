@@ -20,8 +20,12 @@ class Logger:
             Version: 1.0
             Revision: None
         """
-        self.now = datetime.now()
-        self.date = self.now.date()
-        self.time = self.now.strftime("%H:%M:%S")
+        try:
+            self.now = datetime.now()
+            self.date = self.now.date()
+            self.time = self.now.strftime("%H:%M:%S")
 
-        file_object.write(str(self.date) + " / " + str(self.time) + "  ----->  " + str(log_message) + "\n")
+            file_object.write(str(self.date) + " / " + str(self.time) + "  ----->  " + str(log_message) + "\n")
+
+        except Exception as e:
+            raise e

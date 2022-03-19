@@ -1,6 +1,6 @@
-from DB_Operations.dataInsertionIntoDB import DBOperations
 from Logging.logging import Logger
-from Raw_Data_Transformation.RawDataTransformation import RawTrainingDataTransformation
+from Training_DB_Operations.dataInsertionIntoDB import DBOperations
+from Training_Raw_Data_Transformation.RawDataTransformation import RawTrainingDataTransformation
 from Training_raw_data_validation.rawDataValidation import rawDataValidation
 
 
@@ -8,9 +8,13 @@ class trainingValidationAndDBInsertion:
 
     """
 
-    Description: This class is used to validate the data received from the client and for the insertion of validated good data into the database.
+    Description: This class is used to validate the data received from the client and for the insertion of validated
+    good data into the database.
+
     Written By: Shivam Shinde
+
     Version: 1.0
+
     Revision: None
 
     """
@@ -27,10 +31,15 @@ class trainingValidationAndDBInsertion:
 
         """
 
-        Description: This method is used to validate the training data provided by the client and its insertion into the database after its validation.
+        Description: This method is used to validate the training data provided by the client and its insertion into
+        the database after its validation.
+
         Written By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
+
         :return: None
 
         """
@@ -94,4 +103,4 @@ class trainingValidationAndDBInsertion:
         except  Exception as e:
             self.logger.log(self.file_object, f"Exception occurred in validation or database insertion step. Exception: {str(e)}")
             self.file_object.close()
-
+            raise e

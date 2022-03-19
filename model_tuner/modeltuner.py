@@ -50,6 +50,7 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
 
         :return: tuned SVR model
@@ -92,6 +93,7 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
 
         :return: tuned ridge regression model
@@ -136,6 +138,7 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
 
         :return: tuned lasso regression model
@@ -180,6 +183,7 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
 
         :return: tuned KNeighbour regressor model
@@ -222,6 +226,7 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
 
         :return: tuned random forest regressor model
@@ -271,6 +276,7 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
 
         :return: tuned gradient boost regressor model
@@ -315,6 +321,7 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
 
         :return: tuned xgboost regressor model
@@ -357,6 +364,7 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
 
         :return: tuned ada boosting regressor model
@@ -402,7 +410,9 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
+
         :return: voting regressor machine learning model
         """
         try:
@@ -424,7 +434,7 @@ class modelTuner:
         except Exception as e:
             self.logger.log(self.file_obj, f"Exception occurred while creating voting regressor machine "
                                            f"learning model. Exception: {str(e)}")
-
+            raise e
 
     def createStackingRegressor(self, xtrain, ytrain):
 
@@ -480,9 +490,13 @@ class modelTuner:
         Revision: None
 
         :param xtrain: training independent feature data
+
         :param ytrain: training dependent feature data
+
         :param xtest: testing independent feature data
+
         :param ytest: testing dependent feature data
+        
         :return: best model that fits the concerned cluster data
         """
 

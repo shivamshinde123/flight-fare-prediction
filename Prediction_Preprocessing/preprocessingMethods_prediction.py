@@ -6,15 +6,14 @@ import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
-from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn.preprocessing import OrdinalEncoder, StandardScaler
 
 from Logging.logging import Logger
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-class PreprocessingMethods:
+class PreprocessingMethodsPrediction:
     """
     Description: This class will contain the methods which will be used for the data transformation
     before the date clustering and model training
@@ -27,9 +26,9 @@ class PreprocessingMethods:
     """
 
     def __init__(self):
-        self.df = pd.read_csv("../fileFromDb/inputFile.csv")
+        self.df = pd.read_csv("../Prediction_fileFromDb/inputFile.csv")
         self.logger_obj = Logger()
-        self.file_object = open("../TrainingLogs/preprocessingLogs.txt", "a+")
+        self.file_object = open("../PredictionLogs/preprocessingLogs.txt", "a+")
 
     def removeUnnecessaryFeatureColumn(self, column_name):
 
@@ -68,6 +67,7 @@ class PreprocessingMethods:
         Revision: None
 
         :param column_name: Name of the column for which the datatype needs to be changed to datetime
+
         :return: None
 
         """
@@ -96,7 +96,8 @@ class PreprocessingMethods:
 
         Revision: None
 
-        :param column_name: Name of datetime column that needs to splitted into 3 columns
+        :param column_name: Name of datetime column that needs to split into 3 columns
+
         :return: None
 
         """
@@ -122,9 +123,9 @@ class PreprocessingMethods:
     def convertDurationIntoMinutes(self):
 
         """
-        Description: This method is used to create a new column named Flight_Duration which contains the flight durarion
+        Description: This method is used to create a new column named Flight_Duration which contains the flight duration
         in minutes from the already present Duration column which has duration in the hours and minutes. Function also
-        removes the original Duration column after removing the Flight_Duration column
+        removes the original Duration column after creating the Flight_Duration column
 
         Written By: Shivam Shinde
 
@@ -137,7 +138,7 @@ class PreprocessingMethods:
         """
 
         try:
-            # creating the three possible pattern for the values in the featue column containing duration in hours and
+            # creating the three possible pattern for the values in the feature column containing duration in hours and
             # minutes
             pattern1 = re.compile(r"(\d+)(h|m)(\s)(\d*)(h|m)*")
             pattern2 = re.compile(r"(\s*)(\d+)(h)")
@@ -237,32 +238,6 @@ class PreprocessingMethods:
                                 f"Exception occurred while removing duplicate rows from the dataframe. Exception: {str(e)}")
             raise e
 
-    def splittingTheDataframeIntoXandy(self):
-
-        """
-        Description: This method is used to split the dataframe into independent and dependent features
-
-        Written By: Shivam Shinde
-
-        Version: 1.0
-
-        Revision: None
-
-        :return: X (dataframe with independent features) and y (dataframe with target feature)
-        """
-
-        try:
-            # splitting the dataframe into the independent features (X) and dependent features (y)
-            X = self.df.drop(columns=['Price'], axis=1)
-            y = self.df['Price']
-            return X, y
-
-        except Exception as e:
-            self.logger_obj.log(self.file_object,
-                                f"Exception occurred while splitting the dataframe into independent and dependent "
-                                f"features. Exception: {str(e)}")
-            raise e
-
     def findingNamesOfNumericalAndCategoricalColumns(self):
 
         """
@@ -279,14 +254,11 @@ class PreprocessingMethods:
         """
 
         try:
-            # splitting the dataframe into the independent features (X) and dependent features (y)
-            X, y = self.splittingTheDataframeIntoXandy()
-
             # creating a list of names of the categorical features
-            categorical_features = [feature for feature in X.columns if X[feature].dtypes == 'O']
+            categorical_features = [feature for feature in self.df.columns if self.df[feature].dtypes == 'O']
 
             # creating a list of names of the numerical columns
-            numerical_features = [feature for feature in X.columns if feature not in categorical_features]
+            numerical_features = [feature for feature in self.df.columns if feature not in categorical_features]
 
             # returning the lists containing the names of categorical and numerical columns
             return categorical_features, numerical_features
@@ -367,6 +339,7 @@ class PreprocessingMethods:
         Version: 1.0
 
         Revision: None
+
         :return: None
         """
 
@@ -382,40 +355,6 @@ class PreprocessingMethods:
         except Exception as e:
             self.logger_obj.log(self.file_object,
                                 f"Exception occurred while removing the column with zero variance. Exception: {str(e)}")
-            raise e
-
-    def splittingTheDataIntoTrainAndTest(self):
-
-        """
-        Description: This method is used to split the dataframe into train and test dataframes
-
-        Written By: Shivam Shinde
-
-        Version: 1.0
-
-        Revision: None
-
-        Returns
-                 -  X_train (independent features data for training)
-
-                 -  X_test (independent features data for testing)
-
-                 -  y_train (dependent feature data for training)
-
-                 -  y_test (dependent feature data for testing)
-        """
-
-        try:
-            # splitting the dataframe into the independent features (X) and dependent features (y)
-            X, y = self.splittingTheDataframeIntoXandy()
-
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=199)
-            self.logger_obj.log(self.file_object, "Split the data into training data and testing data")
-            return X_train, X_test, y_train, y_test
-
-        except Exception as e:
-            self.logger_obj.log(self.file_object,
-                                "Exception occurred while splitting the data into training and testing data")
             raise e
 
     def transformPipeline(self):
@@ -436,9 +375,6 @@ class PreprocessingMethods:
         :return: Preprocessed dataframe
         """
         try:
-            # splitting X and y into training and testing data
-            X, y = self.splittingTheDataframeIntoXandy()
-
             # creating numerical pipeline for the already encoded categorical columns (Since they are encoded, they
             #  have been named as numeric for the pipeline)
             num_pipeline1 = Pipeline([
@@ -448,7 +384,7 @@ class PreprocessingMethods:
             # creating a numerical pipeline for the numerical columns which needs the mean imputation and scaling
             num_pipeline2 = Pipeline([
                 ('mean_imputation', SimpleImputer(strategy="mean")),
-                # ('std_scaling', StandardScaler())
+                ('std_scaling', StandardScaler())
             ])
 
             # creating a categorical pipeline
@@ -465,18 +401,16 @@ class PreprocessingMethods:
             ])
 
             # fitting and transforming the X using full_pipeline and then returning it
-            XPreprocessed = pd.DataFrame(full_pipeline.fit_transform(X),
+            data = pd.DataFrame(full_pipeline.fit_transform(self.df),
                                          columns=["Total_Stops", "Day_of_Journey", "Month_of_Journey",
                                                   "Flight_Duration",
                                                   "Airline", "Source", "Destination", "Additional_Info"])
 
-            yDataframe = pd.DataFrame(y,columns=['Price'])
+            if not os.path.exists("../Prediction_PreprocessedData/"):
+                os.makedirs("../Prediction_PreprocessedData/")
 
-            if not os.path.exists("../PreprocessedDara/"):
-                os.makedirs("../PreprocessedDara/")
+            data.to_csv("../Prediction_PreprocessedData/preprocessedPredictionData.csv",header=True,index=False)
 
-            XPreprocessed.to_csv("../PreprocessedDara/XPreprocessed.csv",header=True,index=False)
-            y.to_csv("../PreprocessedDara/yDataframe.csv",header=True,index=False)
 
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while implementing the data preprocessing "
@@ -485,7 +419,7 @@ class PreprocessingMethods:
             raise e
 
 
-    def getPreprocessedXAndy(self):
+    def getPreprocessedPredictionData(self):
 
         """
         Description: This method is used to get the preprocessed X and y
@@ -495,13 +429,14 @@ class PreprocessingMethods:
         Version: 1.0
 
         Revision: None
+
         :return:  None
         """
         try:
-            self.logger_obj.log(self.file_object,"Exporting preprocessed X and y")
-            X = pd.read_csv("../PreprocessedData/XPreprocessed.csv")
-            y = pd.read_csv(("../PreprocessedData/yDataframe.csv"))
+            self.logger_obj.log(self.file_object,"Exporting preprocessed prediction data")
+            data = pd.read_csv("../Prediction_PreprocessedData/preprocessedPredictionData.csv")
 
-            return X, y
+            return data
         except Exception as e:
-            self.logger_obj.log(self.file_object, "Exception occurred while exporting the preprocessed X and y")
+            self.logger_obj.log(self.file_object, "Exception occurred while exporting the preprocessed prediction data")
+            raise e

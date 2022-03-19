@@ -8,7 +8,7 @@ from model_methods.model_methods import modelMethods
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-class Cluster:
+class ClusterPrediction:
 
     """
     Description: This method is used to assign a cluster to every observation in the data
@@ -22,7 +22,7 @@ class Cluster:
 
     def __init__(self):
         self.logger = Logger()
-        self.file_object = open("../TrainingLogs/clusteringLogs.txt","a+")
+        self.file_object = open("../PredictionLogs/clusteringLogs.txt", "a+")
 
 
     def createElbowPlot(self,data):
@@ -38,10 +38,11 @@ class Cluster:
         Revision: None
 
         :param data: The data which need to be clustered
+
         :return: Ideal number of clusters
         """
 
-        self.logger.log(self.file_object, "Creating an elbow plot using the KMeans clustering algorithm")
+        self.logger.log(self.file_object, "Finding the optimal number of clusters into which the data can be split")
 
         wcss = []
         try:
@@ -50,14 +51,6 @@ class Cluster:
                 kmeans = KMeans(n_clusters=i, init="k-means++",random_state=345)
                 kmeans.fit(data)
                 wcss.append(kmeans.inertia_)
-
-            # plotting the graph using 9 wcss values for the cluster numbers from 2 to 11
-            # sns.set_style("darkgrid")
-            # plt.plot(range(2,11),wcss)
-            # plt.title("Elbow Plot")
-            # plt.xlabel("Number of clusters")
-            # plt.ylabel("wcss")
-            # plt.savefig("ElbowPlot.png")
 
             # finding the optimal number of clusters for the data
             kn = KneeLocator(range(2,11),wcss, curve="convex",direction="decreasing")
@@ -82,7 +75,9 @@ class Cluster:
         Revision: None
 
         :param data: The data on which the clustering needs to be performed
+
         :param numOfClusters: Ideal number of clusters into which the data needs to be clustered
+
         :return: Data having an additional column containing the cluster number for each of the observation in the data
         """
 

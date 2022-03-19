@@ -1,0 +1,6 @@
+2022-03-19 / 18:18:24  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-19 / 18:18:25  ----->  Table named goodRawDataPrediction created successfully in the database goodRawDataDbPrediction
+2022-03-19 / 18:18:25  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-19 / 18:18:25  ----->  flight_fare_26112022_120000.csv File loaded successfully!!
+2022-03-19 / 18:25:24  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-19 / 18:25:24  ----->  File exported successfully!!

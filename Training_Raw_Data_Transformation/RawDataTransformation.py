@@ -1,5 +1,7 @@
 import os
+
 import pandas as pd
+
 from Logging.logging import Logger
 
 
@@ -25,10 +27,14 @@ class RawTrainingDataTransformation:
 
         """
 
-        Description: This method is used to add the quotes to the columns which contains the string values. This is done so that there won't be any exception while adding this data to the database
+        Description: This method is used to add the quotes to the columns which contains the string values. This is
+        done so that there won't be any exception while adding this data to the database
+
         Written By: Shivam Shinde
         Version: 1.0
+
         Revision: None
+
         :return: None
 
         """
@@ -54,9 +60,13 @@ class RawTrainingDataTransformation:
         """
 
         Description: This method is used to remove the hyphen from the column names of data.
+
         Written By:  Shivam Shinde
+
         Version: 1.0
+
         Revision: None
+
         :return: None
 
         """

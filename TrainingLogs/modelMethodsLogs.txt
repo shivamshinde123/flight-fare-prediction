@@ -1,13 +1,12 @@
-2022-03-19 / 00:50:21  ----->  Saving the created model into the python pickle file
-2022-03-19 / 00:50:21  ----->  Model KMeans(n_clusters=4, random_state=38497) saved successfully in ../Models\ClusteringModel
-2022-03-19 / 00:52:57  ----->  Saving the created model into the python pickle file
-2022-03-19 / 00:52:57  ----->  Model GradientBoostingRegressor(learning_rate=0.30000000000000004, n_estimators=200,
+2022-03-20 / 00:57:21  ----->  Saving the created model into the python pickle file
+2022-03-20 / 00:57:21  ----->  Model KMeans(n_clusters=4, random_state=38497) saved successfully in ../Models\ClusteringModel
+2022-03-20 / 00:59:12  ----->  Saving the created model into the python pickle file
+2022-03-20 / 00:59:12  ----->  Model GradientBoostingRegressor(learning_rate=0.2, n_estimators=300,
                           random_state=239084) saved successfully in ../Models\ModelForClusterNo0
-2022-03-19 / 00:54:46  ----->  Saving the created model into the python pickle file
-2022-03-19 / 00:54:46  ----->  Model GradientBoostingRegressor(n_estimators=300, random_state=239084) saved successfully in ../Models\ModelForClusterNo2
-2022-03-19 / 00:56:37  ----->  Saving the created model into the python pickle file
-2022-03-19 / 00:56:37  ----->  Model VotingRegressor(estimators=[('abr',
-                             GradientBoostingRegressor(random_state=239084)),
+2022-03-20 / 01:00:37  ----->  Saving the created model into the python pickle file
+2022-03-20 / 01:00:37  ----->  Model VotingRegressor(estimators=[('abr',
+                             GradientBoostingRegressor(n_estimators=300,
+                                                       random_state=239084)),
                             ('gbr',
                              GradientBoostingRegressor(n_estimators=300,
                                                        random_state=239084)),
@@ -30,13 +29,56 @@
                                           subsample=1, tree_method='exact',
                                           validate_parameters=1,
                                           verbosity=None))]) saved successfully in ../Models\ModelForClusterNo3
-2022-03-19 / 00:58:22  ----->  Saving the created model into the python pickle file
-2022-03-19 / 00:58:22  ----->  Model XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
-             colsample_bynode=1, colsample_bytree=1, enable_categorical=False,
-             gamma=0.0, gpu_id=-1, importance_type=None,
-             interaction_constraints='', learning_rate=0.300000012,
-             max_delta_step=0, max_depth=5, min_child_weight=1, missing=nan,
-             monotone_constraints='()', n_estimators=100, n_jobs=8,
-             num_parallel_tree=1, predictor='auto', random_state=0, reg_alpha=0,
-             reg_lambda=1, scale_pos_weight=1, subsample=1, tree_method='exact',
-             validate_parameters=1, verbosity=None) saved successfully in ../Models\ModelForClusterNo1
+2022-03-20 / 01:02:19  ----->  Saving the created model into the python pickle file
+2022-03-20 / 01:02:19  ----->  Model VotingRegressor(estimators=[('abr',
+                             GradientBoostingRegressor(learning_rate=0.30000000000000004,
+                                                       n_estimators=200,
+                                                       random_state=239084)),
+                            ('gbr',
+                             GradientBoostingRegressor(learning_rate=0.30000000000000004,
+                                                       n_estimators=200,
+                                                       random_state=239084)),
+                            ('xgb',
+                             XGBRegressor(base_score=0.5, booster='gbtree',
+                                          colsample_bylevel=1,
+                                          colsample_bynode=1,
+                                          colsample_bytree=1,...
+                                          gpu_id=-1, importance_type=None,
+                                          interaction_constraints='',
+                                          learning_rate=0.300000012,
+                                          max_delta_step=0, max_depth=5,
+                                          min_child_weight=1, missing=nan,
+                                          monotone_constraints='()',
+                                          n_estimators=100, n_jobs=8,
+                                          num_parallel_tree=1, predictor='auto',
+                                          random_state=0, reg_alpha=0,
+                                          reg_lambda=1, scale_pos_weight=1,
+                                          subsample=1, tree_method='exact',
+                                          validate_parameters=1,
+                                          verbosity=None))]) saved successfully in ../Models\ModelForClusterNo1
+2022-03-20 / 01:04:26  ----->  Saving the created model into the python pickle file
+2022-03-20 / 01:04:27  ----->  Model VotingRegressor(estimators=[('abr',
+                             GradientBoostingRegressor(learning_rate=0.2,
+                                                       n_estimators=200,
+                                                       random_state=239084)),
+                            ('gbr',
+                             GradientBoostingRegressor(random_state=239084)),
+                            ('xgb',
+                             XGBRegressor(base_score=0.5, booster='gbtree',
+                                          colsample_bylevel=1,
+                                          colsample_bynode=1,
+                                          colsample_bytree=1,
+                                          enable_categorical=False, gamma=0.0,
+                                          gpu_id=-1, importance_type=None,
+                                          interaction_constraints='',
+                                          learning_rate=0.300000012,
+                                          max_delta_step=0, max_depth=5,
+                                          min_child_weight=1, missing=nan,
+                                          monotone_constraints='()',
+                                          n_estimators=100, n_jobs=8,
+                                          num_parallel_tree=1, predictor='auto',
+                                          random_state=0, reg_alpha=0,
+                                          reg_lambda=1, scale_pos_weight=1,
+                                          subsample=1, tree_method='exact',
+                                          validate_parameters=1,
+                                          verbosity=None))]) saved successfully in ../Models\ModelForClusterNo2

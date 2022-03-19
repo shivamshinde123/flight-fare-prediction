@@ -1,8 +1,1 @@
-2022-03-12 / 12:07:44  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11
-2022-03-18 / 00:35:49  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11
-2022-03-18 / 00:39:05  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11
-2022-03-18 / 00:40:52  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11
-2022-03-18 / 00:41:41  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11
-2022-03-18 / 00:46:58  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11
-2022-03-18 / 00:50:47  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11
-2022-03-18 / 00:52:10  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11
+2022-03-19 / 17:32:02  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 11

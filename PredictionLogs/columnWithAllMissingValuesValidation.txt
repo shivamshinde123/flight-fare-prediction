@@ -1,0 +1,2 @@
+2022-03-19 / 18:18:24  ----->  Validation of files containing the columns with all missing values started
+2022-03-19 / 18:18:24  ----->  There are no columns with all missing values in the file flight_fare_26112022_120000.csv provided by the client

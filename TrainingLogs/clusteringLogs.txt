@@ -1,4 +1,4 @@
-2022-03-19 / 00:50:18  ----->  Creating an elbow plot using the KMeans clustering algorithm
-2022-03-19 / 00:50:20  ----->  Optimal number of clusters for the provided data is 4
-2022-03-19 / 00:50:20  ----->  Performing the clustering on the data
-2022-03-19 / 00:50:21  ----->  Successfully created 4 clusters for the data
+2022-03-20 / 00:57:19  ----->  Finding the optimal number of clustetrs into which the data can be split
+2022-03-20 / 00:57:21  ----->  Optimal number of clusters for the provided data is 4
+2022-03-20 / 00:57:21  ----->  Performing the clustering on the data
+2022-03-20 / 00:57:21  ----->  Successfully created 4 clusters for the data

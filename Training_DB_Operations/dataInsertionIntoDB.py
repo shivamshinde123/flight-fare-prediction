@@ -26,10 +26,15 @@ class DBOperations:
 
         """
         Description: This method is used to create a connection with the sqlite3 database
+
         On Failure: Raises exception
+
         Written By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
+
         :return: Databases connector
 
         """
@@ -53,12 +58,19 @@ class DBOperations:
         """
 
         Description: This method is used create a table in the existing database
+
         Written By: Shivam Shinde
+
         On Failure: Raises exception
+
         Version: 1.0
+
         Revision: None
+
         :param databaseName: Name of the database into which table is to be added
+
         :param columnNamesDict: Dictionary having column names as keys and their datatype as values
+
         :return: None
 
         """
@@ -158,7 +170,7 @@ class DBOperations:
 
         """
 
-        self.fileFromDb = "../fileFromDb/"
+        self.fileFromDb = "../Training_fileFromDb/"
         self.fileName = "inputFile.csv"
         f = open('../TrainingLogs/DatabaseLogs.txt', 'a+')
 
@@ -192,6 +204,7 @@ class DBOperations:
         except Exception as e:
             self.logger.log(f,f"Exception occurred while exporting the data file from the database. Exception: {str(e)}")
             f.close()
+            raise e
 
 
 

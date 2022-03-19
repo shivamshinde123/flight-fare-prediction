@@ -1,10 +1,13 @@
+import json
 import os
 import re
 import shutil
-from Logging.logging import Logger
-import json
 from datetime import datetime
+
 import pandas as pd
+
+from Logging.logging import Logger
+
 
 class rawDataValidation:
 
@@ -22,16 +25,21 @@ class rawDataValidation:
     def __init__(self,path):
         self.Batch_Directory = path
         self.logger = Logger()
-        self.schema = "../Schema_json_file/schema_training.json"
+        self.schema = "../Training_Schema_json_file/schema_training.json"
 
     def valuesFromSchema(self):
 
         """
         Description: This method is used for fetching the information from the schema_training json file.
+
         Raises: Exception on failure
+
         Written By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
+
         :return: Info such as number of columns or column names in the provided data.
         """
 
@@ -65,25 +73,40 @@ class rawDataValidation:
 
         """
 
-        Description: This method is used for the creation of the regular expression which should be matched with the data file name provided by the client.
+        Description: This method is used for the creation of the regular expression which should be matched with the
+        data file name provided by the client.
+
         Raises: Exception on failure
+
         Writen by: Shivam Shinde
+
         Version: 1.0
         Revision: None
+
         :return: Python regular expression
 
         """
 
-        regex = r"flight\_fare\_\d{8}\_\d{6}\.csv"
-        return regex
+        try:
+            regex = r"flight\_fare\_\d{8}\_\d{6}\.csv"
+            return regex
+
+        except Exception as e:
+            raise e
 
     def createDirectoryForGoodAndBadRawData(self):
 
         """
-        Description: This method is used to create directory for the good (data which passed the validation) and bad date (data which did not pass the validation)
+
+        Description: This method is used to create directory for the good (data which passed the validation) and bad
+        date (data which did not pass the validation)
+
         Raises: Exception on failure
+
         Writen by: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
 
         """
@@ -106,10 +129,16 @@ class rawDataValidation:
     def deleteExistingGoodRawTrainingDataFolder(self):
         
         """
-        Description: This method is used to delete the directory of the raw good (data which passed the validation) training data
+
+        Description: This method is used to delete the directory of the raw good (data which passed the validation)
+        training data
+
         Raises: Exception on failure
+
         Writen By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
         
         """
@@ -134,10 +163,16 @@ class rawDataValidation:
     def deleteExistingBadRawTrainingDataFolder(self):
 
         """
-        Description: This method is used to delete the directory of the raw bad (data which did not pass the validation) training data
+
+        Description: This method is used to delete the directory of the raw bad (data which did not pass the
+        validation) training data
+
         Raises: Exception on failure
+
         Writen By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
 
         """
@@ -165,9 +200,13 @@ class rawDataValidation:
         """
 
         Description: This method is used to move the bad training data files to the archived bad data folder.
+
         Raises: Exception on failure
+
         Writen By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
 
         """
@@ -211,10 +250,16 @@ class rawDataValidation:
 
         """
         Description: This method is used to validate the data file name provided by the client.
+
         Written By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
-        :param regex: This parameter is the regular expression that would be matched against the data file name provided by the client.
+
+        :param regex: This parameter is the regular expression that would be matched against the data file name
+        provided by the client.
+
         :return: None
 
         """
@@ -255,10 +300,15 @@ class rawDataValidation:
         """
 
         Description: This method is used to validate the number of columns in the data provided by the client.
+
         Written By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
+
         :param numColumns: This parameter is used to match the number of columns in the date.
+
         :return: None
 
         """
@@ -287,10 +337,15 @@ class rawDataValidation:
         
         """
         
-        Description: This method is used to check if any file in good data folder has any column with all the missing valuee.
+        Description: This method is used to check if any file in good data folder has any column with all the missing
+        value.
+
         Written By: Shivam Shinde
+
         Version: 1.0
+
         Revision: None
+
         :return: None
         
         """
@@ -332,6 +387,7 @@ class rawDataValidation:
         Version: 1.0
 
         Revision: None
+
         :return: None
         """
 
@@ -354,5 +410,7 @@ class rawDataValidation:
                     f.close()
 
         except Exception as e:
-            self.logger.log(f, f"Exception occurred in the validation of date format of the datetime column in the input date. Exception: {str(e)}")
+            self.logger.log(f, f"Exception occurred in the validation of date format of the datetime column in the "
+                               f"input date. Exception: {str(e)}")
             f.close()
+            raise e
