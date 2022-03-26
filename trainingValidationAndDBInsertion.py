@@ -22,7 +22,7 @@ class trainingValidationAndDBInsertion:
         self.raw_data_validation = rawDataValidation(path)
         self.raw_data_transformation = RawTrainingDataTransformation()
         self.raw_data_db_insertion = DBOperations()
-        self.file_object = open('../TrainingLogs/trainingValidationAndDBInsertion.txt', 'a+')
+        self.file_object = open('TrainingLogs/trainingValidationAndDBInsertion.txt', 'a+')
         self.logger = Logger()
 
     def training_validation_and_db_insertion(self):
@@ -107,4 +107,5 @@ class trainingValidationAndDBInsertion:
                             f"Exception occurred in validation or database insertion step. Exception: {str(e)}")
             self.file_object.close()
             raise e
+
 
