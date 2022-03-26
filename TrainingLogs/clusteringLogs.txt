@@ -1,4 +1,4 @@
-2022-03-20 / 00:57:19  ----->  Finding the optimal number of clustetrs into which the data can be split
-2022-03-20 / 00:57:21  ----->  Optimal number of clusters for the provided data is 4
-2022-03-20 / 00:57:21  ----->  Performing the clustering on the data
-2022-03-20 / 00:57:21  ----->  Successfully created 4 clusters for the data
+2022-03-26 / 15:31:26  ----->  Finding the optimal number of clustetrs into which the data can be split
+2022-03-26 / 15:31:29  ----->  Optimal number of clusters for the provided data is 4
+2022-03-26 / 15:31:29  ----->  Performing the clustering on the data
+2022-03-26 / 15:31:30  ----->  Successfully created 4 clusters for the data

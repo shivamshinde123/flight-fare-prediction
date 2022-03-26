@@ -1,6 +1,6 @@
-2022-03-19 / 17:32:02  ----->  Connection with the database goodRawDataDb made
-2022-03-19 / 17:32:03  ----->  Table named goodRawData created successfully in the database goodRawDataDb
-2022-03-19 / 17:32:03  ----->  Connection with the database goodRawDataDb made
-2022-03-19 / 17:32:03  ----->  flight_fare_03102022_133250.csv File loaded successfully!!
-2022-03-19 / 18:00:46  ----->  Connection with the database goodRawDataDb made
-2022-03-19 / 18:00:46  ----->  File exported successfully!!
+2022-03-26 / 14:58:06  ----->  Connection with the database goodRawDataDb made
+2022-03-26 / 14:58:07  ----->  Table named goodRawData created successfully in the database goodRawDataDb
+2022-03-26 / 14:58:07  ----->  Connection with the database goodRawDataDb made
+2022-03-26 / 14:58:07  ----->  flight_fare_03102022_133250.csv File loaded successfully!!
+2022-03-26 / 15:31:24  ----->  Connection with the database goodRawDataDb made
+2022-03-26 / 15:31:24  ----->  File exported successfully!!

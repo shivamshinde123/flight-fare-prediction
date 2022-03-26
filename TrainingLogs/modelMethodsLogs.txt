@@ -1,11 +1,11 @@
-2022-03-20 / 00:57:21  ----->  Saving the created model into the python pickle file
-2022-03-20 / 00:57:21  ----->  Model KMeans(n_clusters=4, random_state=38497) saved successfully in ../Models\ClusteringModel
-2022-03-20 / 00:59:12  ----->  Saving the created model into the python pickle file
-2022-03-20 / 00:59:12  ----->  Model GradientBoostingRegressor(learning_rate=0.2, n_estimators=300,
-                          random_state=239084) saved successfully in ../Models\ModelForClusterNo0
-2022-03-20 / 01:00:37  ----->  Saving the created model into the python pickle file
-2022-03-20 / 01:00:37  ----->  Model VotingRegressor(estimators=[('abr',
-                             GradientBoostingRegressor(n_estimators=300,
+2022-03-26 / 15:31:29  ----->  Saving the created model into the python pickle file
+2022-03-26 / 15:31:30  ----->  Model KMeans(n_clusters=4, random_state=38497) saved successfully in Models\ClusteringModel
+2022-03-26 / 15:33:46  ----->  Saving the created model into the python pickle file
+2022-03-26 / 15:33:46  ----->  Model GradientBoostingRegressor(learning_rate=0.2, n_estimators=300,
+                          random_state=239084) saved successfully in Models\ModelForClusterNo0
+2022-03-26 / 15:35:49  ----->  Saving the created model into the python pickle file
+2022-03-26 / 15:35:49  ----->  Model VotingRegressor(estimators=[('abr',
+                             GradientBoostingRegressor(n_estimators=200,
                                                        random_state=239084)),
                             ('gbr',
                              GradientBoostingRegressor(n_estimators=300,
@@ -28,21 +28,20 @@
                                           reg_lambda=1, scale_pos_weight=1,
                                           subsample=1, tree_method='exact',
                                           validate_parameters=1,
-                                          verbosity=None))]) saved successfully in ../Models\ModelForClusterNo3
-2022-03-20 / 01:02:19  ----->  Saving the created model into the python pickle file
-2022-03-20 / 01:02:19  ----->  Model VotingRegressor(estimators=[('abr',
+                                          verbosity=None))]) saved successfully in Models\ModelForClusterNo3
+2022-03-26 / 15:37:48  ----->  Saving the created model into the python pickle file
+2022-03-26 / 15:37:48  ----->  Model VotingRegressor(estimators=[('abr',
                              GradientBoostingRegressor(learning_rate=0.30000000000000004,
-                                                       n_estimators=200,
                                                        random_state=239084)),
                             ('gbr',
-                             GradientBoostingRegressor(learning_rate=0.30000000000000004,
-                                                       n_estimators=200,
+                             GradientBoostingRegressor(n_estimators=300,
                                                        random_state=239084)),
                             ('xgb',
                              XGBRegressor(base_score=0.5, booster='gbtree',
                                           colsample_bylevel=1,
                                           colsample_bynode=1,
-                                          colsample_bytree=1,...
+                                          colsample_bytree=1,
+                                          enable_categorical=False, gamma=0.0,
                                           gpu_id=-1, importance_type=None,
                                           interaction_constraints='',
                                           learning_rate=0.300000012,
@@ -55,11 +54,10 @@
                                           reg_lambda=1, scale_pos_weight=1,
                                           subsample=1, tree_method='exact',
                                           validate_parameters=1,
-                                          verbosity=None))]) saved successfully in ../Models\ModelForClusterNo1
-2022-03-20 / 01:04:26  ----->  Saving the created model into the python pickle file
-2022-03-20 / 01:04:27  ----->  Model VotingRegressor(estimators=[('abr',
-                             GradientBoostingRegressor(learning_rate=0.2,
-                                                       n_estimators=200,
+                                          verbosity=None))]) saved successfully in Models\ModelForClusterNo1
+2022-03-26 / 15:39:37  ----->  Saving the created model into the python pickle file
+2022-03-26 / 15:39:37  ----->  Model VotingRegressor(estimators=[('abr',
+                             GradientBoostingRegressor(learning_rate=0.4,
                                                        random_state=239084)),
                             ('gbr',
                              GradientBoostingRegressor(random_state=239084)),
@@ -81,4 +79,4 @@
                                           reg_lambda=1, scale_pos_weight=1,
                                           subsample=1, tree_method='exact',
                                           validate_parameters=1,
-                                          verbosity=None))]) saved successfully in ../Models\ModelForClusterNo2
+                                          verbosity=None))]) saved successfully in Models\ModelForClusterNo2

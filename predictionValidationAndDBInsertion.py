@@ -1,15 +1,14 @@
 from Logging.logging import Logger
-from Training_DB_Operations.dataInsertionIntoDB import DBOperations
-from Training_Raw_Data_Transformation.RawDataTransformation import RawTrainingDataTransformation
-from Training_raw_data_validation.rawDataValidation import rawDataValidation
+from Prediction_DB_Operation.dataInsertionIntoDB_prediction import DBOperationsPrediction
+from Prediction_Raw_Data_Transformation.RawDataTransformation_prediction import RawPredictionDataTransformation
+from Prediction_raw_data_validation.rawDataValidation_prediction import rawPredictionDataValidation
 
 
-class trainingValidationAndDBInsertion:
+class PredictionValidationAndDBInsertion:
 
     """
 
-    Description: This class is used to validate the data received from the client and for the insertion of validated
-    good data into the database.
+    Description: This class is used to validate the data received from the client and for the insertion of validated good data into the database.
 
     Written By: Shivam Shinde
 
@@ -19,14 +18,14 @@ class trainingValidationAndDBInsertion:
 
     """
 
-    def __init__(self):
-        self.raw_data_validation = rawDataValidation('../Training_Data_From_Client/')
-        self.raw_data_transformation = RawTrainingDataTransformation()
-        self.raw_data_db_insertion = DBOperations()
-        self.file_object = open('../TrainingLogs/trainingValidationAndDBInsertion.txt','a+')
+    def __init__(self,path):
+        self.raw_data_validation = rawPredictionDataValidation(path)
+        self.raw_data_transformation = RawPredictionDataTransformation()
+        self.raw_data_db_insertion = DBOperationsPrediction()
+        self.file_object = open('../PredictionLogs/trainingValidationAndDBInsertion.txt','a+')
         self.logger = Logger()
 
-    def training_validation_and_db_insertion(self):
+    def prediction_validation_and_db_insertion(self):
 
 
         """
@@ -40,11 +39,11 @@ class trainingValidationAndDBInsertion:
 
         Revision: None
 
-        :return: None
+        :return: True
 
         """
         try:
-            self.logger.log(self.file_object, "Training data validation started!!")
+            self.logger.log(self.file_object, "Prediction data validation started!!")
 
             ## extracting feature info from the schema training json file
             LengthOfDateStampInFile, LengthOfTimeStampInFile, NumberOfColumns, ColumnNames = self.raw_data_validation.valuesFromSchema()
@@ -56,7 +55,7 @@ class trainingValidationAndDBInsertion:
             self.raw_data_validation.validateTrainingDataFileName(reg_exp)
 
             ## validating the number of columns
-            self.raw_data_validation.validateNumberOfColumns(11)
+            self.raw_data_validation.validateNumberOfColumns(10)
 
             ## checking if there is any column with all of its values are missing i.e. nan
             self.raw_data_validation.validateMissingValuesInWholeColumn()
@@ -64,7 +63,7 @@ class trainingValidationAndDBInsertion:
             ## checking the format of the dates in  the Date_of_Journey column of the dataframe
             self.raw_data_validation.validatingDateFormat()
 
-            self.logger.log(self.file_object, "Validation of the raw training data completed!!")
+            self.logger.log(self.file_object, "Validation of the raw prediction data completed!!")
 
             self.logger.log(self.file_object, "Performing data transformation on  the data before inserting it into the database so that there won't be any exception..")
 
@@ -100,7 +99,11 @@ class trainingValidationAndDBInsertion:
             ## closing the file object
             self.file_object.close()
 
+            ## returning True to validate the successful completion of the validation and database insertion
+            return True
+
         except  Exception as e:
             self.logger.log(self.file_object, f"Exception occurred in validation or database insertion step. Exception: {str(e)}")
             self.file_object.close()
             raise e
+

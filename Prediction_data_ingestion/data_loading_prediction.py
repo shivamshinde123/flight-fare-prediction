@@ -12,7 +12,7 @@ class DataGetter:
     def __init__(self, fileObject, loggerObject):
         self.fileObject = fileObject
         self.loggerObject = loggerObject
-        self.trainingData = "../fileFromDb_prediction/inputFile.csv"
+        self.predictionData = "Prediction_fileFromDb/inputFile.csv"
 
     def getData(self):
 
@@ -34,10 +34,10 @@ class DataGetter:
 
         self.loggerObject.log(self.fileObject, "Entered the getData method of DataGetter class")
         try:
-            self.data = pd.read_csv(self.trainingData)
+            data = pd.read_csv(self.predictionData)
             self.loggerObject.log(self.fileObject,"Successfully loaded the data using getData method of DataGetter class")
             self.loggerObject.log(self.fileObject, "Exiting the getData method of DataGetter class")
-            return self.data
+            return data
         except Exception as e:
             self.loggerObject.log(self.fileObject, "Exception occurred while loading data using getData method of DataGetter class. Error message: str(e")
             self.loggerObject.log(self.fileObject, "Data loading unsuccessful using the getData method of DataGetter class due to exception")

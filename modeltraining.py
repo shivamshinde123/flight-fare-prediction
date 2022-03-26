@@ -1,11 +1,11 @@
 import warnings
 
-import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from Logging.logging import Logger
 from Training_Clustering.clustering import Cluster
 from Training_Preprocessing.preprocessor import Preprocessor
+from Training_data_ingestion.data_loading_train import DataGetter
 from model_methods.model_methods import modelMethods
 from model_tuner.modeltuner import modelTuner
 
@@ -46,12 +46,13 @@ class modelTraining:
             self.logger.log(
                 self.file_obj, "*************MACHINE LEARNING MODEL TRAINING FOR ALL THE CLUSTERS STARTED**************")
 
+            # getting the data for model training
+            data = DataGetter(self.file_obj,self.logger).getData()
+
             # preprocessing the obtained data
             self.logger.log(self.file_obj, "Training_Preprocessing of the data started!!")
             p = Preprocessor()
-            p.preprocess()
-            X = pd.read_csv("../Training_PreprocessedData/XPreprocessed.csv")
-            y = pd.read_csv("../Training_PreprocessedData/yDataframe.csv")
+            X, y = p.preprocess()
             self.logger.log(self.file_obj, "Training_Preprocessing of the data completed!!")
 
             # clustering the training and testing data into the same number of clusters
@@ -102,6 +103,4 @@ class modelTraining:
             self.logger.log(
                 self.file_obj, f"Exception occurred while training the machine learning model. Exception: {str(e)}")
             raise e
-
-
 
