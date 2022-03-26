@@ -27,7 +27,7 @@ class modelTraining:
     """
 
     def __init__(self):
-        self.file_obj = open("../TrainingLogs/ModelTraining.txt","a+")
+        self.file_obj = open("TrainingLogs/ModelTraining.txt", "a+")
         self.logger = Logger()
 
     def trainingModels(self):
@@ -45,9 +45,6 @@ class modelTraining:
         try:
             self.logger.log(
                 self.file_obj, "*************MACHINE LEARNING MODEL TRAINING FOR ALL THE CLUSTERS STARTED**************")
-
-            # getting the data for model training
-            data = DataGetter(self.file_obj,self.logger).getData()
 
             # preprocessing the obtained data
             self.logger.log(self.file_obj, "Training_Preprocessing of the data started!!")
@@ -103,4 +100,6 @@ class modelTraining:
             self.logger.log(
                 self.file_obj, f"Exception occurred while training the machine learning model. Exception: {str(e)}")
             raise e
+
+
 
