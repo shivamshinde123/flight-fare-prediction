@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mt-5">Books found on the genre {{ genre }}</h2>
+</div>
+<div class="container">
+    <table class="table table-secondary table-striped table-hover mt-5">
+        <thead>
+            <tr>
+                <th>Sr.No.</th>
+                <th>Book Name</th>
+                <th>Genre</th>
+                <th>Book Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for book in book_details: %}
+            <tr>
+                <!--Using the index position of book element inside the book_details list to add rows to the table-->
+                <td>{{ book_details.index(book) + 1}}</td>
+                <td>{{ book['Book Name'] }}</td>
+                <td>{{ genre }}</td>
+                <td>{{ book['Book Price'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+{% endblock %}
