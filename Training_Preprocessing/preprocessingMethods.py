@@ -11,8 +11,10 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OrdinalEncoder, StandardScaler
 
 from Logging.logging import Logger
+from Training_data_ingestion.data_loading_train import DataGetter
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
+
 
 class PreprocessingMethods:
     """
@@ -27,9 +29,9 @@ class PreprocessingMethods:
     """
 
     def __init__(self):
-        self.df = pd.read_csv("../Training_fileFromDb/inputFile.csv")
         self.logger_obj = Logger()
-        self.file_object = open("../TrainingLogs/preprocessingLogs.txt", "a+")
+        self.file_object = open("TrainingLogs/preprocessingLogs.txt", "a+")
+        self.df = DataGetter(self.file_object, self.logger_obj).getData().copy()
 
     def removeUnnecessaryFeatureColumn(self, column_name):
 
@@ -344,7 +346,7 @@ class PreprocessingMethods:
             # fetching the lists which contain the names of categorical and numerical columns
             cat_feat, num_feat = self.findingNamesOfNumericalAndCategoricalColumns()
 
-            # finding the first and third quantile followed by the inter-quartile range for each of the numerical column
+            # finding the first and third quantile followed by the inter quartile range for each of the numerical column
             for feature in num_feat:
                 Q1 = self.df[feature].quantile(0.25)
                 Q3 = self.df[feature].quantile(0.75)
@@ -458,7 +460,7 @@ class PreprocessingMethods:
             # creating a categorical pipeline
             cat_pipeline = Pipeline([
                 ('most_frequent_imputation', SimpleImputer(strategy="most_frequent")),
-                ('label_encoding', OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=20))
+                ('ordinal_encoding', OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=100))
             ])
 
             # combining two numerical and one categorical pipelines using sklearn ColumnTransformer
@@ -474,21 +476,19 @@ class PreprocessingMethods:
                                                   "Flight_Duration",
                                                   "Airline", "Source", "Destination", "Additional_Info"])
 
-            yDataframe = pd.DataFrame(y,columns=['Price'])
+            yDataframe = pd.DataFrame(y, columns=['Price'])
 
-            if not os.path.exists("../Training_PreprocessedData/"):
-                os.makedirs("../Training_PreprocessedData/")
+            if not os.path.exists("Training_PreprocessedData/"):
+                os.makedirs("Training_PreprocessedData/")
 
-            XPreprocessed.to_csv("../Training_PreprocessedData/XPreprocessed.csv",header=True,index=False)
-            y.to_csv("../Training_PreprocessedData/yDataframe.csv",header=True,index=False)
-
+            XPreprocessed.to_csv("Training_PreprocessedData/XPreprocessed.csv", header=True, index=False)
+            y.to_csv("Training_PreprocessedData/yDataframe.csv", header=True, index=False)
 
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while implementing the data preprocessing "
                                                   f"pipeline. Exception: {str(e)}")
             self.file_object.close()
             raise e
-
 
     def getPreprocessedXAndy(self):
 
@@ -503,9 +503,9 @@ class PreprocessingMethods:
         :return:  None
         """
         try:
-            self.logger_obj.log(self.file_object,"Exporting preprocessed X and y")
-            X = pd.read_csv("../Training_PreprocessedData/XPreprocessed.csv")
-            y = pd.read_csv(("../Training_PreprocessedData/yDataframe.csv"))
+            self.logger_obj.log(self.file_object, "Exporting preprocessed X and y")
+            X = pd.read_csv("Training_PreprocessedData/XPreprocessed.csv")
+            y = pd.read_csv("Training_PreprocessedData/yDataframe.csv")
 
             return X, y
         except Exception as e:

@@ -12,7 +12,7 @@ class DataGetter:
     def __init__(self, fileObject, loggerObject):
         self.fileObject = fileObject
         self.loggerObject = loggerObject
-        self.trainingData = "../Training_fileFromDb/inputFile.csv"
+        self.trainingData = "Training_fileFromDb/inputFile.csv"
 
     def getData(self):
 

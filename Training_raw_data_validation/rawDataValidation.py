@@ -25,7 +25,7 @@ class rawDataValidation:
     def __init__(self,path):
         self.Batch_Directory = path
         self.logger = Logger()
-        self.schema = "../Training_Schema_json_file/schema_training.json"
+        self.schema = "Training_Schema_json_file/schema_training.json"
 
     def valuesFromSchema(self):
 
@@ -53,14 +53,14 @@ class rawDataValidation:
             NumberOfColumns = dict1['NumberOfColumns']
             ColumnNames = dict1['ColumnNames']
 
-            l = open('../TrainingLogs/valuesFromSchemaLog.txt','a+')
+            l = open('TrainingLogs/valuesFromSchemaLog.txt','a+')
             message = f"Length of datestamp and timestamp in the file: {LengthOfDateStampInFile} and {LengthOfTimeStampInFile}, number of columns in the data: {NumberOfColumns}"
             self.logger.log(l,message)
             l.close()
             return LengthOfDateStampInFile, LengthOfTimeStampInFile, NumberOfColumns, ColumnNames
 
         except Exception as e:
-            l = open('../TrainingLogs/valuesFromSchemaLog.txt', 'a+')
+            l = open('TrainingLogs/valuesFromSchemaLog.txt', 'a+')
             message1 = f"Exception occurred while fetching the info about the data from the schema_training json file. Exception: {str(e)}"
             self.logger.log(l,message1)
             message2 = f"Fetching info about the data from the schema training json file unsuccessful"
@@ -111,23 +111,23 @@ class rawDataValidation:
 
         """
         try:
-            path = os.path.join('../Training_raw_data_validated/','GoodData/')
+            path = os.path.join('Training_raw_data_validated/','GoodData/')
             if not os.path.isdir(path):
                 os.makedirs(path)
 
-            path = os.path.join('../Training_raw_data_validated/','BadData/')
+            path = os.path.join('Training_raw_data_validated/','BadData/')
             if not os.path.isdir(path):
                 os.makedirs(path)
 
         except OSError as oe:
-            f = open('../TrainingLogs/GeneralLogs.txt','a+')
+            f = open('TrainingLogs/GeneralLogs.txt','a+')
             message = f"Exception occurred while creating directories for the bad and good training validated data. Exception: {str(oe)}"
             self.logger.log(f,message)
             f.close()
             raise oe
 
     def deleteExistingGoodRawTrainingDataFolder(self):
-        
+
         """
 
         Description: This method is used to delete the directory of the raw good (data which passed the validation)
@@ -140,21 +140,21 @@ class rawDataValidation:
         Version: 1.0
 
         Revision: None
-        
+
         """
-        
+
         try:
-            path = '../Training_raw_data_validated/'
+            path = 'Training_raw_data_validated/'
             if os.path.isdir(os.path.join(path,'GoodData/')):
                 shutil.rmtree(os.path.join(path,'GoodData/'))
 
-            f = open("../TrainingLogs/GeneralLogs.txt", "a+")
+            f = open("TrainingLogs/GeneralLogs.txt", "a+")
             message = "Deleted the folder for good raw training data successfully."
             self.logger.log(f,message)
             f.close()
 
         except OSError as oe:
-            f = open("../TrainingLogs/GeneralLogs.txt", "a+")
+            f = open("TrainingLogs/GeneralLogs.txt", "a+")
             message = f"Exception occurred while deleting the folder for good raw training data. Exception: {str(oe)}"
             self.logger.log(f, message)
             f.close()
@@ -178,17 +178,17 @@ class rawDataValidation:
         """
 
         try:
-            path = '../Training_raw_data_validated/'
+            path = 'Training_raw_data_validated/'
             if os.path.isdir(os.path.join(path, 'BadData/')):
                 shutil.rmtree(os.path.join(path, 'BadData/'))
 
-            f = open("../TrainingLogs/GeneralLogs.txt", "a+")
+            f = open("TrainingLogs/GeneralLogs.txt", "a+")
             message = "Deleted the folder for bad raw training data successfully."
             self.logger.log(f, message)
             f.close()
 
         except OSError as oe:
-            f = open("../TrainingLogs/GeneralLogs,txt", "a+")
+            f = open("TrainingLogs/GeneralLogs,txt", "a+")
             message = f"Exception occurred while deleting the folder for bad raw training data. Exception: {str(oe)}"
             self.logger.log(f, message)
             f.close()
@@ -214,14 +214,14 @@ class rawDataValidation:
         date = now.date()
         time = now.strftime("%H%M%S")
         try:
-            source = '../Training_raw_data_validated/BadData/'
+            source = 'Training_raw_data_validated/BadData/'
             if os.path.isdir(source):
 
-                path = '../TrainingRawBadDataArchived/'
+                path = 'TrainingRawBadDataArchived/'
                 if not os.path.isdir(path):
                     os.makedirs(path)
 
-                destination = '../TrainingRawBadDataArchived/BadData_' + str(date) + "_" + str(time)
+                destination = 'TrainingRawBadDataArchived/BadData_' + str(date) + "_" + str(time)
                 if not os.path.isdir(destination):
                     os.makedirs(destination)
 
@@ -229,18 +229,18 @@ class rawDataValidation:
                 for f in files:
                     if f not in os.listdir(destination):
                         shutil.move(source + f,destination)
-                p = open('../TrainingLogs/GeneralLogs.txt','a+')
+                p = open('TrainingLogs/GeneralLogs.txt','a+')
                 self.logger.log(p,"Bad data file were successfully moved from training raw data folder to the archived bad foler")
                 p.close()
 
                 if os.path.isdir(source):
                     shutil.rmtree(source)
-                p = open('../TrainingLogs/GeneralLogs.txt','a+')
+                p = open('TrainingLogs/GeneralLogs.txt','a+')
                 self.logger.log(p,"Bad data folder from training raw data folder deleted successfully.")
                 p.close()
 
         except OSError as oe:
-            p = open('../TrainingLogs/GeneralLogs.txt', 'a+')
+            p = open('TrainingLogs/GeneralLogs.txt', 'a+')
             self.logger.log(p,"Exception occurred while moving the bad data files from training raw data folder to the archived bad data folder")
             p.close()
             raise oe
@@ -270,7 +270,7 @@ class rawDataValidation:
 
         raw_data_files = [f for f in os.listdir(self.Batch_Directory)]
 
-        f = open('../TrainingLogs/RawDataFileNameValidation.txt','a+')
+        f = open('TrainingLogs/RawDataFileNameValidation.txt', 'a+')
 
         try:
             for file in raw_data_files:
@@ -279,12 +279,12 @@ class rawDataValidation:
                 self.createDirectoryForGoodAndBadRawData()
 
                 if re.match(regex, file):
-                    shutil.copy(f"{self.Batch_Directory}{file}", "../Training_raw_data_validated/GoodData/")
+                    shutil.copy(f"{self.Batch_Directory}/{file}", "Training_raw_data_validated/GoodData/")
                     self.logger.log(f, "Valid file name! File moved to the good data folder")
-                    self.logger.log(f,"The validation for the data file name passed!")
+                    self.logger.log(f, "The validation for the data file name passed!")
                     f.close()
                 else:
-                    shutil.copy(f"{self.Batch_Directory}{file}", "../Training_raw_data_validated/BadData/")
+                    shutil.copy(f"{self.Batch_Directory}/{file}", "Training_raw_data_validated/BadData/")
                     self.logger.log(f, "Invalid file name! File moved to the bad data folder")
                     f.close()
 
@@ -313,18 +313,18 @@ class rawDataValidation:
 
         """
 
-        f = open("../TrainingLogs/numberOfColumnsValidation.txt","a+")
+        f = open("TrainingLogs/numberOfColumnsValidation.txt","a+")
         self.logger.log(f,"Enter the method used for the validation of number of columns in the data")
         try:
-            for file in os.listdir('../Training_raw_data_validated/GoodData/'):
-                csv_file = pd.read_csv('../Training_raw_data_validated/GoodData/' + file)
+            for file in os.listdir('Training_raw_data_validated/GoodData/'):
+                csv_file = pd.read_csv('Training_raw_data_validated/GoodData/' + file)
                 if csv_file.shape[1] == numColumns:
                     self.logger.log(f,"Validation for number of columns in the data passed!")
                     pass
                 else:
                     self.logger.log(f,"Validation for number of columns failed!")
                     self.logger.log(f,"Moving the file to the bad data folder!")
-                    shutil.move('../Training_raw_data_validated/GoodData/' + file, '../Training_raw_data_validated/BadData/')
+                    shutil.move('Training_raw_data_validated/GoodData/' + file, 'Training_raw_data_validated/BadData/')
                     self.logger.log(f,"File moved to the bad data folder")
             f.close()
         except Exception as e:
@@ -334,9 +334,9 @@ class rawDataValidation:
 
 
     def validateMissingValuesInWholeColumn(self):
-        
+
         """
-        
+
         Description: This method is used to check if any file in good data folder has any column with all the missing
         value.
 
@@ -347,21 +347,21 @@ class rawDataValidation:
         Revision: None
 
         :return: None
-        
+
         """
 
-        f = open('../TrainingLogs/columnWithAllMissingValuesValidation.txt','a+')
+        f = open('TrainingLogs/columnWithAllMissingValuesValidation.txt','a+')
         self.logger.log(f,"Validation of files containing the columns with all missing values started")
         try:
-            for file in os.listdir('../Training_raw_data_validated/GoodData/'):
-                csv_file = pd.read_csv('../Training_raw_data_validated/GoodData/' + file)
+            for file in os.listdir('Training_raw_data_validated/GoodData/'):
+                csv_file = pd.read_csv('Training_raw_data_validated/GoodData/' + file)
                 columns = csv_file.columns
                 for column in columns:
                     noOfMissingValues = csv_file[column].isnull().sum()
                     if noOfMissingValues == csv_file.shape[0]:
                         self.logger.log(f,"Columns with all missing values validation failed for the  file:" + str(file))
                         self.logger.log(f,"Moving the file " + str(file) + " from good data folder to bad data folder")
-                        shutil.move('../Training_raw_data_validated/GoodData/' + file, '../Training_raw_data_validated/BadData/')
+                        shutil.move('Training_raw_data_validated/GoodData/' + file, 'Training_raw_data_validated/BadData/')
                         self.logger.log(f,'Moved the file ' + str(file) +  'from good data folder to bad data folder')
                         break
                     else:
@@ -391,11 +391,11 @@ class rawDataValidation:
         :return: None
         """
 
-        f = open('../TrainingLogs/DateFormatValidation.txt', 'a+')
+        f = open('TrainingLogs/DateFormatValidation.txt', 'a+')
 
         try:
-            for file in os.listdir('../Training_raw_data_validated/GoodData/'):
-                csv_file = pd.read_csv('../Training_raw_data_validated/GoodData/' + file)
+            for file in os.listdir('Training_raw_data_validated/GoodData/'):
+                csv_file = pd.read_csv('Training_raw_data_validated/GoodData/' + file)
                 csv_file_copy = csv_file.copy()
                 csv_file_copy.dropna()
 
@@ -405,7 +405,7 @@ class rawDataValidation:
                     f.close()
                 except Exception as e:
                     self.logger.log(f, f"Exception occurred in the validation of date format in the file {file}. Exception: {str(e)}")
-                    shutil.move('../Training_raw_data_validated/GoodData/' + file, '../Training_raw_data_validated/BadData/')
+                    shutil.move('Training_raw_data_validated/GoodData/' + file, 'Training_raw_data_validated/BadData/')
                     self.logger.log(f, f"Moved the file {file} to the bad date folder..")
                     f.close()
 

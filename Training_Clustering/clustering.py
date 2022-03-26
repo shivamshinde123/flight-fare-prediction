@@ -22,7 +22,7 @@ class Cluster:
 
     def __init__(self):
         self.logger = Logger()
-        self.file_object = open("../TrainingLogs/clusteringLogs.txt","a+")
+        self.file_object = open("TrainingLogs/clusteringLogs.txt","a+")
 
 
     def createElbowPlot(self,data):
@@ -42,7 +42,7 @@ class Cluster:
         :return: Ideal number of clusters
         """
 
-        self.logger.log(self.file_object, "Finding the optimal number of clustetrs into which the data can be split")
+        self.logger.log(self.file_object, "Finding the optimal number of clusters into which the data can be split")
 
         wcss = []
         try:

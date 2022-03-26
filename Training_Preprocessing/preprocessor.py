@@ -20,7 +20,7 @@ class Preprocessor:
     def __init__(self):
         self.logger_obj = Logger()
         self.process_data = PreprocessingMethods()
-        self.file_object = open("../TrainingLogs/preprocessingLogs.txt", "a+")
+        self.file_object = open("TrainingLogs/preprocessingLogs.txt", "a+")
 
     def preprocess(self):
         """
@@ -70,11 +70,12 @@ class Preprocessor:
             self.process_data.transformPipeline()
 
             # getting preprocessed X and y
-            self.process_data.getPreprocessedXAndy()
+            X,y = self.process_data.getPreprocessedXAndy()
 
             self.logger_obj.log(self.file_object,
                                 f"Preprocessing of the data finished successfully!!")
 
+            return X, y
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while preprocessing the data. Exception: {str(e)}")
             raise e

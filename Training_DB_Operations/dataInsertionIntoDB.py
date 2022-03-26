@@ -17,9 +17,9 @@ class DBOperations:
     """
     
     def __init__(self):
-        self.path = "../Database/"
-        self.goodDataPath = "../Training_raw_data_validated/GoodData/"
-        self.badDataPath = "../Training_raw_data_validated/BadData/"
+        self.path = "Database/"
+        self.goodDataPath = "Training_raw_data_validated/GoodData/"
+        self.badDataPath = "Training_raw_data_validated/BadData/"
         self.logger = Logger()
 
     def dbConnection(self,databaseName='goodRawDataDb'):
@@ -39,7 +39,7 @@ class DBOperations:
 
         """
 
-        f = open('../TrainingLogs/DatabaseLogs.txt','a+')
+        f = open('TrainingLogs/DatabaseLogs.txt','a+')
         try:
             if not os.path.isdir(self.path):
                 os.makedirs(self.path)
@@ -80,7 +80,7 @@ class DBOperations:
 
         cursor.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='goodRawData' ''')
 
-        f = open('../TrainingLogs/DatabaseLogs.txt', 'a+')
+        f = open('TrainingLogs/DatabaseLogs.txt', 'a+')
         try:
             if cursor.fetchone()[0] == 1:
                 self.logger.log(f, "Table named goodRawData created in the database goodRawDataDb")
@@ -128,7 +128,7 @@ class DBOperations:
 
         conn = self.dbConnection(database)
         cursor = conn.cursor()
-        f = open('../TrainingLogs/DatabaseLogs.txt', 'a+')
+        f = open('TrainingLogs/DatabaseLogs.txt', 'a+')
         for file in os.listdir(self.goodDataPath):
             try:
                 with open(self.goodDataPath + file, 'r') as p:
@@ -170,9 +170,9 @@ class DBOperations:
 
         """
 
-        self.fileFromDb = "../Training_fileFromDb/"
+        self.fileFromDb = "Training_fileFromDb/"
         self.fileName = "inputFile.csv"
-        f = open('../TrainingLogs/DatabaseLogs.txt', 'a+')
+        f = open('TrainingLogs/DatabaseLogs.txt', 'a+')
 
         try:
             conn = self.dbConnection()
