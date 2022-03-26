@@ -28,7 +28,7 @@ class modelTuner:
 
     def __init__(self):
         self.logger = Logger()
-        self.file_obj = open("../TrainingLogs/bestModelFindingLogs.txt", "a+")
+        self.file_obj = open("TrainingLogs/bestModelFindingLogs.txt", "a+")
         self.ridge = Ridge()
         self.lasso = Lasso()
         self.svr = SVR()
