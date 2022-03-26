@@ -1,111 +1,18 @@
-2022-03-19 / 18:37:33  ----->  Feature column named Route removed from the dataframe
-2022-03-19 / 18:37:33  ----->  Feature column named Dep_Time removed from the dataframe
-2022-03-19 / 18:37:33  ----->  Feature column named Arrival_Time removed from the dataframe
-2022-03-19 / 18:37:33  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
-2022-03-19 / 18:37:33  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
-2022-03-19 / 18:37:33  ----->  Feature column named Date_of_Journey removed from the dataframe
-2022-03-19 / 18:37:33  ----->  Feature column named Duration removed from the dataframe
-2022-03-19 / 18:37:33  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
-2022-03-19 / 18:37:33  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
-2022-03-19 / 18:37:33  ----->  Removing of duplicate rows successful..
-2022-03-19 / 18:37:33  ----->  Successfully corrected the typos in the Additional_Info column..
-2022-03-19 / 18:37:33  ----->  Successfully replaced the outliers in the columns with null..
-2022-03-19 / 18:37:33  ----->  Checking for the column with zero variance..
-2022-03-19 / 18:37:33  ----->  Feature column named Year_of_Journey removed from the dataframe
-2022-03-19 / 18:38:07  ----->  Exception occurred while implementing the data preprocessing pipeline. Exception: A given column is not a column of the dataframe
-2022-03-19 / 18:41:05  ----->  Feature column named Route removed from the dataframe
-2022-03-19 / 18:41:05  ----->  Feature column named Dep_Time removed from the dataframe
-2022-03-19 / 18:41:05  ----->  Feature column named Arrival_Time removed from the dataframe
-2022-03-19 / 18:41:05  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
-2022-03-19 / 18:41:05  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
-2022-03-19 / 18:41:05  ----->  Feature column named Date_of_Journey removed from the dataframe
-2022-03-19 / 18:41:05  ----->  Feature column named Duration removed from the dataframe
-2022-03-19 / 18:41:05  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
-2022-03-19 / 18:41:05  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
-2022-03-19 / 18:41:05  ----->  Removing of duplicate rows successful..
-2022-03-19 / 18:41:05  ----->  Successfully corrected the typos in the Additional_Info column..
-2022-03-19 / 18:41:05  ----->  Successfully replaced the outliers in the columns with null..
-2022-03-19 / 18:41:05  ----->  Checking for the column with zero variance..
-2022-03-19 / 18:41:05  ----->  Feature column named Year_of_Journey removed from the dataframe
-2022-03-19 / 18:41:05  ----->  Exception occurred while implementing the data preprocessing pipeline. Exception: A given column is not a column of the dataframe
-2022-03-19 / 18:41:05  ----->  Exception occurred while preprocessing the data. Exception: A given column is not a column of the dataframe
-2022-03-19 / 18:42:59  ----->  Feature column named Route removed from the dataframe
-2022-03-19 / 18:42:59  ----->  Feature column named Dep_Time removed from the dataframe
-2022-03-19 / 18:42:59  ----->  Feature column named Arrival_Time removed from the dataframe
-2022-03-19 / 18:42:59  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
-2022-03-19 / 18:42:59  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
-2022-03-19 / 18:42:59  ----->  Feature column named Date_of_Journey removed from the dataframe
-2022-03-19 / 18:42:59  ----->  Feature column named Duration removed from the dataframe
-2022-03-19 / 18:42:59  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
-2022-03-19 / 18:42:59  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
-2022-03-19 / 18:42:59  ----->  Removing of duplicate rows successful..
-2022-03-19 / 18:42:59  ----->  Successfully corrected the typos in the Additional_Info column..
-2022-03-19 / 18:42:59  ----->  Successfully replaced the outliers in the columns with null..
-2022-03-19 / 18:42:59  ----->  Checking for the column with zero variance..
-2022-03-19 / 18:42:59  ----->  Feature column named Year_of_Journey removed from the dataframe
-2022-03-19 / 18:42:59  ----->  Exception occurred while implementing the data preprocessing pipeline. Exception: A given column is not a column of the dataframe
-2022-03-19 / 18:42:59  ----->  Exception occurred while preprocessing the data. Exception: A given column is not a column of the dataframe
-2022-03-20 / 00:34:44  ----->  Feature column named Route removed from the dataframe
-2022-03-20 / 00:34:44  ----->  Feature column named Dep_Time removed from the dataframe
-2022-03-20 / 00:34:44  ----->  Feature column named Arrival_Time removed from the dataframe
-2022-03-20 / 00:34:44  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
-2022-03-20 / 00:34:44  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
-2022-03-20 / 00:34:44  ----->  Feature column named Date_of_Journey removed from the dataframe
-2022-03-20 / 00:34:44  ----->  Feature column named Duration removed from the dataframe
-2022-03-20 / 00:34:44  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
-2022-03-20 / 00:34:44  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
-2022-03-20 / 00:34:44  ----->  Removing of duplicate rows successful..
-2022-03-20 / 00:34:44  ----->  Successfully corrected the typos in the Additional_Info column..
-2022-03-20 / 00:34:44  ----->  Successfully replaced the outliers in the columns with null..
-2022-03-20 / 00:34:44  ----->  Checking for the column with zero variance..
-2022-03-20 / 00:34:44  ----->  Feature column named Year_of_Journey removed from the dataframe
-2022-03-20 / 00:34:44  ----->  Exception occurred while implementing the data preprocessing pipeline. Exception: A given column is not a column of the dataframe
-2022-03-20 / 00:34:44  ----->  Exception occurred while preprocessing the data. Exception: A given column is not a column of the dataframe
-2022-03-20 / 00:51:22  ----->  Feature column named Route removed from the dataframe
-2022-03-20 / 00:51:22  ----->  Feature column named Dep_Time removed from the dataframe
-2022-03-20 / 00:51:22  ----->  Feature column named Arrival_Time removed from the dataframe
-2022-03-20 / 00:51:22  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
-2022-03-20 / 00:51:22  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
-2022-03-20 / 00:51:22  ----->  Feature column named Date_of_Journey removed from the dataframe
-2022-03-20 / 00:51:22  ----->  Feature column named Duration removed from the dataframe
-2022-03-20 / 00:51:22  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
-2022-03-20 / 00:51:22  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
-2022-03-20 / 00:51:22  ----->  Removing of duplicate rows successful..
-2022-03-20 / 00:51:22  ----->  Successfully corrected the typos in the Additional_Info column..
-2022-03-20 / 00:51:22  ----->  Successfully replaced the outliers in the columns with null..
-2022-03-20 / 00:51:22  ----->  Checking for the column with zero variance..
-2022-03-20 / 00:51:22  ----->  Feature column named Year_of_Journey removed from the dataframe
-2022-03-20 / 00:51:22  ----->  Exporting preprocessed prediction data
-2022-03-20 / 00:51:22  ----->  Preprocessing of the data finished successfully!!
-2022-03-20 / 00:52:23  ----->  Feature column named Route removed from the dataframe
-2022-03-20 / 00:52:23  ----->  Feature column named Dep_Time removed from the dataframe
-2022-03-20 / 00:52:23  ----->  Feature column named Arrival_Time removed from the dataframe
-2022-03-20 / 00:52:23  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
-2022-03-20 / 00:52:23  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
-2022-03-20 / 00:52:23  ----->  Feature column named Date_of_Journey removed from the dataframe
-2022-03-20 / 00:52:23  ----->  Feature column named Duration removed from the dataframe
-2022-03-20 / 00:52:23  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
-2022-03-20 / 00:52:23  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
-2022-03-20 / 00:52:23  ----->  Removing of duplicate rows successful..
-2022-03-20 / 00:52:23  ----->  Successfully corrected the typos in the Additional_Info column..
-2022-03-20 / 00:52:23  ----->  Successfully replaced the outliers in the columns with null..
-2022-03-20 / 00:52:23  ----->  Checking for the column with zero variance..
-2022-03-20 / 00:52:23  ----->  Feature column named Year_of_Journey removed from the dataframe
-2022-03-20 / 00:52:23  ----->  Exporting preprocessed prediction data
-2022-03-20 / 00:52:23  ----->  Preprocessing of the data finished successfully!!
-2022-03-20 / 00:53:15  ----->  Feature column named Route removed from the dataframe
-2022-03-20 / 00:53:15  ----->  Feature column named Dep_Time removed from the dataframe
-2022-03-20 / 00:53:15  ----->  Feature column named Arrival_Time removed from the dataframe
-2022-03-20 / 00:53:15  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
-2022-03-20 / 00:53:15  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
-2022-03-20 / 00:53:15  ----->  Feature column named Date_of_Journey removed from the dataframe
-2022-03-20 / 00:53:15  ----->  Feature column named Duration removed from the dataframe
-2022-03-20 / 00:53:15  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
-2022-03-20 / 00:53:15  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
-2022-03-20 / 00:53:15  ----->  Removing of duplicate rows successful..
-2022-03-20 / 00:53:15  ----->  Successfully corrected the typos in the Additional_Info column..
-2022-03-20 / 00:53:15  ----->  Successfully replaced the outliers in the columns with null..
-2022-03-20 / 00:53:15  ----->  Checking for the column with zero variance..
-2022-03-20 / 00:53:15  ----->  Feature column named Year_of_Journey removed from the dataframe
-2022-03-20 / 00:53:15  ----->  Exporting preprocessed prediction data
-2022-03-20 / 00:53:15  ----->  Preprocessing of the data finished successfully!!
+2022-03-26 / 14:41:14  ----->  Entered the getData method of DataGetter class
+2022-03-26 / 14:41:14  ----->  Successfully loaded the data using getData method of DataGetter class
+2022-03-26 / 14:41:14  ----->  Exiting the getData method of DataGetter class
+2022-03-26 / 14:41:14  ----->  Feature column named Route removed from the dataframe
+2022-03-26 / 14:41:14  ----->  Feature column named Dep_Time removed from the dataframe
+2022-03-26 / 14:41:14  ----->  Feature column named Arrival_Time removed from the dataframe
+2022-03-26 / 14:41:14  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
+2022-03-26 / 14:41:14  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
+2022-03-26 / 14:41:14  ----->  Feature column named Date_of_Journey removed from the dataframe
+2022-03-26 / 14:41:14  ----->  Feature column named Duration removed from the dataframe
+2022-03-26 / 14:41:14  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
+2022-03-26 / 14:41:14  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
+2022-03-26 / 14:41:14  ----->  Removing of duplicate rows successful..
+2022-03-26 / 14:41:14  ----->  Successfully corrected the typos in the Additional_Info column..
+2022-03-26 / 14:41:14  ----->  Successfully replaced the outliers in the columns with null..
+2022-03-26 / 14:41:14  ----->  Checking for the column with zero variance..
+2022-03-26 / 14:41:14  ----->  Feature column named Year_of_Journey removed from the dataframe
+2022-03-26 / 14:41:14  ----->  Exporting preprocessed data
