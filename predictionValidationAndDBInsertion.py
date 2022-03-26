@@ -22,7 +22,7 @@ class PredictionValidationAndDBInsertion:
         self.raw_data_validation = rawPredictionDataValidation(path)
         self.raw_data_transformation = RawPredictionDataTransformation()
         self.raw_data_db_insertion = DBOperationsPrediction()
-        self.file_object = open('../PredictionLogs/trainingValidationAndDBInsertion.txt','a+')
+        self.file_object = open('PredictionLogs/trainingValidationAndDBInsertion.txt', 'a+')
         self.logger = Logger()
 
     def prediction_validation_and_db_insertion(self):
