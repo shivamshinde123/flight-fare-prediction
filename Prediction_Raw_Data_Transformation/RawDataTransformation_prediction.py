@@ -40,14 +40,14 @@ class RawPredictionDataTransformation:
 
         """
 
-        f = open('../PredictionLogs/RawTrainingDataTransformation.txt','a+')
+        f = open('PredictionLogs/RawTrainingDataTransformation.txt','a+')
         try:
-            for file in os.listdir('../Prediction_raw_data_validated/GoodData/'):
-                csv_file = pd.read_csv('../Prediction_raw_data_validated/GoodData/' + file)
+            for file in os.listdir('Prediction_raw_data_validated/GoodData/'):
+                csv_file = pd.read_csv('Prediction_raw_data_validated/GoodData/' + file)
                 column_lst = ['Airline','Date_of_Journey','Source','Destination','Route','Dep_Time','Arrival_Time','Duration','Total_Stops','Additional_Info']
                 for column in column_lst:
                     csv_file[column] = csv_file[column].apply(lambda a: "'" + str(a) + "'")
-                csv_file.to_csv('../Prediction_raw_data_validated/GoodData/' + file, index=None, header=True)
+                csv_file.to_csv('Prediction_raw_data_validated/GoodData/' + file, index=None, header=True)
                 self.logger.log(f,'Quotes added successfully to the values of columns having string values')
             f.close()
 
@@ -73,10 +73,10 @@ class RawPredictionDataTransformation:
 
         """
 
-        f = open('../PredictionLogs/RawTrainingDataTransformation.txt', 'a+')
+        f = open('PredictionLogs/RawTrainingDataTransformation.txt', 'a+')
         try:
-            for file in os.listdir('../Prediction_raw_data_validated/GoodData/'):
-                csv_file = pd.read_csv('../Prediction_raw_data_validated/GoodData/' + file)
+            for file in os.listdir('Prediction_raw_data_validated/GoodData/'):
+                csv_file = pd.read_csv('Prediction_raw_data_validated/GoodData/' + file)
                 columns = csv_file.columns
 
                 for column in columns:

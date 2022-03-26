@@ -20,9 +20,9 @@ class DBOperationsPrediction:
     """
     
     def __init__(self):
-        self.path = "../Database/"
-        self.goodDataPath = "../Prediction_raw_data_validated/GoodData/"
-        self.badDataPath = "../Prediction_raw_data_validated/BadData/"
+        self.path = "Database/"
+        self.goodDataPath = "Prediction_raw_data_validated/GoodData/"
+        self.badDataPath = "Prediction_raw_data_validated/BadData/"
         self.logger = Logger()
 
     def dbConnection(self,databaseName='goodRawDataDbPrediction'):
@@ -42,7 +42,7 @@ class DBOperationsPrediction:
 
         """
 
-        f = open('../PredictionLogs/DatabaseLogs.txt','a+')
+        f = open('PredictionLogs/DatabaseLogs.txt','a+')
         try:
             if not os.path.isdir(self.path):
                 os.makedirs(self.path)
@@ -83,7 +83,7 @@ class DBOperationsPrediction:
 
         cursor.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='goodRawDataPrediction' ''')
 
-        f = open('../PredictionLogs/DatabaseLogs.txt', 'a+')
+        f = open('PredictionLogs/DatabaseLogs.txt', 'a+')
         try:
             if cursor.fetchone()[0] == 1:
                 self.logger.log(f, "Table named goodRawDataPrediction created in the database goodRawDataDbPrediction")
@@ -138,7 +138,7 @@ class DBOperationsPrediction:
 
         conn = self.dbConnection(database)
         cursor = conn.cursor()
-        f = open('../PredictionLogs/DatabaseLogs.txt', 'a+')
+        f = open('PredictionLogs/DatabaseLogs.txt', 'a+')
         for file in os.listdir(self.goodDataPath):
             try:
                 with open(self.goodDataPath + file, 'r') as p:
@@ -186,9 +186,9 @@ class DBOperationsPrediction:
 
         """
 
-        self.fileFromDb = "../Prediction_fileFromDb/"
+        self.fileFromDb = "Prediction_fileFromDb/"
         self.fileName = "inputFile.csv"
-        f = open('../PredictionLogs/DatabaseLogs.txt', 'a+')
+        f = open('PredictionLogs/DatabaseLogs.txt', 'a+')
 
         try:
             conn = self.dbConnection()

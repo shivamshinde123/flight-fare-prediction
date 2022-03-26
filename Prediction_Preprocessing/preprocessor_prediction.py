@@ -10,7 +10,6 @@ class PreprocessorPrediction:
     Description: This class will contain a method which will implement all the preprocessing techniques on the date
     to make it into clean data
 
-
     Written By: Shivam Shinde
 
     Version: 1.0
@@ -21,9 +20,9 @@ class PreprocessorPrediction:
     def __init__(self):
         self.logger_obj = Logger()
         self.process_data = PreprocessingMethodsPrediction()
-        self.file_object = open("../PredictionLogs/preprocessingLogs.txt", "a+")
+        self.file_object = open("TrainingLogs/preprocessingLogs.txt", "a+")
 
-    def preprocess(self):
+    def preprocessPrediction(self):
         """
         Description: This method will implement all the preprocessing techniques on the date to make the data clean
 
@@ -67,17 +66,24 @@ class PreprocessorPrediction:
             # removing the feature column with zero variance
             self.process_data.removingColumnsWithZeroVariance()
 
+            # self.process_data.pipeline1()
+            # self.process_data.pipeline2()
+            # self.process_data.pipeline3()
+
             # performing encoding,scaling and null values imputation on the dataframe
             self.process_data.transformPipeline()
 
             # getting preprocessed X and y
-            self.process_data.getPreprocessedPredictionData()
+            data = self.process_data.getPreprocessedData()
 
             self.logger_obj.log(self.file_object,
                                 f"Preprocessing of the data finished successfully!!")
 
+            return data
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while preprocessing the data. Exception: {str(e)}")
             raise e
+
+
 
 

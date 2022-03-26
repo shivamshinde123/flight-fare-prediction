@@ -1,6 +1,6 @@
 import pandas as pd
 
-class DataGetter:
+class DataGetterPrediction:
 
     """
     Description: This class is used to read the data from the location where the client has put it.
