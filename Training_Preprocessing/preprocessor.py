@@ -66,6 +66,9 @@ class Preprocessor:
             # removing the feature column with zero variance
             self.process_data.removingColumnsWithZeroVariance()
 
+            # removing year column from the dataframe
+            self.process_data.removingYearOfJourneyColumn()
+
             # performing encoding,scaling and null values imputation on the dataframe
             self.process_data.transformPipeline()
 
@@ -79,6 +82,8 @@ class Preprocessor:
         except Exception as e:
             self.logger_obj.log(self.file_object, f"Exception occurred while preprocessing the data. Exception: {str(e)}")
             raise e
+
+
 
 
 
