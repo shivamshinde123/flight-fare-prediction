@@ -66,6 +66,9 @@ class PreprocessorPrediction:
             # removing the feature column with zero variance
             self.process_data.removingColumnsWithZeroVariance()
 
+            # removing year of journey if it is not removed
+            self.process_data.removingYearOfJourneyColumn()
+
             # self.process_data.pipeline1()
             # self.process_data.pipeline2()
             # self.process_data.pipeline3()

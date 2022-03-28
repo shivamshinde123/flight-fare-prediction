@@ -360,6 +360,27 @@ class PreprocessingMethodsPrediction:
             self.logger_obj.log(self.file_object,
                                 f"Exception occurred while removing the column with zero variance. Exception: {str(e)}")
             raise e
+
+    def removingYearOfJourneyColumn(self):
+
+        """
+        Description: This method is used to remove the year of journey column from the dataframe (This should be done
+        since, in training data year data have only one value in year of journey column and hence it is removed and if
+        it is present in prediction data, it will cause exception.)
+
+        Written By: Shivam Shinde
+
+        Version: 1.0
+
+        Revision: None
+        :return: None
+        """
+        try:
+            self.logger_obj.log(self.file_object, "Removing Year_of_Journey column from the dataframe")
+            self.removeUnnecessaryFeatureColumn("Year_of_Journey")
+
+        except  Exception as e:
+            pass
     #
     # def pipeline1(self):
     #
