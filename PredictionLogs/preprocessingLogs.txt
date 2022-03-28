@@ -16,3 +16,63 @@
 2022-03-26 / 14:41:14  ----->  Checking for the column with zero variance..
 2022-03-26 / 14:41:14  ----->  Feature column named Year_of_Journey removed from the dataframe
 2022-03-26 / 14:41:14  ----->  Exporting preprocessed data
+2022-03-28 / 12:54:35  ----->  Entered the getData method of DataGetter class
+2022-03-28 / 12:54:36  ----->  Successfully loaded the data using getData method of DataGetter class
+2022-03-28 / 12:54:36  ----->  Exiting the getData method of DataGetter class
+2022-03-28 / 12:54:36  ----->  Feature column named Route removed from the dataframe
+2022-03-28 / 12:54:36  ----->  Feature column named Dep_Time removed from the dataframe
+2022-03-28 / 12:54:36  ----->  Feature column named Arrival_Time removed from the dataframe
+2022-03-28 / 12:54:36  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
+2022-03-28 / 12:54:36  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
+2022-03-28 / 12:54:36  ----->  Feature column named Date_of_Journey removed from the dataframe
+2022-03-28 / 12:54:36  ----->  Feature column named Duration removed from the dataframe
+2022-03-28 / 12:54:36  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
+2022-03-28 / 12:54:36  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
+2022-03-28 / 12:54:36  ----->  Removing of duplicate rows successful..
+2022-03-28 / 12:54:36  ----->  Successfully corrected the typos in the Additional_Info column..
+2022-03-28 / 12:54:36  ----->  Successfully replaced the outliers in the columns with null..
+2022-03-28 / 12:54:36  ----->  Checking for the column with zero variance..
+2022-03-28 / 12:54:36  ----->  Feature column named Year_of_Journey removed from the dataframe
+2022-03-28 / 12:54:36  ----->  Removing Year_of_Journey column from the dataframe
+2022-03-28 / 12:54:36  ----->  Exception occurred while removing a feature column Year_of_Journey from the dataframe. Exception: "['Year_of_Journey'] not found in axis" 
+2022-03-28 / 12:54:36  ----->  Exporting preprocessed data
+2022-03-28 / 17:31:57  ----->  Entered the getData method of DataGetter class
+2022-03-28 / 17:31:57  ----->  Successfully loaded the data using getData method of DataGetter class
+2022-03-28 / 17:31:57  ----->  Exiting the getData method of DataGetter class
+2022-03-28 / 17:31:57  ----->  Feature column named Route removed from the dataframe
+2022-03-28 / 17:31:57  ----->  Feature column named Dep_Time removed from the dataframe
+2022-03-28 / 17:31:57  ----->  Feature column named Arrival_Time removed from the dataframe
+2022-03-28 / 17:31:57  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
+2022-03-28 / 17:31:57  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
+2022-03-28 / 17:31:57  ----->  Feature column named Date_of_Journey removed from the dataframe
+2022-03-28 / 17:31:57  ----->  Feature column named Duration removed from the dataframe
+2022-03-28 / 17:31:57  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
+2022-03-28 / 17:31:57  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
+2022-03-28 / 17:31:57  ----->  Removing of duplicate rows successful..
+2022-03-28 / 17:31:57  ----->  Successfully corrected the typos in the Additional_Info column..
+2022-03-28 / 17:31:57  ----->  Successfully replaced the outliers in the columns with null..
+2022-03-28 / 17:31:57  ----->  Checking for the column with zero variance..
+2022-03-28 / 17:31:57  ----->  Feature column named Year_of_Journey removed from the dataframe
+2022-03-28 / 17:31:57  ----->  Removing Year_of_Journey column from the dataframe
+2022-03-28 / 17:31:57  ----->  Exception occurred while removing a feature column Year_of_Journey from the dataframe. Exception: "['Year_of_Journey'] not found in axis" 
+2022-03-28 / 17:31:57  ----->  Exporting preprocessed data
+2022-03-28 / 17:55:36  ----->  Entered the getData method of DataGetter class
+2022-03-28 / 17:55:36  ----->  Successfully loaded the data using getData method of DataGetter class
+2022-03-28 / 17:55:36  ----->  Exiting the getData method of DataGetter class
+2022-03-28 / 17:55:36  ----->  Feature column named Route removed from the dataframe
+2022-03-28 / 17:55:36  ----->  Feature column named Dep_Time removed from the dataframe
+2022-03-28 / 17:55:36  ----->  Feature column named Arrival_Time removed from the dataframe
+2022-03-28 / 17:55:36  ----->  Datatype of feature column named Date_of_Journey changed to datetime..
+2022-03-28 / 17:55:36  ----->  Successfully split the datetime column into three newly created columns namely Day_of_Journey, Month_of_Journey and Year_of_Journey
+2022-03-28 / 17:55:36  ----->  Feature column named Date_of_Journey removed from the dataframe
+2022-03-28 / 17:55:36  ----->  Feature column named Duration removed from the dataframe
+2022-03-28 / 17:55:36  ----->  Added a new column named Flight_Duration which contains the flight duration in minutes..
+2022-03-28 / 17:55:36  ----->  Successfully changed the datatypes of the values from the Total_Stops columns to integer
+2022-03-28 / 17:55:36  ----->  Removing of duplicate rows successful..
+2022-03-28 / 17:55:36  ----->  Successfully corrected the typos in the Additional_Info column..
+2022-03-28 / 17:55:36  ----->  Successfully replaced the outliers in the columns with null..
+2022-03-28 / 17:55:36  ----->  Checking for the column with zero variance..
+2022-03-28 / 17:55:36  ----->  Feature column named Year_of_Journey removed from the dataframe
+2022-03-28 / 17:55:36  ----->  Removing Year_of_Journey column from the dataframe
+2022-03-28 / 17:55:36  ----->  Exception occurred while removing a feature column Year_of_Journey from the dataframe. Exception: "['Year_of_Journey'] not found in axis" 
+2022-03-28 / 17:55:36  ----->  Exporting preprocessed data

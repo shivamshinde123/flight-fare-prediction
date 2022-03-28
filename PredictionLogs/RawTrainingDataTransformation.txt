@@ -1,2 +1,22 @@
 2022-03-26 / 14:33:14  ----->  Quotes added successfully to the values of columns having string values
 2022-03-26 / 14:33:14  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 12:46:39  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 12:46:39  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 16:49:17  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 16:49:17  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 16:51:06  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 16:51:06  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 17:16:12  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 17:16:12  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 17:18:58  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 17:18:58  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 17:21:43  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 17:21:43  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 17:24:59  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 17:24:59  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 17:42:25  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 17:42:25  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 17:47:18  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 17:47:18  ----->  Removed the hyphens from the column names successfully
+2022-03-28 / 17:58:19  ----->  Quotes added successfully to the values of columns having string values
+2022-03-28 / 17:58:19  ----->  Removed the hyphens from the column names successfully

@@ -1,1 +1,11 @@
 2022-03-26 / 14:33:14  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 12:46:39  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 16:49:17  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 16:51:06  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 17:16:12  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 17:18:58  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 17:21:43  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 17:24:59  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 17:42:25  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 17:47:18  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..
+2022-03-28 / 17:58:19  ----->  Datetime column from the file flight_fare_26112022_120000.csv successfully validated..

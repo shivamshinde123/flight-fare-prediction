@@ -4,3 +4,42 @@
 2022-03-26 / 14:33:16  ----->  flight_fare_26112022_120000.csv File loaded successfully!!
 2022-03-26 / 14:41:13  ----->  Connection with the database goodRawDataDbPrediction made
 2022-03-26 / 14:41:14  ----->  File exported successfully!!
+2022-03-28 / 12:46:39  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 12:46:39  ----->  Table named goodRawDataPrediction created in the database goodRawDataDbPrediction
+2022-03-28 / 12:46:39  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 12:46:39  ----->  flight_fare_26112022_120000.csv File loaded successfully!!
+2022-03-28 / 12:54:35  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 12:54:35  ----->  File exported successfully!!
+2022-03-28 / 16:49:17  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 16:49:18  ----->  Table named goodRawDataPrediction created in the database goodRawDataDbPrediction
+2022-03-28 / 16:49:18  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 16:51:06  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 16:51:06  ----->  Table named goodRawDataPrediction created in the database goodRawDataDbPrediction
+2022-03-28 / 16:51:06  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:16:13  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:16:13  ----->  Table named goodRawDataPrediction created in the database goodRawDataDbPrediction
+2022-03-28 / 17:16:13  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:18:58  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:18:59  ----->  Table named goodRawDataPrediction created in the database goodRawDataDbPrediction
+2022-03-28 / 17:18:59  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:21:43  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:21:44  ----->  Table named goodRawDataPrediction created successfully in the database goodRawDataDbPrediction
+2022-03-28 / 17:21:44  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:24:59  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:24:59  ----->  Table named goodRawDataPrediction created in the database goodRawDataDbPrediction
+2022-03-28 / 17:24:59  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:24:59  ----->  flight_fare_26112022_120000.csv File loaded successfully!!
+2022-03-28 / 17:31:57  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:31:57  ----->  File exported successfully!!
+2022-03-28 / 17:42:25  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:42:25  ----->  Table named goodRawDataPrediction created in the database goodRawDataDbPrediction
+2022-03-28 / 17:42:25  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:47:18  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:47:20  ----->  Table named goodRawDataPrediction created successfully in the database goodRawDataDbPrediction
+2022-03-28 / 17:47:20  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:47:20  ----->  flight_fare_26112022_120000.csv File loaded successfully!!
+2022-03-28 / 17:55:35  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:55:36  ----->  File exported successfully!!
+2022-03-28 / 17:58:19  ----->  Connection with the database goodRawDataDbPrediction made
+2022-03-28 / 17:58:20  ----->  Table named goodRawDataPrediction created successfully in the database goodRawDataDbPrediction
+2022-03-28 / 17:58:20  ----->  Connection with the database goodRawDataDbPrediction made

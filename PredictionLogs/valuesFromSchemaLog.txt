@@ -1,1 +1,11 @@
 2022-03-26 / 14:33:14  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 12:46:38  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 16:49:17  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 16:51:06  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 17:16:11  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 17:18:58  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 17:21:43  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 17:24:59  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 17:42:25  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 17:47:18  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 
+2022-03-28 / 17:58:19  ----->  Length of datestamp and timestamp in the file: 8 and 6, number of columns in the data: 10 

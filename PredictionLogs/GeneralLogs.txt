@@ -3,3 +3,32 @@
 2022-03-26 / 14:41:13  ----->  Deleted the folder for good raw prediction data successfully.
 2022-03-26 / 14:41:13  ----->  Bad data file were successfully moved from prediction raw data folder to the archived bad foler
 2022-03-26 / 14:41:13  ----->  Bad data folder from prediction raw data folder deleted successfully.
+2022-03-28 / 12:46:39  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 12:46:39  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 12:54:35  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 12:54:35  ----->  Bad data file were successfully moved from prediction raw data folder to the archived bad foler
+2022-03-28 / 12:54:35  ----->  Bad data folder from prediction raw data folder deleted successfully.
+2022-03-28 / 16:49:17  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 16:49:17  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 16:51:06  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 16:51:06  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 17:16:11  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:16:12  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 17:18:58  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:18:58  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 17:21:43  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:21:43  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 17:24:59  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:24:59  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 17:31:57  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:31:57  ----->  Bad data file were successfully moved from prediction raw data folder to the archived bad foler
+2022-03-28 / 17:31:57  ----->  Bad data folder from prediction raw data folder deleted successfully.
+2022-03-28 / 17:42:25  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:42:25  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 17:47:18  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:47:18  ----->  Deleted the folder for bad raw prediction data successfully.
+2022-03-28 / 17:55:35  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:55:35  ----->  Bad data file were successfully moved from prediction raw data folder to the archived bad foler
+2022-03-28 / 17:55:35  ----->  Bad data folder from prediction raw data folder deleted successfully.
+2022-03-28 / 17:58:19  ----->  Deleted the folder for good raw prediction data successfully.
+2022-03-28 / 17:58:19  ----->  Deleted the folder for bad raw prediction data successfully.
