@@ -17,3 +17,6 @@
 2022-03-26 / 15:31:25  ----->  Feature column named Year_of_Journey removed from the dataframe
 2022-03-26 / 15:31:26  ----->  Exporting preprocessed X and y
 2022-03-26 / 15:31:26  ----->  Preprocessing of the data finished successfully!!
+2022-03-28 / 12:54:36  ----->  Preprocessing of the data finished successfully!!
+2022-03-28 / 17:31:57  ----->  Preprocessing of the data finished successfully!!
+2022-03-28 / 17:55:36  ----->  Preprocessing of the data finished successfully!!

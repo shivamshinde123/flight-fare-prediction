@@ -80,3 +80,57 @@
                                           subsample=1, tree_method='exact',
                                           validate_parameters=1,
                                           verbosity=None))]) saved successfully in Models\ModelForClusterNo2
+2022-03-28 / 12:54:36  ----->  Finding the appropriate model for cluster number 1
+2022-03-28 / 12:54:36  ----->  Successfully found the name of the model for the cluster number 1
+2022-03-28 / 12:54:36  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 12:54:37  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 12:54:37  ----->  Finding the appropriate model for cluster number 2
+2022-03-28 / 12:54:37  ----->  Successfully found the name of the model for the cluster number 2
+2022-03-28 / 12:54:37  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 12:54:38  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 12:54:38  ----->  Finding the appropriate model for cluster number 0
+2022-03-28 / 12:54:38  ----->  Successfully found the name of the model for the cluster number 0
+2022-03-28 / 12:54:38  ----->  Loading the model GradientBoostingRegressor.pkl
+2022-03-28 / 12:54:38  ----->  Model GradientBoostingRegressor loaded successfully
+2022-03-28 / 12:54:38  ----->  Finding the appropriate model for cluster number 3
+2022-03-28 / 12:54:38  ----->  Successfully found the name of the model for the cluster number 3
+2022-03-28 / 12:54:38  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 12:54:38  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 12:54:36  ----->  Loading the model KMeansCluster.pkl
+2022-03-28 / 12:54:36  ----->  Model KMeansCluster loaded successfully
+2022-03-28 / 17:31:57  ----->  Finding the appropriate model for cluster number 1
+2022-03-28 / 17:31:57  ----->  Successfully found the name of the model for the cluster number 1
+2022-03-28 / 17:31:57  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 17:31:59  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 17:31:59  ----->  Finding the appropriate model for cluster number 2
+2022-03-28 / 17:31:59  ----->  Successfully found the name of the model for the cluster number 2
+2022-03-28 / 17:31:59  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 17:31:59  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 17:31:59  ----->  Finding the appropriate model for cluster number 0
+2022-03-28 / 17:31:59  ----->  Successfully found the name of the model for the cluster number 0
+2022-03-28 / 17:31:59  ----->  Loading the model GradientBoostingRegressor.pkl
+2022-03-28 / 17:31:59  ----->  Model GradientBoostingRegressor loaded successfully
+2022-03-28 / 17:31:59  ----->  Finding the appropriate model for cluster number 3
+2022-03-28 / 17:31:59  ----->  Successfully found the name of the model for the cluster number 3
+2022-03-28 / 17:31:59  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 17:31:59  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 17:31:57  ----->  Loading the model KMeansCluster.pkl
+2022-03-28 / 17:31:57  ----->  Model KMeansCluster loaded successfully
+2022-03-28 / 17:55:36  ----->  Finding the appropriate model for cluster number 1
+2022-03-28 / 17:55:36  ----->  Successfully found the name of the model for the cluster number 1
+2022-03-28 / 17:55:36  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 17:55:37  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 17:55:37  ----->  Finding the appropriate model for cluster number 2
+2022-03-28 / 17:55:37  ----->  Successfully found the name of the model for the cluster number 2
+2022-03-28 / 17:55:37  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 17:55:38  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 17:55:38  ----->  Finding the appropriate model for cluster number 0
+2022-03-28 / 17:55:38  ----->  Successfully found the name of the model for the cluster number 0
+2022-03-28 / 17:55:38  ----->  Loading the model GradientBoostingRegressor.pkl
+2022-03-28 / 17:55:38  ----->  Model GradientBoostingRegressor loaded successfully
+2022-03-28 / 17:55:38  ----->  Finding the appropriate model for cluster number 3
+2022-03-28 / 17:55:38  ----->  Successfully found the name of the model for the cluster number 3
+2022-03-28 / 17:55:38  ----->  Loading the model VotingRegressor.pkl
+2022-03-28 / 17:55:38  ----->  Model VotingRegressor loaded successfully
+2022-03-28 / 17:55:36  ----->  Loading the model KMeansCluster.pkl
+2022-03-28 / 17:55:36  ----->  Model KMeansCluster loaded successfully
