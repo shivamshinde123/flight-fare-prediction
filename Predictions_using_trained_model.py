@@ -95,9 +95,9 @@ class predictionsUsingTheTrainedModels:
 
             self.logger.log(self.file_obj, f"Prediction results placed at the path: Prediction_output_files/predicted_flight_fare_data.csv")
 
-            return f"Prediction output files saved at the folder prediction_output_files"
-
         except Exception as e:
             self.logger.log(self.file_obj, f"Exception occurred while predicting the flight fare using the saved "
                                            f"models. Exception: {str(e)}")
             raise e
+
+
